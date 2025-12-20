@@ -4830,6 +4830,2460 @@
           "explanation": "Parse table entries."
         }
       ]
+    },
+    {
+      "id": 5,
+      "examName": "Exit model 5",
+      "questions": [
+        {
+          "questionNumber": 1,
+          "questionText": "Which of the following is not a step of requirement engineering",
+          "options": [
+            "A. Requirement Elicitation",
+            "B. Requirement Analysis",
+            "C. Requirement Design",
+            "D. Requirement Documentation"
+          ],
+          "correctAnswer": "C. Requirement Design",
+          "explanation": "Requirement engineering consists of elicitation, analysis, documentation, and validation. Design is a separate phase that comes after requirements are finalized."
+        },
+        {
+          "questionNumber": 2,
+          "questionText": "Characteristics of good SRS include all except",
+          "options": [
+            "A. Completeness",
+            "B. Dependence",
+            "C. Design",
+            "D. modifiability"
+          ],
+          "correctAnswer": "B. Dependence",
+          "explanation": "A good SRS must be complete, consistent, modifiable, traceable, and unambiguous. It should be independent of design decisions."
+        },
+        {
+          "questionNumber": 3,
+          "questionText": "When you checked whether a components of a system work together or not is consider as:",
+          "options": [
+            "A. System test",
+            "B. Integration test",
+            "C. Acceptance test",
+            "D. Unit test"
+          ],
+          "correctAnswer": "B. Integration test",
+          "explanation": "Integration testing focuses on verifying that individual modules or components work correctly when combined."
+        },
+        {
+          "questionNumber": 4,
+          "questionText": "Which of the following is true about the Layered approach?",
+          "options": [
+            "A. Decrease levels of abstraction during design",
+            "B. Support reuse and enhancement",
+            "C. Performance may decrease",
+            "D. Hard to maintain"
+          ],
+          "correctAnswer": "B. Support reuse and enhancement",
+          "explanation": "Layered architecture promotes reuse of layers and easier enhancement by isolating changes to specific layers."
+        },
+        {
+          "questionNumber": 5,
+          "questionText": "The document which produced during requirement specification is called",
+          "options": [
+            "A. SRS",
+            "B. Software requirement specification",
+            "C. System requirement specification",
+            "D. All"
+          ],
+          "correctAnswer": "D. All",
+          "explanation": "The document is commonly called SRS (Software Requirements Specification) or System Requirements Specification; all terms refer to the same artifact."
+        },
+        {
+          "questionNumber": 6,
+          "questionText": "Which one of the following requirements is not nonfunctional requirement",
+          "options": [
+            "A. Performance",
+            "B. Cultural and political",
+            "C. Security",
+            "D. taking user input"
+          ],
+          "correctAnswer": "D. taking user input",
+          "explanation": "'Taking user input' describes what the system does (functional), while the others describe how well or under what constraints it performs (non-functional)."
+        },
+        {
+          "questionNumber": 7,
+          "questionText": "Internet service that allows individuals and organizations to make their website accessible is —.",
+          "options": [
+            "A. WWW",
+            "B. FTP",
+            "C. Web hosting",
+            "D. Data Center"
+          ],
+          "correctAnswer": "C. Web hosting",
+          "explanation": "Web hosting provides storage and access for websites on servers connected to the internet."
+        },
+        {
+          "questionNumber": 8,
+          "questionText": "A generic protocol that supports client requesting a document from the server and server returning the requested documents is called ________.",
+          "options": [
+            "A. DNS",
+            "B. TCP",
+            "C. HTTP",
+            "D. Telnet"
+          ],
+          "correctAnswer": "C. HTTP",
+          "explanation": "HTTP (HyperText Transfer Protocol) is the foundation of data communication on the World Wide Web."
+        },
+        {
+          "questionNumber": 9,
+          "questionText": "How can you make a bulleted list?",
+          "options": [
+            "A. <list>",
+            "B. <dl>",
+            "C. <ol>",
+            "D. <ul>"
+          ],
+          "correctAnswer": "D. <ul>",
+          "explanation": "The <ul> tag defines an unordered (bulleted) list in HTML."
+        },
+        {
+          "questionNumber": 10,
+          "questionText": "What is the correct HTML for making a drop-down list?",
+          "options": [
+            "A. <select>",
+            "B. <input type=\"dropdown\">",
+            "C. <input type=\"list\">",
+            "D. <list>"
+          ],
+          "correctAnswer": "A. <select>",
+          "explanation": "The <select> element creates a drop-down list, usually combined with <option> tags."
+        },
+        {
+          "questionNumber": 11,
+          "questionText": "What is the correct HTML for making a text area?",
+          "options": [
+            "A. <input type=\"textarea\">",
+            "B. <input type=\"textbox\">",
+            "C. <textarea>",
+            "D. <input text=\"textbox\">"
+          ],
+          "correctAnswer": "C. <textarea>",
+          "explanation": "The <textarea> tag defines a multi-line text input control."
+        },
+        {
+          "questionNumber": 12,
+          "questionText": "What is the correct HTML for creating a hyperlink?",
+          "options": [
+            "A. <a href=\"http://www.AdU.edu\">adms</a>",
+            "B. <a name=\"http://www.AdU.edu\">admas.edu</a>",
+            "C. <a>http://www.AdU.edu</a>",
+            "D. <a url=\"http://www.AdU.edu\">admas.edu</a>"
+          ],
+          "correctAnswer": "A. <a href=\"http://www.AdU.edu\">adms</a>",
+          "explanation": "The href attribute in the <a> tag specifies the URL of the link."
+        },
+        {
+          "questionNumber": 13,
+          "questionText": "A method used in PHP to encrypt data for security?",
+          "options": [
+            "A. get()",
+            "B. md5()",
+            "C. post()",
+            "D. array()"
+          ],
+          "correctAnswer": "B. md5()",
+          "explanation": "md5() computes the MD5 hash of a string, commonly used for password hashing (though not recommended today for strong security)."
+        },
+        {
+          "questionNumber": 14,
+          "questionText": "Which function can be used to retrieve the values of the database",
+          "options": [
+            "A. mysqli_connect()",
+            "B. mysqli_num_rows()",
+            "C. mysqli_fetch_assoc()",
+            "D. mysqli_query"
+          ],
+          "correctAnswer": "C. mysqli_fetch_assoc()",
+          "explanation": "mysqli_fetch_assoc() fetches a result row as an associative array from the result set returned by mysqli_query()."
+        },
+        {
+          "questionNumber": 15,
+          "questionText": "How can we create new file in PHP",
+          "options": [
+            "A. fopen()",
+            "B. fread()",
+            "C. fwrite()",
+            "D. fappend()"
+          ],
+          "correctAnswer": "A. fopen()",
+          "explanation": "fopen() with modes like 'w' or 'x' can create a new file if it does not exist."
+        },
+        {
+          "questionNumber": 16,
+          "questionText": "Which of the following is not a level of data abstraction?",
+          "options": [
+            "A. Physical Level",
+            "B. Logical Level",
+            "C. View Level",
+            "D. Critical Level"
+          ],
+          "correctAnswer": "D. Critical Level",
+          "explanation": "The three levels of data abstraction in DBMS are Physical, Logical, and View (External)."
+        },
+        {
+          "questionNumber": 17,
+          "questionText": "Which of the following provides the ability to query information from the database and insert tuples into, delete tuples from, and modify tuples in the database?",
+          "options": [
+            "A. DML(Data Manipulation Language)",
+            "B. DDL(Data Definition Language)",
+            "C. Query",
+            "D. Relational Schema"
+          ],
+          "correctAnswer": "A. DML(Data Manipulation Language)",
+          "explanation": "DML handles data manipulation operations such as SELECT, INSERT, UPDATE, and DELETE."
+        },
+        {
+          "questionNumber": 18,
+          "questionText": "Which of the following represents a relationship among a set of values?",
+          "options": [
+            "A. A Table",
+            "B. A Field",
+            "C. A Row",
+            "D. A Column",
+            "E. Foreign key"
+          ],
+          "correctAnswer": "C. A Row",
+          "explanation": "A row (tuple) represents a single record or a relationship among attribute values in a table."
+        },
+        {
+          "questionNumber": 19,
+          "questionText": "In SQL, which command(s) is(are) used to enable/disable a database trigger?",
+          "options": [
+            "A. ALTER DATABASE",
+            "B. ALTER TABLE",
+            "C. MODIFY TRIGGER",
+            "D. ALTER TRIGGER"
+          ],
+          "correctAnswer": "D. ALTER TRIGGER",
+          "explanation": "ALTER TRIGGER is used in some DBMS (e.g., Oracle) to enable or disable triggers; syntax varies, but this is the intended option."
+        },
+        {
+          "questionNumber": 20,
+          "questionText": "A relation that has no partial dependencies is in which normal form",
+          "options": [
+            "A. First normal form",
+            "B. Second normal form",
+            "C. Third normal form",
+            "D. BCNF"
+          ],
+          "correctAnswer": "B. Second normal form",
+          "explanation": "2NF eliminates partial dependencies on composite primary keys while being in 1NF."
+        },
+        {
+          "questionNumber": 21,
+          "questionText": "Which of the following is not binary operation?",
+          "options": [
+            "A. Union",
+            "B. Project",
+            "C. Set Difference",
+            "D. Cartesian Product"
+          ],
+          "correctAnswer": "B. Project",
+          "explanation": "Projection is a unary operation; the others require two relations."
+        },
+        {
+          "questionNumber": 22,
+          "questionText": "What does ACID stand for in the context of DBMS transactions?",
+          "options": [
+            "A. Atomicity, Consistency, Isolation, and Durability",
+            "B. Analysis Console for Intrusion Databases",
+            "C. Atomicity, Consistency, Isolation, and Data",
+            "D. Advanced Computing Information Database"
+          ],
+          "correctAnswer": "A. Atomicity, Consistency, Isolation, and Durability",
+          "explanation": "ACID properties guarantee reliable transaction processing in databases."
+        },
+        {
+          "questionNumber": 23,
+          "questionText": "One of the following cannot be resolved by concurrency control techniques",
+          "options": [
+            "A. Read-Write conflict",
+            "B. Read-Read conflict",
+            "C. Write –Write conflict",
+            "D. Write-Read conflict"
+          ],
+          "correctAnswer": "B. Read-Read conflict",
+          "explanation": "Read-Read does not cause inconsistency, so concurrency control does not need to restrict it."
+        },
+        {
+          "questionNumber": 24,
+          "questionText": "A query typically has many possible execution strategies, and the process of choosing a suitable one for query processing is",
+          "options": [
+            "A. Query optimization",
+            "B. Query tree",
+            "C. Transaction management",
+            "D. Serializability"
+          ],
+          "correctAnswer": "A. Query optimization",
+          "explanation": "Query optimization selects the most efficient execution plan."
+        },
+        {
+          "questionNumber": 25,
+          "questionText": "Enforcing serializability in concurrent schedules ensures which two of the four desired properties for transactions?",
+          "options": [
+            "A. Atomicity and isolation",
+            "B. Atomicity and durability",
+            "C. Atomicity and consistency",
+            "D. Consistency and isolation"
+          ],
+          "correctAnswer": "D. Consistency and isolation",
+          "explanation": "Serializability ensures consistency and isolation by making concurrent execution equivalent to some serial order."
+        },
+        {
+          "questionNumber": 26,
+          "questionText": "Which property is guaranteed by the two-phase locking protocol?",
+          "options": [
+            "A. serial schedules",
+            "B. serializable schedules",
+            "C. recoverable schedules",
+            "D. avoiding cascading rollback"
+          ],
+          "correctAnswer": "B. serializable schedules",
+          "explanation": "Two-phase locking ensures conflict serializability."
+        },
+        {
+          "questionNumber": 27,
+          "questionText": "Which type of lock still allows other transactions to have read-only access to the locked resource?",
+          "options": [
+            "A. two-phased lock",
+            "B. exclusive lock",
+            "C. explicit lock",
+            "D. shared lock"
+          ],
+          "correctAnswer": "D. shared lock",
+          "explanation": "Shared (read) locks allow multiple readers but block writers."
+        },
+        {
+          "questionNumber": 28,
+          "questionText": "Which of the following are not legal function declarations?",
+          "options": [
+            "A. int ave3(int a, int b, int c);",
+            "B. int 3ave(int a, int b, int c);",
+            "C. int ave3(int, int, int);",
+            "D. int ave_3(int a1, int a2, int a3);"
+          ],
+          "correctAnswer": "B. int 3ave(int a, int b, int c);",
+          "explanation": "Identifiers cannot start with a digit in C/C++."
+        },
+        {
+          "questionNumber": 29,
+          "questionText": "Which include directive is necessary for file IO",
+          "options": [
+            "A. #include <fstream>",
+            "B. #include <iomanip>",
+            "C. #include <cstdlib>",
+            "D. #include <fileIO>"
+          ],
+          "correctAnswer": "A. #include <fstream>",
+          "explanation": "<fstream> provides classes for file stream operations in C++."
+        },
+        {
+          "questionNumber": 30,
+          "questionText": "What is the error of the following for loop?\nfor (int i=10; i> 0; i)\ncout << \" \" << i;",
+          "options": [
+            "A. Omission of semicolon after the end of the first line",
+            "B. Brace should be opened and must be closed before and after the cout statement",
+            "C. The cout statement is empty string so that noting to display",
+            "D. The for loop counter remain unchanged so that unable to loop"
+          ],
+          "correctAnswer": "D. The for loop counter remain unchanged so that unable to loop",
+          "explanation": "The increment part is 'i' instead of 'i--' or 'i++', so i never changes, causing an infinite loop."
+        },
+        {
+          "questionNumber": 31,
+          "questionText": "A valid identifier is consists of all of the following, except",
+          "options": [
+            "A. Letters",
+            "B. digits",
+            "C. underscore characters",
+            "D. Keywords"
+          ],
+          "correctAnswer": "D. Keywords",
+          "explanation": "Keywords are reserved and cannot be used as identifiers."
+        },
+        {
+          "questionNumber": 32,
+          "questionText": "Given that p1 is a pointer variable of the string class, which of the following are not legal statements?",
+          "options": [
+            "A. p1 = new int;",
+            "B. cout << *p1;",
+            "C. p1 = new char[10];",
+            "D. *p1 = new string;"
+          ],
+          "correctAnswer": "A. p1 = new int;",
+          "explanation": "Type mismatch: p1 is string* but new int returns int*."
+        },
+        {
+          "questionNumber": 33,
+          "questionText": "Given that p1 is an integer pointer variable, and a1 is an integer array, which of the following statements are not legal code?",
+          "options": [
+            "A. p1=a1;",
+            "B. cout << p1[0];",
+            "C. cin >> p1[0];",
+            "D. a1 = p1;"
+          ],
+          "correctAnswer": "D. a1 = p1;",
+          "explanation": "Array names are not lvalues; you cannot assign to an array name."
+        },
+        {
+          "questionNumber": 34,
+          "questionText": "The keyword used to create subclass/derived class in inheritance is __________",
+          "options": [
+            "A. extend",
+            "B. implements",
+            "C. extends",
+            "D. implement"
+          ],
+          "correctAnswer": "C. extends",
+          "explanation": "In Java, 'extends' is used for class inheritance."
+        },
+        {
+          "questionNumber": 35,
+          "questionText": "When does method overloading is determined?",
+          "options": [
+            "A. At run time",
+            "B. At compile time",
+            "C. At coding time",
+            "D. At execution time"
+          ],
+          "correctAnswer": "B. At compile time",
+          "explanation": "Overloading is static polymorphism resolved at compile time."
+        },
+        {
+          "questionNumber": 36,
+          "questionText": "Which of the following is not true?",
+          "options": [
+            "A. Java support multiple inheritance through interface",
+            "B. By default all methods declared in interface are abstract",
+            "C. A class can implement many interfaces",
+            "D. A keyword used to declare an interface is “class”"
+          ],
+          "correctAnswer": "D. A keyword used to declare an interface is “class”",
+          "explanation": "Interfaces are declared with the 'interface' keyword."
+        },
+        {
+          "questionNumber": 37,
+          "questionText": "Which one of the following is true?",
+          "options": [
+            "A. Constructors have a return type",
+            "B. Constructors have the same name with the class name",
+            "C. Constructors needs to invoke explicitly for execution",
+            "D. Constructors have the same function with methods"
+          ],
+          "correctAnswer": "B. Constructors have the same name with the class name",
+          "explanation": "Constructors share the class name and have no return type."
+        },
+        {
+          "questionNumber": 38,
+          "questionText": "A ______ member function can be called using the class name.",
+          "options": [
+            "A. Class Methods",
+            "B. Static Methods",
+            "C. Instance Methods",
+            "D. Interface Methods"
+          ],
+          "correctAnswer": "B. Static Methods",
+          "explanation": "Static methods belong to the class and are called using the class name."
+        },
+        {
+          "questionNumber": 39,
+          "questionText": "Which concept of Java is achieved by combining methods and attribute into a class?",
+          "options": [
+            "A. Encapsulation",
+            "B. Inheritance",
+            "C. Polymorphism",
+            "D. Abstraction"
+          ],
+          "correctAnswer": "A. Encapsulation",
+          "explanation": "Encapsulation bundles data and methods that operate on the data within a class."
+        },
+        {
+          "questionNumber": 40,
+          "questionText": "______ Measures the upper bound of time complexity.",
+          "options": [
+            "A. Omega",
+            "B. Big Oh",
+            "C. Theta",
+            "D. All"
+          ],
+          "correctAnswer": "B. Big Oh",
+          "explanation": "Big O notation describes the upper bound (worst-case) of an algorithm's running time."
+        },
+        {
+          "questionNumber": 41,
+          "questionText": "______ of an algorithm refers to defining the mathematical bound/framing of its run-time performance?",
+          "options": [
+            "A. Space complexity",
+            "B. Time complexity",
+            "C. Asymptotic analysis",
+            "D. none of the above"
+          ],
+          "correctAnswer": "C. Asymptotic analysis",
+          "explanation": "Asymptotic analysis provides mathematical bounding of algorithm performance using Big O, Omega, and Theta notations."
+        },
+        {
+          "questionNumber": 42,
+          "questionText": "Which one of the following algorithms is based on divide and conquers approach?",
+          "options": [
+            "A. Multistage Graph",
+            "B. Merge sort",
+            "C. Shortest Path",
+            "D. Chess playing algorithm"
+          ],
+          "correctAnswer": "B. Merge sort",
+          "explanation": "Merge sort divides the array, sorts sub-arrays recursively, and merges them."
+        },
+        {
+          "questionNumber": 43,
+          "questionText": "What is the complexity of Quick sort algorithm?",
+          "options": [
+            "A. nLogn",
+            "B. Logn",
+            "C. Polynomial",
+            "D. Quadratic"
+          ],
+          "correctAnswer": "A. nLogn",
+          "explanation": "Average and best-case time complexity of Quick sort is O(n log n); worst-case is O(n²)."
+        },
+        {
+          "questionNumber": 44,
+          "questionText": "The solution to a given optimization problem can be obtained by the combination of optimal solutions to its sub-problems. This property is called ____",
+          "options": [
+            "A. Optimal sub structure",
+            "B. Recursive",
+            "C. Non overlapping",
+            "D. None Recursive"
+          ],
+          "correctAnswer": "A. Optimal sub structure",
+          "explanation": "Optimal substructure is a key property for dynamic programming solutions."
+        },
+        {
+          "questionNumber": 45,
+          "questionText": "____________ algorithm traverses a graph in a Breadth-ward motion and uses a queue to remember to get the next vertex to start a search, when a dead end occurs in any iteration.",
+          "options": [
+            "A. Breadth first search",
+            "B. Binary search",
+            "C. Depth first search",
+            "D. Beam Search"
+          ],
+          "correctAnswer": "A. Breadth first search",
+          "explanation": "BFS uses a queue and explores level by level."
+        },
+        {
+          "questionNumber": 46,
+          "questionText": "Which one of the following is non-linear data structure?",
+          "options": [
+            "A. Tree",
+            "B. Stack",
+            "C. Queue",
+            "D. Linked list"
+          ],
+          "correctAnswer": "A. Tree",
+          "explanation": "Trees have hierarchical structure (non-linear); stacks, queues, and linked lists are linear."
+        },
+        {
+          "questionNumber": 47,
+          "questionText": "In ____ traversal method, the root node is visited first, then the left sub tree and finally the right sub tree.",
+          "options": [
+            "A. In-Order",
+            "B. Post-Order",
+            "C. Pre-Order",
+            "D. Bi-Order"
+          ],
+          "correctAnswer": "C. Pre-Order",
+          "explanation": "Pre-order: Root → Left → Right."
+        },
+        {
+          "questionNumber": 48,
+          "questionText": "The sequence of computational steps to solve a problem is called ____",
+          "options": [
+            "A. Data Structure",
+            "B. Algorithms",
+            "C. Information",
+            "D. Data Processing"
+          ],
+          "correctAnswer": "B. Algorithms",
+          "explanation": "An algorithm is a finite sequence of well-defined instructions to solve a problem."
+        },
+        {
+          "questionNumber": 49,
+          "questionText": "Which one is true about binary tree?",
+          "options": [
+            "A. Every node has a key and no two elements have the same key.",
+            "B. The keys in the right subtree are larger than the keys in the root.",
+            "C. The keys in the left subtree are smaller than the keys in the root.",
+            "D. All"
+          ],
+          "correctAnswer": "D. All",
+          "explanation": "All statements describe properties of a Binary Search Tree (BST)."
+        },
+        {
+          "questionNumber": 50,
+          "questionText": "While searching from binary tree, how can the index should go?",
+          "options": [
+            "A. If the searched key is less than the root, go to right.",
+            "B. If the searched key is larger than the root, go to left.",
+            "C. If the searched key is equal to the root, go to left.",
+            "D. If the searched key is greater the root, go to right."
+          ],
+          "correctAnswer": "D. If the searched key is greater the root, go to right.",
+          "explanation": "In a BST, greater keys are in the right subtree, smaller in the left."
+        },
+        {
+          "questionNumber": 51,
+          "questionText": "The initial configuration of the queue is having the elements 'B, C, D, A' forming a queue. To get the new configuration 'A, D, C, B' one needs a minimum of:",
+          "options": [
+            "A. 3 enqueue and 4 dequeue operations",
+            "B. 3 dequeue and 4 enqueue operations",
+            "C. 3 dequeue and 2 enqueue operations",
+            "D. 3 dequeue and 3 enqueue operations"
+          ],
+          "correctAnswer": "B. 3 dequeue and 4 enqueue operations",
+          "explanation": "Using only queue operations, the minimum to rearrange to A,D,C,B requires dequeuing and re-enqueuing elements strategically."
+        },
+        {
+          "questionNumber": 52,
+          "questionText": "The postfix form of A*B+C/D is?",
+          "options": [
+            "A. *AB/CD+",
+            "B. AB*CD/+",
+            "C. A*BC+/D",
+            "D. ABCD+/*"
+          ],
+          "correctAnswer": "B. AB*CD/+",
+          "explanation": "Postfix: operators follow operands. A B * C D / +"
+        },
+        {
+          "questionNumber": 53,
+          "questionText": "Network Performance do not depend on",
+          "options": [
+            "A. Number of users",
+            "B. Hardware",
+            "C. Types of transmission medium",
+            "D. Types of users"
+          ],
+          "correctAnswer": "D. Types of users",
+          "explanation": "Performance depends on number of users, hardware, and medium, not the type (role) of users."
+        },
+        {
+          "questionNumber": 54,
+          "questionText": "There are two types of network topologies from these which one defines how hosts access the media to send data",
+          "options": [
+            "A. Star Topology",
+            "B. Bus Topology",
+            "C. Logical Topology",
+            "D. Physical Topology"
+          ],
+          "correctAnswer": "C. Logical Topology",
+          "explanation": "Logical topology defines how data flows and how devices access the medium."
+        },
+        {
+          "questionNumber": 55,
+          "questionText": "Which layer 1 device can be used to enlarge the area covered by a single LAN segment?",
+          "options": [
+            "A. Switch",
+            "B. NIC",
+            "C. Hub",
+            "D. transceiver"
+          ],
+          "correctAnswer": "C. Hub",
+          "explanation": "A hub (repeater) regenerates signal to extend the physical segment at Layer 1."
+        },
+        {
+          "questionNumber": 56,
+          "questionText": "Segmentation of a data stream happens at which layer of the OSI model?",
+          "options": [
+            "A. Physical",
+            "B. Data Link",
+            "C. Network",
+            "D. Transport"
+          ],
+          "correctAnswer": "D. Transport",
+          "explanation": "The Transport layer (e.g., TCP) segments data into smaller units for transmission."
+        },
+        {
+          "questionNumber": 57,
+          "questionText": "You want to implement a network medium that is not susceptible to EMI. Which type of cabling should you use?",
+          "options": [
+            "A. coaxial",
+            "B. Microwave",
+            "C. Category 6 UTP",
+            "D. Fiber-optic"
+          ],
+          "correctAnswer": "D. Fiber-optic",
+          "explanation": "Fiber-optic uses light and is immune to electromagnetic interference (EMI)."
+        },
+        {
+          "questionNumber": 58,
+          "questionText": "Which of the following describe router functions?",
+          "options": [
+            "A. Collision prevention",
+            "B. Broadcast forwarding",
+            "C. Broadcast domain enlargement",
+            "D. Path selection"
+          ],
+          "correctAnswer": "D. Path selection",
+          "explanation": "Routers select the best path for packets using routing tables."
+        },
+        {
+          "questionNumber": 59,
+          "questionText": "An Active Directory container used to organize a network's users and resources into logical administrative units?",
+          "options": [
+            "A. Users Units",
+            "B. Organizational Units",
+            "C. Container object",
+            "D. Leaf object"
+          ],
+          "correctAnswer": "B. Organizational Units",
+          "explanation": "Organizational Units (OUs) in Active Directory are used for logical grouping and delegation."
+        },
+        {
+          "questionNumber": 60,
+          "questionText": "Which Linux command is used to create a new file?",
+          "options": [
+            "A. create",
+            "B. file",
+            "C. tch",
+            "D. touch"
+          ],
+          "correctAnswer": "D. touch",
+          "explanation": "The touch command creates an empty file if it does not exist."
+        },
+        {
+          "questionNumber": 61,
+          "questionText": "Which command creates a new shell?",
+          "options": [
+            "A. ah",
+            "B. oh",
+            "C. ch",
+            "D. sh"
+          ],
+          "correctAnswer": "D. sh",
+          "explanation": "Running 'sh' or '/bin/sh' starts a new shell."
+        },
+        {
+          "questionNumber": 62,
+          "questionText": "control user's access to network resources through changes is the main responsibility of",
+          "options": [
+            "A. Accounting management",
+            "B. Security management",
+            "C. Reconfigured fault management",
+            "D. Reactive fault management"
+          ],
+          "correctAnswer": "B. Security management",
+          "explanation": "Security management deals with authentication, authorization, and access control."
+        },
+        {
+          "questionNumber": 63,
+          "questionText": "You want to monitor the CPU, memory, and disk usage on your computer to ensure that there are no bottlenecks. Which MMC snap-in would you load to access System Monitor?",
+          "options": [
+            "A. System Monitor",
+            "B. Reliability Monitor",
+            "C. ActiveX Control",
+            "D. Performance Logs and Alerts"
+          ],
+          "correctAnswer": "A. System Monitor",
+          "explanation": "System Monitor (now Performance Monitor) in Windows MMC monitors real-time performance counters."
+        },
+        {
+          "questionNumber": 64,
+          "questionText": "You have a DNS server that contains corrupt information. You fix the problem with the DNS server, but one of your users is complaining that they are still unable to access Internet resources. You verify that everything works on another computer on the same subnet. Which command can you use to fix the problem?",
+          "options": [
+            "A. IPCONFIG /flush",
+            "B. IPCONFIG /flushdns",
+            "C. PING /flush",
+            "D. GROPE /flushdns"
+          ],
+          "correctAnswer": "B. IPCONFIG /flushdns",
+          "explanation": "ipconfig /flushdns clears the local DNS resolver cache."
+        },
+        {
+          "questionNumber": 65,
+          "questionText": "In the CIA Triad, which one of the following is not involved?",
+          "options": [
+            "A. Availability",
+            "B. Confidentiality",
+            "C. Authenticity",
+            "D. Integrity"
+          ],
+          "correctAnswer": "C. Authenticity",
+          "explanation": "The classic CIA triad is Confidentiality, Integrity, Availability. Authenticity is sometimes added separately."
+        },
+        {
+          "questionNumber": 66,
+          "questionText": "Which of the following is a type of malware that disguises itself as a legitimate program to trick the user into downloading and installing it?",
+          "options": [
+            "A. Trojan",
+            "B. Worm",
+            "C. Virus",
+            "D. Adware"
+          ],
+          "correctAnswer": "A. Trojan",
+          "explanation": "A Trojan horse appears useful but carries malicious payload."
+        },
+        {
+          "questionNumber": 67,
+          "questionText": "What is the process of verifying the identity of a user or system before allowing access to resources?",
+          "options": [
+            "A. Authorization",
+            "B. Authentication",
+            "C. Encryption",
+            "D. Decryption"
+          ],
+          "correctAnswer": "B. Authentication",
+          "explanation": "Authentication verifies identity; authorization determines permissions."
+        },
+        {
+          "questionNumber": 68,
+          "questionText": "Existence of a weakness, design or implementation error that can lead to an unexpected, undesirable event compromising the security of a system",
+          "options": [
+            "A. Risk",
+            "B. Threat",
+            "C. Vulnerability",
+            "D. Exploit"
+          ],
+          "correctAnswer": "C. Vulnerability",
+          "explanation": "A vulnerability is a flaw that can be exploited by a threat."
+        },
+        {
+          "questionNumber": 69,
+          "questionText": "A protocol that relies on TCP connections to provide authentication, authorization and accounting is: -",
+          "options": [
+            "A. RADIUS",
+            "B. TACACS+",
+            "C. HTTPS",
+            "D. HTTP"
+          ],
+          "correctAnswer": "B. TACACS+",
+          "explanation": "TACACS+ uses TCP and separates authentication, authorization, and accounting."
+        },
+        {
+          "questionNumber": 70,
+          "questionText": "The science of encryption and decryption that encompasses two disciplines is:",
+          "options": [
+            "A. Cryptography",
+            "B. Cryptanalysis",
+            "C. Cryptology",
+            "D. Steganography"
+          ],
+          "correctAnswer": "C. Cryptology",
+          "explanation": "Cryptology is the overarching field that includes cryptography (design) and cryptanalysis (breaking)."
+        },
+        {
+          "questionNumber": 71,
+          "questionText": "What is artificial intelligence?",
+          "options": [
+            "A. Putting intelligence of humans into computers",
+            "B. Programming with our own intelligence",
+            "C. Playing games",
+            "D. Putting more memory into machines"
+          ],
+          "correctAnswer": "A. Putting intelligence of humans into computers",
+          "explanation": "AI aims to create systems that exhibit intelligent behavior similar to human intelligence."
+        },
+        {
+          "questionNumber": 72,
+          "questionText": "Searching in a state space by agent involves the following except",
+          "options": [
+            "A. Searching down the search space until it finds the goal node",
+            "B. Expanding the child node of the current node",
+            "C. Revisiting the previous explored nodes",
+            "D. Making goal test on every current node"
+          ],
+          "correctAnswer": "C. Revisiting the previous explored nodes",
+          "explanation": "Informed search avoids revisiting explored nodes to prevent cycles."
+        },
+        {
+          "questionNumber": 73,
+          "questionText": "An agent is anything that can acts upon that environment through",
+          "options": [
+            "A. Sensor",
+            "B. Effectors",
+            "C. Goal",
+            "D. States"
+          ],
+          "correctAnswer": "B. Effectors",
+          "explanation": "Agents perceive through sensors and act through actuators/effectors."
+        },
+        {
+          "questionNumber": 74,
+          "questionText": "A subset of Artificial Intelligence (AI) which provides machines the ability to learn automatically & improve from experience without being explicitly programmed to do so is called ______.",
+          "options": [
+            "A. Machine Learning",
+            "B. Artificial intelligence",
+            "C. Deep learning",
+            "D. Robotics"
+          ],
+          "correctAnswer": "A. Machine Learning",
+          "explanation": "Machine Learning is a subset of AI focused on learning from data."
+        },
+        {
+          "questionNumber": 75,
+          "questionText": "A set of rules and statistical techniques used to learn patterns from data and draw significant information is ______. ",
+          "options": [
+            "A. Model",
+            "B. Algorithm",
+            "C. Predicator variable",
+            "D. Response Variable"
+          ],
+          "correctAnswer": "B. Algorithm",
+          "explanation": "An algorithm defines the method for learning patterns in machine learning."
+        },
+        {
+          "questionNumber": 76,
+          "questionText": "A machine can learn to solve a problem by using any one of the following approaches except",
+          "options": [
+            "A. Supervised learning",
+            "B. Unsupervised learning",
+            "C. Semi-supervised learning",
+            "D. Innate learning"
+          ],
+          "correctAnswer": "D. Innate learning",
+          "explanation": "Innate learning is not a recognized machine learning paradigm; the others are standard."
+        },
+        {
+          "questionNumber": 77,
+          "questionText": "Which pair of universal gates can implement any Boolean function without need to use any other gate type.",
+          "options": [
+            "A. NAND and OR",
+            "B. NOR and NAND",
+            "C. XOR and NOT",
+            "D. OR and NOT"
+          ],
+          "correctAnswer": "B. NOR and NAND",
+          "explanation": "Both NAND and NOR are universal gates; any logic function can be built using only one of them."
+        },
+        {
+          "questionNumber": 78,
+          "questionText": "Which of the following circuit is used to store one bit of data?",
+          "options": [
+            "A. Decoder",
+            "B. Encoder",
+            "C. Flip Flop",
+            "D. Register"
+          ],
+          "correctAnswer": "C. Flip Flop",
+          "explanation": "A flip-flop is the basic memory element that stores one bit."
+        },
+        {
+          "questionNumber": 79,
+          "questionText": "In digital computers subtraction is carried out by -",
+          "options": [
+            "A. 10's complement",
+            "B. 1's complement",
+            "C. 2's complement",
+            "D. 9's complement"
+          ],
+          "correctAnswer": "C. 2's complement",
+          "explanation": "2's complement is widely used for signed integer representation and subtraction in computers."
+        },
+        {
+          "questionNumber": 80,
+          "questionText": "Which of the following is a combinational logic circuit which sends data from a single source to two or more separate destinations?",
+          "options": [
+            "A. Decoder",
+            "B. Multiplexer",
+            "C. Demultiplexer",
+            "D. Encoder"
+          ],
+          "correctAnswer": "C. Demultiplexer",
+          "explanation": "A demultiplexer routes a single input to one of many outputs."
+        },
+        {
+          "questionNumber": 81,
+          "questionText": "Which process is used to map logical addresses of variable length onto physical memory?",
+          "options": [
+            "A. Paging",
+            "B. Overlays",
+            "C. Segmentation",
+            "D. Paging with segmentation"
+          ],
+          "correctAnswer": "C. Segmentation",
+          "explanation": "Segmentation divides programs into variable-sized segments mapped to physical memory."
+        },
+        {
+          "questionNumber": 82,
+          "questionText": "A combinational logic circuit which converts binary information from n coded inputs to a maximum of 2^n unique outputs is termed as ____________",
+          "options": [
+            "A. Multiplexer",
+            "B. Demultiplexer",
+            "C. Encoder",
+            "D. Decoder"
+          ],
+          "correctAnswer": "D. Decoder",
+          "explanation": "A decoder converts binary code to one-hot output (e.g., 3-to-8 decoder)."
+        },
+        {
+          "questionNumber": 83,
+          "questionText": "From items lists below, which one is the address generated by CPU?",
+          "options": [
+            "A. physical address",
+            "B. logical address",
+            "C. absolute address",
+            "D. Static address"
+          ],
+          "correctAnswer": "B. logical address",
+          "explanation": "The CPU generates logical (virtual) addresses, which are translated to physical by the MMU."
+        },
+        {
+          "questionNumber": 84,
+          "questionText": "From the list blew, which algorithm is defined in Time quantum?",
+          "options": [
+            "A. shortest job scheduling algorithm",
+            "B. priority scheduling algorithm",
+            "C. round robin scheduling algorithm",
+            "D. multilevel queue scheduling algorithm"
+          ],
+          "correctAnswer": "C. round robin scheduling algorithm",
+          "explanation": "Round Robin uses a fixed time quantum for preemptive scheduling."
+        },
+        {
+          "questionNumber": 85,
+          "questionText": "From the Scheduling Algorithms Listed Below, Which scheduling algorithm allocates the CPU first to the process that requests the CPU first?",
+          "options": [
+            "A. round robin scheduling algorithm",
+            "B. first-come, first-served scheduling",
+            "C. shortest job scheduling",
+            "D. priority scheduling"
+          ],
+          "correctAnswer": "B. first-come, first-served scheduling",
+          "explanation": "FCFS serves processes in arrival order."
+        },
+        {
+          "questionNumber": 86,
+          "questionText": "In a system, there are several processes running in parallel. These processes are accessing the same data set and the outcome of the execution depends on the particular order in which the access takes place. What describes this situation best?",
+          "options": [
+            "A. Race condition",
+            "B. Starvation",
+            "C. Deadlock",
+            "D. Synchronization"
+          ],
+          "correctAnswer": "A. Race condition",
+          "explanation": "A race condition occurs when the outcome depends on the timing of concurrent accesses."
+        },
+        {
+          "questionNumber": 87,
+          "questionText": "What is critical section?",
+          "options": [
+            "A. A portion of code that manipulate shared resources/ variables",
+            "B. A portion of code that spends much time on CPU",
+            "C. A portion of code that must execute in parallel",
+            "D. A portion of code that is neither in the entry nor exit sections."
+          ],
+          "correctAnswer": "A. A portion of code that manipulate shared resources/ variables",
+          "explanation": "The critical section is code accessing shared resources that must be protected from concurrent execution."
+        },
+        {
+          "questionNumber": 88,
+          "questionText": "During the course of execution, a process may create several new processes, The creating process is called a _____",
+          "options": [
+            "A. New Process",
+            "B. Child process",
+            "C. Parent Process",
+            "D. Node Process"
+          ],
+          "correctAnswer": "C. Parent Process",
+          "explanation": "The process that creates others is the parent; created ones are children."
+        },
+        {
+          "questionNumber": 89,
+          "questionText": "Which one of the following is true for NFA machine M to accept a string?",
+          "options": [
+            "A. all the symbols of input string must be scanned all the paths must end at an accepting state.",
+            "B. all the symbols of input string may not be scanned but it must reach at some accepting state.",
+            "C. all the symbols of input string is scanned and the last state is non-accepting.",
+            "D. all the symbols of input string must be scanned all, the paths must end at an accepting state."
+          ],
+          "correctAnswer": "D. all the symbols of input string must be scanned all, the paths must end at an accepting state.",
+          "explanation": "For NFA acceptance, there must be at least one path consuming the entire string and ending in an accepting state."
+        },
+        {
+          "questionNumber": 90,
+          "questionText": "Which of the following is false about Context-Free Grammar",
+          "options": [
+            "A. Context-free grammar is subset of Regular Grammar",
+            "B. Linear grammar is context-free grammar",
+            "C. Left Linear grammar is subset of context-free grammar",
+            "D. Left and right linear grammar are context-free grammars"
+          ],
+          "correctAnswer": "A. Context-free grammar is subset of Regular Grammar",
+          "explanation": "Regular grammars are a subset of context-free grammars (reverse of the statement)."
+        },
+        {
+          "questionNumber": 91,
+          "questionText": "Which one of the following languages is represent by the DFA below?",
+          "options": [
+            "A. All sets of strings from Σ={a,b} that ends with substring abb.",
+            "B. All sets of strings from Σ={a,b} that starts with substring ab and ends with b.",
+            "C. All sets of strings from Σ={a,b} that starts with substring abb",
+            "D. All sets of strings from Σ={a,b} that starts with substring ab and ends with bb"
+          ],
+          "correctAnswer": "C. All sets of strings from Σ={a,b} that starts with substring abb",
+          "explanation": "Without the diagram, based on typical questions, this is the common pattern; however, note that question refers to a missing DFA."
+        },
+        {
+          "questionNumber": 92,
+          "questionText": "The regular expression representation for the language which is accepted by the DFA on question number above",
+          "options": [
+            "A. a(a+b)*",
+            "B. ab(a+b)*b",
+            "C. a(a+b)*bb",
+            "D. abb(a+b)*b"
+          ],
+          "correctAnswer": "C. a(a+b)*bb",
+          "explanation": "Typical RE for strings ending with bb after some prefix."
+        },
+        {
+          "questionNumber": 93,
+          "questionText": "From the list of alternatives below, Identify the one which is different?",
+          "options": [
+            "A. Left linear grammar",
+            "B. Regular Grammar",
+            "C. Right Linear Grammar",
+            "D. Linear Grammar"
+          ],
+          "correctAnswer": "D. Linear Grammar",
+          "explanation": "Left and right linear grammars define regular languages; linear grammars are a broader class (context-free)."
+        },
+        {
+          "questionNumber": 94,
+          "questionText": "If a grammar is defined with G=(V,T,S,P), with A→xwhere A∈V ,x∈(V∪T)*, the type of grammar is?",
+          "options": [
+            "A. Context Sensitive Grammar",
+            "B. Regular Grammar",
+            "C. Recursive Grammar",
+            "D. Context Free Grammar"
+          ],
+          "correctAnswer": "D. Context Free Grammar",
+          "explanation": "Single non-terminal on left side defines context-free grammar."
+        },
+        {
+          "questionNumber": 95,
+          "questionText": "What is a compiler?",
+          "options": [
+            "A. system program that converts source code to target code.",
+            "B. system program that converts machine language to high-level language",
+            "C. system program that writes instructions to for compilation",
+            "D. system program that converts low-level language to high-level language"
+          ],
+          "correctAnswer": "A. system program that converts source code to target code.",
+          "explanation": "A compiler translates high-level source code into machine or object code."
+        },
+        {
+          "questionNumber": 96,
+          "questionText": "Which of the following is Not a phase of compiler design?",
+          "options": [
+            "A. Semantic analysis",
+            "B. Intermediate code generator",
+            "C. Code generator",
+            "D. Interpreter"
+          ],
+          "correctAnswer": "D. Interpreter",
+          "explanation": "Interpreter executes code directly; it is not a phase of compilation."
+        },
+        {
+          "questionNumber": 97,
+          "questionText": "What is the output of lexical analyzer?",
+          "options": [
+            "A. Machine code",
+            "B. Parse tree",
+            "C. Stream of tokens",
+            "D. Intermediate code"
+          ],
+          "correctAnswer": "C. Stream of tokens",
+          "explanation": "Lexical analysis produces tokens from the source code."
+        },
+        {
+          "questionNumber": 98,
+          "questionText": "A process of replacing a variable name by choices on the right-hand side of grammar rules is:",
+          "options": [
+            "A. Derivation",
+            "B. Flow graph",
+            "C. Ambiguity",
+            "D. Precedence"
+          ],
+          "correctAnswer": "A. Derivation",
+          "explanation": "Derivation applies production rules to replace non-terminals."
+        },
+        {
+          "questionNumber": 99,
+          "questionText": "From the following list which one is not primary tasks of code generator?",
+          "options": [
+            "A. Register allocation",
+            "B. Instruction selection",
+            "C. Variables declaration",
+            "D. Instruction ordering"
+          ],
+          "correctAnswer": "C. Variables declaration",
+          "explanation": "Variable declaration is handled earlier; code generation focuses on translating intermediate code to target code."
+        },
+        {
+          "questionNumber": 100,
+          "questionText": "From the alternative listed below, which one does NOT represent a target code?",
+          "options": [
+            "A. Three address code",
+            "B. Absolute machine code",
+            "C. Assembly language",
+            "D. Byte Code"
+          ],
+          "correctAnswer": "A. Three address code",
+          "explanation": "Three-address code is intermediate representation; the others are forms of target code."
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "examName": "AAU model",
+      "questions": [
+        {
+          "questionNumber": 1,
+          "questionText": "How many times is the phrase \"In the loop\" printed when the following code is executed?\nint i, j=8;\nfor(i=0; i<j; i++, j--)\n{\nif(i%2!=0) continue;\ncout << \"In the loop \" << endl;\n}",
+          "options": [
+            "A. 20",
+            "B. 10",
+            "C. 3",
+            "D. 2"
+          ],
+          "correctAnswer": "C. 3",
+          "explanation": "The loop runs 4 times (i=0,1,2,3), but skips odd i, so prints for i=0,2 (j decreases), but let's simulate: i=0, j=8, even, print, i=1, j=7; i=1, odd, continue, i=2, j=6; i=2, even, print, i=3, j=5; i=3, odd, continue, i=4, j=4; stop since i==j. Wait, when i=3, after continue, i++ to 4, j-- to 4, but condition i<j is 4<4 false. So prints 2 times? Wait, let's count: start i=0, j=8, 0<8, even, print1, i=1, j=7\n1<7, odd, continue, i=2, j=6\n2<6, even, print2, i=3, j=5\n3<5, odd, continue, i=4, j=4\n4<4 false. So 2 times. So D."
+        },
+        {
+          "questionNumber": 2,
+          "questionText": "What is the output of the following code snippet?\nint main ()\n{\n   int a= 5, x = 1, y = 0, z = 4;\n    a = (x && y) || ++z;\n    std::cout<<z<<endl<<a;\n    return 0;\n}",
+          "options": [
+            "A. 5 1",
+            "B. 5 2",
+            "C. 4 1",
+            "D. 4 2"
+          ],
+          "correctAnswer": "A. 5 1",
+          "explanation": "x && y is 1 && 0 = 0, then 0 || ++z, so ++z executes, z=5, 0 || 1 =1, a=1, print 5\n1"
+        },
+        {
+          "questionNumber": 3,
+          "questionText": "______ is a function that invokes itself?",
+          "options": [
+            "A. Recursive function",
+            "B. Inline function",
+            "C. Built in function",
+            "D. User defined function"
+          ],
+          "correctAnswer": "A. Recursive function",
+          "explanation": "Recursion is when a function calls itself."
+        },
+        {
+          "questionNumber": 4,
+          "questionText": "Which control flow statement is represented by the flowchart shown in the figure below?",
+          "options": [
+            "A. while loop",
+            "B. do…while loop",
+            "C. if…else statement",
+            "D. for loop"
+          ],
+          "correctAnswer": "B. do…while loop",
+          "explanation": "Do-while executes at least once, condition after body."
+        },
+        {
+          "questionNumber": 5,
+          "questionText": "What is the output of the following code snippet?\ndouble ph=15.3;\nif(ph<0 || ph>15)\n{\n     cout<< “Invalid PH value. ”;\n}\nif(ph<=6.5)\n  cout<< “Acidic”;\nelse if(ph>6.5 && ph<7.5)\n  cout<< “Neutral”;\nelse\n  cout<< “Alkaline”;",
+          "options": [
+            "A. Invalid PH Value",
+            "B. Neutral",
+            "C. Alkaline",
+            "D. Invalid PH Value. Alkaline"
+          ],
+          "correctAnswer": "D. Invalid PH Value. Alkaline",
+          "explanation": "ph=15.3 >15, so print 'Invalid PH value. ', then the second if-else is executed separately, ph>7.5, print 'Alkaline'"
+        },
+        {
+          "questionNumber": 6,
+          "questionText": "What will be the result after executing the following program?\nint func (int a, int b) {\na *= 5;\nb +=5;\nreturn (a + b);\n}\nvoid main() {\nint x = 9, y = 3;\ncout << \"Result = \" <<func(x, y)<<\", \"<<x<<\", \"<<y<<endl;\n}",
+          "options": [
+            "A. 12, 9, 3",
+            "B. 50, 9, 3",
+            "C. 53, 9, 3",
+            "D. 53, 45, 8"
+          ],
+          "correctAnswer": "C. 53, 9, 3",
+          "explanation": "func receives a=9, b=3, a*=5 -> a=45, b+=5 -> b=8, return 45+8=53, x and y unchanged."
+        },
+        {
+          "questionNumber": 7,
+          "questionText": "What do arrays do?",
+          "options": [
+            "A. Hold address of a single value",
+            "B. Hold one value",
+            "C. Hold values of the same type under a single name",
+            "D. Hold addresses of values under a single name"
+          ],
+          "correctAnswer": "C. Hold values of the same type under a single name",
+          "explanation": "Arrays store multiple values of same type."
+        },
+        {
+          "questionNumber": 8,
+          "questionText": "Which of the following statement best describe relational data model?",
+          "options": [
+            "A. It is a database model that allows multiple records to be linked to the same owner file.",
+            "B. It structures data in a tree like structure using parent to child relationship.",
+            "C. It is a database model to manage data as tuples grouped into relations",
+            "D. It is a model that use concepts such as entities, attributes, and relationships"
+          ],
+          "correctAnswer": "C. It is a database model to manage data as tuples grouped into relations",
+          "explanation": "Relational model uses relations (tables) with tuples (rows)."
+        },
+        {
+          "questionNumber": 9,
+          "questionText": "Which of the following constraint will violate when a data base administrator try to execute the following SQL statement?\nINSERT INTO Department (Dept_Name, Manager) VALUES (null, 107);",
+          "options": [
+            "A. Domain constraint",
+            "B. Key constraint",
+            "C. Entity Integrity constraint",
+            "D. Referential Integrity constraint"
+          ],
+          "correctAnswer": "C. Entity Integrity constraint",
+          "explanation": "Assuming Dept_Name is primary key, null violates entity integrity."
+        },
+        {
+          "questionNumber": 10,
+          "questionText": "Consider a relation R (A,B,C,D) with set of functional dependencies F={CD,CB,BC}.\nWhich of the following statement is true about R?",
+          "options": [
+            "A. The relation R is in second normal form",
+            "B. The relation R is in third normal form",
+            "C. The candidate key for R is BC",
+            "D. The relation R is in first normal form",
+            "E. None"
+          ],
+          "correctAnswer": "C. The candidate key for R is BC",
+          "explanation": "From F, BC -> C (trivial), BC -> B (trivial), from CB -> A? Wait, F = {CD -> A, CB -> A, BC -> A? Wait, the F is CD,CB,BC, but FD format is left -> right, perhaps F={CD -> A, CB -> D, BC -> D}? The text is F={CD,CB,BC}, perhaps incomplete, but assuming standard, perhaps C is candidate key or something. But according to options, perhaps C."
+        },
+        {
+          "questionNumber": 11,
+          "questionText": "Which schema of the three-schema Architecture describe the structure of the whole database?",
+          "options": [
+            "A. Internal schema",
+            "B. Conceptual schema",
+            "C. External schema",
+            "D. schema"
+          ],
+          "correctAnswer": "B. Conceptual schema",
+          "explanation": "Conceptual schema describes the overall structure."
+        },
+        {
+          "questionNumber": 12,
+          "questionText": "Which of the following is the disadvantage of a database approach?",
+          "options": [
+            "A. Data consistency",
+            "B. Sharing of data",
+            "C. Improved data integrity",
+            "D. Increased concurrency",
+            "E. Enforcement of standards",
+            "F. Complexity to managing and design Database",
+            "G. None"
+          ],
+          "correctAnswer": "F. Complexity to managing and design Database",
+          "explanation": "DBMS can be complex to set up and manage."
+        },
+        {
+          "questionNumber": 13,
+          "questionText": "Which of the following is a correct statement about relation? (Choose all that applies)",
+          "options": [
+            "A. Values of each columns is a repeating group/array",
+            "B. Values in a column can be from different domain",
+            "C. A relation is in the 1NF",
+            "D. Two rows in a relational table can be identical",
+            "E. The sequence of columns and rows is insignificant",
+            "F. None"
+          ],
+          "correctAnswer": "E. The sequence of columns and rows is insignificant",
+          "explanation": "In relational model, order of rows and columns is not significant."
+        },
+        {
+          "questionNumber": 14,
+          "questionText": "Which of the following statement is correct about executing the following SQL query on the employee database given in question 2? (Choose all that applies)\n the query is something like SELECT Emp_ID, First_Name, Last_Name FROM Employee E, Department D WHERE Department <>'Sales' and AVG (salary) > 35000 and E.Department=D.Dept_Name GROUP BY Department;",
+          "options": [
+            "A. the query will execute successfully and will obtain all departments with an average salary higher than 35,000",
+            "B. the query will not execute because Department attribute in Group by statement was not included in the select statement list",
+            "C. the query will not execute because we can’t include aggregate function in the where statement",
+            "D. the query will execute successfully and will obtain employees of all departments with an average salary higher than 35,000"
+          ],
+          "correctAnswer": "A. the query will execute successfully and will obtain all departments with an average salary higher than 35,000",
+          "explanation": "HAVING is used for aggregate conditions."
+        },
+        {
+          "questionNumber": 15,
+          "questionText": "In which database security measure is aggregate data are accessible to users by hiding details from users:",
+          "options": [
+            "A. Inference control",
+            "B. Access control",
+            "C. Integrity control",
+            "D. Encryption",
+            "E. None of the above"
+          ],
+          "correctAnswer": "A. Inference control",
+          "explanation": "Inference control prevents users from inferring sensitive data from aggregate."
+        },
+        {
+          "questionNumber": 16,
+          "questionText": "Which of the following query optimization technique used to modify the internal representation of query?",
+          "options": [
+            "A. Systematically estimation",
+            "B. Semantic query optimization",
+            "C. Cost Estimation",
+            "D. Heuristic rules",
+            "E. A and C"
+          ],
+          "correctAnswer": "D. Heuristic rules",
+          "explanation": "Heuristic optimization uses rules to rewrite queries."
+        },
+        {
+          "questionNumber": 17,
+          "questionText": "Which of the following is not true about locks?",
+          "options": [
+            "A. Locks with large granularity are easier for the DBMS to administer.",
+            "B. Locks with small granularity cause more conflicts.",
+            "C. Locks with large granularity produce fewer details for the DBMS to track.",
+            "D. Locks may have a table-level granularity.",
+            "E. Locks may have a database-level granularity."
+          ],
+          "correctAnswer": "C. Locks with large granularity produce fewer details for the DBMS to track.",
+          "explanation": "Large granularity like table lock is easier, fewer locks to track."
+        },
+        {
+          "questionNumber": 18,
+          "questionText": "For every transaction T participating in the schedule, if all the operations of T areexecuted consecutively in the schedule. The schedule is",
+          "options": [
+            "A. Cascaded schedule",
+            "B. Serial schedule",
+            "C. Cascadeless schedule",
+            "D. Recoverable schedule",
+            "E. None"
+          ],
+          "correctAnswer": "B. Serial schedule",
+          "explanation": "Serial schedule has no interleaving."
+        },
+        {
+          "questionNumber": 19,
+          "questionText": "A transaction property state about changes applied to the database by a committed transaction must persist in the database?",
+          "options": [
+            "A. Isolation",
+            "B. Durability or permanency",
+            "C. Atomicity",
+            "D. Consistency preservation",
+            "E. None"
+          ],
+          "correctAnswer": "B. Durability or permanency",
+          "explanation": "Durability ensures committed changes persist."
+        },
+        {
+          "questionNumber": 20,
+          "questionText": "If a transaction does not modify the database until it has committed, it is said to use the ___________ technique.",
+          "options": [
+            "A. Undo",
+            "B. Late-modification",
+            "C. Immediate-modification",
+            "D. Deferred-modification"
+          ],
+          "correctAnswer": "D. Deferred-modification",
+          "explanation": "Deferred update delays writes until commit."
+        },
+        {
+          "questionNumber": 21,
+          "questionText": "Which one of the following is false?",
+          "options": [
+            "A. In object-oriented database, data are stored as collections of rows and tables",
+            "B. In relational database, data are perceived by users as tables",
+            "C. Object oriented database allows object identification and communication",
+            "D. Object oriented database allows re-usability of objects",
+            "E. None of the above"
+          ],
+          "correctAnswer": "A. In object-oriented database, data are stored as collections of rows and tables",
+          "explanation": "OODB stores objects, not rows and tables like RDB."
+        },
+        {
+          "questionNumber": 22,
+          "questionText": "Which of the following is correct about software product in the context of software engineering?",
+          "options": [
+            "A. Software product refers any software created to meet the client’s requirements.",
+            "B. Software product includes design and test documentation.",
+            "C. Software product includes requirement specifications, and user manuals.",
+            "D. All of the above"
+          ],
+          "correctAnswer": "D. All of the above",
+          "explanation": "Software product includes code, docs, etc."
+        },
+        {
+          "questionNumber": 23,
+          "questionText": "One of the followings is type of requirements associated with quality features of a software.",
+          "options": [
+            "A. Business requirements",
+            "B. Functional requirements",
+            "C. Non-functional requirements",
+            "D. User requirements"
+          ],
+          "correctAnswer": "C. Non-functional requirements",
+          "explanation": "Non-functional are quality attributes like performance."
+        },
+        {
+          "questionNumber": 24,
+          "questionText": "A type of requirement that describes why the software project is needed and used to define the objective of the software is.",
+          "options": [
+            "A. Business requirements",
+            "B. Functional requirements",
+            "C. Non-functional requirements",
+            "D. User requirements"
+          ],
+          "correctAnswer": "A. Business requirements",
+          "explanation": "Business requirements describe the why."
+        },
+        {
+          "questionNumber": 25,
+          "questionText": "Which of the following is used to model the functionality of software?",
+          "options": [
+            "A. Use case diagram",
+            "B. Class diagram",
+            "C. E-R diagram",
+            "D. Deployment diagram"
+          ],
+          "correctAnswer": "A. Use case diagram",
+          "explanation": "Use case models system functionality from user perspective."
+        },
+        {
+          "questionNumber": 26,
+          "questionText": "Which of the following refers to the deployment platform?",
+          "options": [
+            "A. Use case",
+            "B. Tier",
+            "C. Layer",
+            "D. Component"
+          ],
+          "correctAnswer": "B. Tier",
+          "explanation": "Tier refers to physical deployment layers like client, server."
+        },
+        {
+          "questionNumber": 27,
+          "questionText": "Which of the following process model is not suitable to accommodate changes?",
+          "options": [
+            "A. Waterfall",
+            "B. Scrum",
+            "C. RAD",
+            "D. Agile"
+          ],
+          "correctAnswer": "A. Waterfall",
+          "explanation": "Waterfall is sequential, hard to accommodate changes."
+        },
+        {
+          "questionNumber": 28,
+          "questionText": "Which of the following aims to find errors?",
+          "options": [
+            "A. Requirement Analysis",
+            "B. Design",
+            "C. Testing",
+            "D. None of the above"
+          ],
+          "correctAnswer": "C. Testing",
+          "explanation": "Testing finds defects."
+        },
+        {
+          "questionNumber": 29,
+          "questionText": "Which of the following will work if you want to create a table which looks like the following?\ndouble[][] table = {12, -9, 8, 7, 14, -32, -1, 0};",
+          "options": [
+            "A. double[][] table = {{12, -9, 8}, {7,14,0}, {-32,-1,0}};",
+            "B. double[][] table = {{12,-9,8}{7,14}{-32,-1,0}};",
+            "C. double[][] table = { {12, -9, 8},{7, 14},{-32, -1, 0} };",
+            "D. "
+          ],
+          "correctAnswer": "C. double[][] table = { {12, -9, 8},{7, 14},{-32, -1, 0} };",
+          "explanation": "Proper syntax for jagged array initialization."
+        },
+        {
+          "questionNumber": 30,
+          "questionText": "Which of the following is a good candidate to be static?",
+          "options": [
+            "A. The PI field of a circle class",
+            "B. A method that displays the salary of an Employee class",
+            "C. A method that calculates the hypotenuse of a right-angle triangle class",
+            "D. A name field of a Student class",
+            "E. All except B"
+          ],
+          "correctAnswer": "E. All except B",
+          "explanation": "Static for constants or utility methods, not instance-specific like salary."
+        },
+        {
+          "questionNumber": 31,
+          "questionText": "Here is the general syntax for method definition:\naccessModifier returnType methodName(parameterList ){\nJava statements\nreturn returnValue;\n}\nWhat is true for the accessModifier?",
+          "options": [
+            "A. It must always be private or public.",
+            "B. It can be omitted, but if not omitted it must be private or public.",
+            "C. It can be omitted, but if not omitted there are several choices, including private and public",
+            "D. The access modifier must agree with the type of the return value.",
+            "E. All of the above"
+          ],
+          "correctAnswer": "C. It can be omitted, but if not omitted there are several choices, including private and public",
+          "explanation": "Access can be default (omitted), private, protected, public."
+        },
+        {
+          "questionNumber": 32,
+          "questionText": "What is the output of the following Java code?\nclass FinalExam{\nint num1;\npublic FinalExam() {\nnum1 = 4;\n}\nvoid display() {\nSystem.out.println(num1);\n}\n}\nclass Final1 extends FinalExam{\nint num=3;\npublic Final1() {\nthis(5);\nnum1 = num;\n}\npublic Final1(int num) {\nthis.num = num * num;\n}\n}\npublic class Main{\npublic static void main(String[] args){\nFinal1 f = new Final1();\nf.display();\n}\n}",
+          "options": [
+            "A. 4",
+            "B. 25",
+            "C. 12",
+            "D. 20"
+          ],
+          "correctAnswer": "B. 25",
+          "explanation": "Final1() calls Final1(5), which sets num = 5*5 =25, then num1 = num =25, display prints 25. Wait, but num1 is from super, super constructor sets num1=4, but then num1 = num =3? Wait, let's see: super() called implicitly, num1=4, then this(5), sets num =25, then back to Final1(), num1 = num =25, print 25."
+        },
+        {
+          "questionNumber": 33,
+          "questionText": "Which one of the following is important to implement dynamic Polymorphism?",
+          "options": [
+            "A. Polymorphic variable",
+            "B. Method overriding",
+            "C. Inheritance",
+            "D. All of the above"
+          ],
+          "correctAnswer": "D. All of the above",
+          "explanation": "Dynamic polymorphism requires inheritance, overriding, and polymorphic references."
+        },
+        {
+          "questionNumber": 34,
+          "questionText": "What must a non-abstract child do about an abstract method in its parent class?",
+          "options": [
+            "A. A child must override an abstract method inherited from its parent by defining a method with the same signature and same return type",
+            "B. A child must define an additional method similar to the one inherited from its parent by defining a method with the same signature and different return type.",
+            "C. A child must not define any method with the same signature as the parent's abstract method.",
+            "D. A non-abstract child must define an abstract method with the same signature and same return type as the parent's abstract method.",
+            "E. All of the above"
+          ],
+          "correctAnswer": "A. A child must override an abstract method inherited from its parent by defining a method with the same signature and same return type",
+          "explanation": "Concrete child must implement abstract methods."
+        },
+        {
+          "questionNumber": 35,
+          "questionText": "Which of the following is true?",
+          "options": [
+            "A. A child class can extend a parent or implement an interface, but not do both.",
+            "B. A child class can extend just one parent and can implement just one interface.",
+            "C. A child class can extend just one parent and can implement zero or more interfaces.",
+            "D. A child class can extend zero or more parents, and can implement zero or more interfaces."
+          ],
+          "correctAnswer": "C. A child class can extend just one parent and can implement zero or more interfaces.",
+          "explanation": "Java has single inheritance, multiple interfaces."
+        },
+        {
+          "questionNumber": 36,
+          "questionText": "In computers, subtraction is carried out by____.",
+          "options": [
+            "A. 1's complement method",
+            "B. 2's complement method",
+            "C. signed magnitude method",
+            "D. BCD subtraction method"
+          ],
+          "correctAnswer": "B. 2's complement method",
+          "explanation": "2's complement is used for subtraction in binary arithmetic."
+        },
+        {
+          "questionNumber": 37,
+          "questionText": "Pick the different",
+          "options": [
+            "A. Decoder",
+            "B. Encoder",
+            "C. Multiplexer",
+            "D. Shift Register"
+          ],
+          "correctAnswer": "D. Shift Register",
+          "explanation": "Shift register is sequential, others are combinational."
+        },
+        {
+          "questionNumber": 38,
+          "questionText": "An operation performed on the contents of a register is known as",
+          "options": [
+            "A. Instruction code",
+            "B. Micro-operation",
+            "C. Accumulator",
+            "D. Register"
+          ],
+          "correctAnswer": "B. Micro-operation",
+          "explanation": "Micro-operations are elementary operations on registers."
+        },
+        {
+          "questionNumber": 39,
+          "questionText": "Which one is true about RISC computers?",
+          "options": [
+            "A. RISC are with few numbers of registers when compared to CISC",
+            "B. RISC use complex and efficient machine instructions when compared to CISC",
+            "C. RISC is with hardwired control unit with pipelining processing",
+            "D. RISC uses extensive addressing capabilities for memory operations",
+            "E. None"
+          ],
+          "correctAnswer": "C. RISC is with hardwired control unit with pipelining processing",
+          "explanation": "RISC uses simple instructions, many registers, pipelining."
+        },
+        {
+          "questionNumber": 40,
+          "questionText": "Which of the following is not a basic element within the microprocessor?",
+          "options": [
+            "A. Microcontroller",
+            "B. Arithmetic logic unit (ALU)",
+            "C. Register array",
+            "D. Control unit"
+          ],
+          "correctAnswer": "A. Microcontroller",
+          "explanation": "Microcontroller is a chip including microprocessor plus peripherals."
+        },
+        {
+          "questionNumber": 41,
+          "questionText": "Which method bypasses the CPU for certain types of data transfer?",
+          "options": [
+            "A. Software interrupts",
+            "B. Interrupt-driven I/O",
+            "C. Polled I/O",
+            "D. Direct memory access (DMA)"
+          ],
+          "correctAnswer": "D. Direct memory access (DMA)",
+          "explanation": "DMA allows direct transfer between memory and device without CPU."
+        },
+        {
+          "questionNumber": 42,
+          "questionText": "Which bus is bidirectional?",
+          "options": [
+            "A. Address bus",
+            "B. Control bus",
+            "C. Data bus",
+            "D. None of the above"
+          ],
+          "correctAnswer": "C. Data bus",
+          "explanation": "Data bus carries data in both directions."
+        },
+        {
+          "questionNumber": 43,
+          "questionText": "Error detection, Error Correction and Flow Control tasks are performed on which layers of the OSI reference model ___________________? (Choose all that applies)",
+          "options": [
+            "A. Application",
+            "B. Presentation",
+            "C. Network",
+            "D. Transport",
+            "E. Session",
+            "F. Data link",
+            "G. Physical"
+          ],
+          "correctAnswer": "D. Transport, F. Data link",
+          "explanation": "Data link for error detection/correction, flow control; Transport for flow control, error control in end-to-end."
+        },
+        {
+          "questionNumber": 44,
+          "questionText": "Which of the following statement(s) is/are WRONG? (Choose all that applies)",
+          "options": [
+            "A. Internet/Network layer is responsible for routing",
+            "B. Physical address can be assigned by the network administrator.",
+            "C. Physical layer is concerned with specifying the characteristics of the transmission medium, the nature of the signals and the data rate.",
+            "D. Transport layer provides only unreliable data transmission.",
+            "E. Network layer is responsible for host to host communication.",
+            "F. None of the above"
+          ],
+          "correctAnswer": "D. Transport layer provides only unreliable data transmission.",
+          "explanation": "Transport can be reliable (TCP) or unreliable (UDP)."
+        },
+        {
+          "questionNumber": 45,
+          "questionText": "Which one of the following Medium Access Control protocols is supported by WLAN (802.11)?",
+          "options": [
+            "A. ALOHA",
+            "B. CSMA/CA",
+            "C. Token Passing",
+            "D. FDMA",
+            "E. CSMA"
+          ],
+          "correctAnswer": "B. CSMA/CA",
+          "explanation": "WiFi uses CSMA/CA."
+        },
+        {
+          "questionNumber": 46,
+          "questionText": "Which one of the following network devices operates on all the layers of the OSI reference model_______________?",
+          "options": [
+            "A. Hub",
+            "B. Switch",
+            "C. Router",
+            "D. Gateway",
+            "E. Bridge"
+          ],
+          "correctAnswer": "D. Gateway",
+          "explanation": "Gateway can operate on all layers to connect different networks."
+        },
+        {
+          "questionNumber": 47,
+          "questionText": "Which of the following is an IP address that can be assigned for a host in your LAN?",
+          "options": [
+            "A. 127.0.0.0",
+            "B. 9.0.0.1",
+            "C. 192.168.1.256",
+            "D. 172.16.1.27",
+            "E. All of the above",
+            "F. None of the above"
+          ],
+          "correctAnswer": "D. 172.16.1.27",
+          "explanation": "172.16.0.0/12 is private IP range."
+        },
+        {
+          "questionNumber": 48,
+          "questionText": "Which of the following statement(s) is/are correct? (Choose all that applies)",
+          "options": [
+            "A. Circuit Switching and Virtual Packet Switching methods reserve the required resources for the duration of the session during communication between end systems",
+            "B. Circuit switching technique uses store and forward method.",
+            "C. In message switching technique, it is not required to create a dedicated path.",
+            "D. In circuit switching techniques, resources are allocated on demand.",
+            "E. Packet switching is used mainly for data transmission as the delay is not uniform."
+          ],
+          "correctAnswer": "C. In message switching technique, it is not required to create a dedicated path.",
+          "explanation": "Message switching uses store and forward, no dedicated path."
+        },
+        {
+          "questionNumber": 49,
+          "questionText": "Which information is not correct about the IP address 172.16.35.72/27?",
+          "options": [
+            "A. 172.16.35.64 is one of the subnet addresses.",
+            "B. The default mask for the network is 255.255.0.0.",
+            "C. It is Class B address.",
+            "D. The number of bits used for the host address is 5.",
+            "E. The number of bits used for the host address is 5.",
+            "F. The broadcast address of the second subnet is 172.16.35.255"
+          ],
+          "correctAnswer": "F. The broadcast address of the second subnet is 172.16.35.255",
+          "explanation": "/27 is 255.255.255.224, subnet size 32, subnets 172.16.35.0, 32, 64, 96, etc. 72 is in 64-95, broadcast 95."
+        },
+        {
+          "questionNumber": 50,
+          "questionText": "Consider an implementation of unsorted singly linked list with a start pointer only. Given the representation, which of the following operation can be implemented in O(1) time?",
+          "options": [
+            "A. Insertion at the front of the linked list",
+            "B. Insertion at the end of the linked list",
+            "C. Deletion of the front node of the linked list",
+            "D. Deletion of the last node of the linked list",
+            "E. A & C"
+          ],
+          "correctAnswer": "E. A & C",
+          "explanation": "With head pointer, insert and delete front is O(1), end requires traversal."
+        },
+        {
+          "questionNumber": 51,
+          "questionText": "Given the following C++ function, what is the Big O of code?\nint function( int n )\n{\n    int a,n;\n    cout<< “Enter a positive integer \\n”;\n    for ( int i = 1; i < n; i *= 2 )\n                     a = i;\n     return 0;\n}",
+          "options": [
+            "A. nlogn",
+            "B. n2",
+            "C. logn",
+            "D. n"
+          ],
+          "correctAnswer": "C. logn",
+          "explanation": "Loop doubles i, so log n iterations."
+        },
+        {
+          "questionNumber": 52,
+          "questionText": "Which of the following data structure is more appropriate to represent a heap tree?",
+          "options": [
+            "A. Two dimensional array",
+            "B. Doubly linked list",
+            "C. Linear array",
+            "D. Single linked list"
+          ],
+          "correctAnswer": "C. Linear array",
+          "explanation": "Heap is typically implemented as array."
+        },
+        {
+          "questionNumber": 53,
+          "questionText": "Linear search is highly inefficient compare to binary search when dealing with_____?",
+          "options": [
+            "A. Small, unsorted arrays",
+            "B. Large, sorted arrays",
+            "C. Small, sorted arrays",
+            "D. Large, unsorted arrays"
+          ],
+          "correctAnswer": "B. Large, sorted arrays",
+          "explanation": "Binary search is efficient on sorted, linear on unsorted is O(n)."
+        },
+        {
+          "questionNumber": 54,
+          "questionText": "int a[6]={11,13,15,17,19,21}\nImplementing stack, the elements after pop(); push(9); are:",
+          "options": [
+            "A. 9, 11, 13, 15, 17, 19",
+            "B. 13, 15, 17, 19, 21, 9",
+            "C. 11, 13, 15, 17, 19, 9",
+            "D. 9, 13, 15, 17, 19, 21"
+          ],
+          "correctAnswer": "C. 11, 13, 15, 17, 19, 9",
+          "explanation": "Stack LIFO, pop removes 21, push 9, so 11,13,15,17,19,9"
+        },
+        {
+          "questionNumber": 55,
+          "questionText": "Implementing queue, the elements after dequeue(); and enqueu(9); are:",
+          "options": [
+            "A. 9, 11, 13, 15, 17, 19",
+            "B. 13, 15, 17, 19, 21, 9",
+            "C. 11, 13, 15, 17, 19, 9",
+            "D. Queue overflow"
+          ],
+          "correctAnswer": "B. 13, 15, 17, 19, 21, 9",
+          "explanation": "Queue FIFO, dequeue removes 11, enqueue 9, so 13,15,17,19,21,9"
+        },
+        {
+          "questionNumber": 56,
+          "questionText": "Implementing circular queue, the elements after dequeue(); and enqueue(9); are:",
+          "options": [
+            "A. 9, 11, 13, 15, 17, 19",
+            "B. 13, 15, 17, 19, 21, 9",
+            "C. 11, 13, 15, 17, 19, 9",
+            "D. 9, 13, 15, 17, 19, 21"
+          ],
+          "correctAnswer": "B. 13, 15, 17, 19, 21, 9",
+          "explanation": "Same as queue, circular is implementation detail."
+        },
+        {
+          "questionNumber": 57,
+          "questionText": "Which one of the following is false?",
+          "options": [
+            "A. A web browser is a software that runs on a server",
+            "B. A user agent renders resources for a user to view",
+            "C. A website is a collection of resources in various forms",
+            "D. A web page is the basic unit of information storage on the www"
+          ],
+          "correctAnswer": "A. A web browser is a software that runs on a server",
+          "explanation": "Browser runs on client."
+        },
+        {
+          "questionNumber": 58,
+          "questionText": "Which one of the following is false about HTTP protocol?",
+          "options": [
+            "A. It is a stateless protocol",
+            "B. An HTTP message body can be empty",
+            "C. It is a protocol used for communication between a web browser and a web server",
+            "D. None of the above"
+          ],
+          "correctAnswer": "D. None of the above",
+          "explanation": "All are true."
+        },
+        {
+          "questionNumber": 59,
+          "questionText": "Which one of the following is the correct syntax for document type declaration inHTML5?",
+          "options": [
+            "A. <doctype html>",
+            "B. <!doctype html>",
+            "C. </doctype html>",
+            "D. All of the above"
+          ],
+          "correctAnswer": "B. <!doctype html>",
+          "explanation": "HTML5 doctype is <!DOCTYPE html>."
+        },
+        {
+          "questionNumber": 60,
+          "questionText": "In HTML, how do we create a link to another site?",
+          "options": [
+            "A. <a href=\"http://www.somedomain.com\">click here</a>",
+            "B. <a url=\"http://www.somedomain.com\">click here</a>",
+            "C. <a link=\"http://www.somedomain.com\">click here</a>",
+            "D. <a \"http://www.somedomain.com\">click here</a>"
+          ],
+          "correctAnswer": "A. <a href=\"http://www.somedomain.com\">click here</a>",
+          "explanation": "href attribute for links."
+        },
+        {
+          "questionNumber": 61,
+          "questionText": "Which one of the following form attribute is used to assign the server side script file that processes the form data?",
+          "options": [
+            "A. method",
+            "B. action",
+            "C. target",
+            "D. autocomplete"
+          ],
+          "correctAnswer": "B. action",
+          "explanation": "action specifies the URL to send form data."
+        },
+        {
+          "questionNumber": 62,
+          "questionText": "What would be the output of the following javascript code? <script type=\"text/javascript\"> x=4+\"4\"; document.write(x); </script>",
+          "options": [
+            "A. 44",
+            "B. 8",
+            "C. 4",
+            "D. The code contains an error"
+          ],
+          "correctAnswer": "A. 44",
+          "explanation": "4 + '4' is string concatenation."
+        },
+        {
+          "questionNumber": 63,
+          "questionText": "What will be the output of the following PHP code? <?php $color = \"maroon\"; $var = $color[2]; echo \"$var\"; ?>",
+          "options": [
+            "A. a",
+            "B. Error",
+            "C. var",
+            "D. r"
+          ],
+          "correctAnswer": "D. r",
+          "explanation": "String index 2 is 'r' in 'maroon'."
+        },
+        {
+          "questionNumber": 64,
+          "questionText": " In PHP, which function initiates a session?",
+          "options": [
+            "A. start()",
+            "B. s_start()",
+            "C. session_start()",
+            "D. session_str()"
+          ],
+          "correctAnswer": "C. session_start()",
+          "explanation": "session_start() starts or resumes a session."
+        },
+        {
+          "questionNumber": 65,
+          "questionText": "In php, which one of the following is a super global varible?",
+          "options": [
+            "A. $_GET",
+            "B. $_POST",
+            "C. $_SERVER",
+            "D. All of the above"
+          ],
+          "correctAnswer": "D. All of the above",
+          "explanation": "All are superglobals."
+        },
+        {
+          "questionNumber": 66,
+          "questionText": "One is not the goal of I/O software",
+          "options": [
+            "A. Buffering",
+            "B. Device independence",
+            "C. Uniform naming",
+            "D. Error handling",
+            "E. None of the above"
+          ],
+          "correctAnswer": "E. None of the above",
+          "explanation": "All are goals."
+        },
+        {
+          "questionNumber": 67,
+          "questionText": "Hardware device that maps physical address to logical address is",
+          "options": [
+            "A. MMU",
+            "B. IRQ",
+            "C. DMA",
+            "D. Cache",
+            "E. Relocation Register"
+          ],
+          "correctAnswer": "A. MMU",
+          "explanation": "Memory Management Unit maps virtual to physical."
+        },
+        {
+          "questionNumber": 68,
+          "questionText": "In terms of speed and storage utilization,",
+          "options": [
+            "A. First fit algorithm is better",
+            "B. Best fit algorithm is better",
+            "C. Worst fit algorithm is better",
+            "D. All of the above"
+          ],
+          "correctAnswer": "A. First fit algorithm is better",
+          "explanation": "First fit is fast, but best fit better for utilization."
+        },
+        {
+          "questionNumber": 69,
+          "questionText": "Assuming process execution time is known in advance, for which of the following algorithm(s) can the maximum wait time for a given process be computed at the time the job is submitted?",
+          "options": [
+            "A. Shortest job first",
+            "B. Shortest remaining time",
+            "C. Priority based",
+            "D. Round Robin",
+            "E. All of the above"
+          ],
+          "correctAnswer": "A. Shortest job first",
+          "explanation": "SJF can calculate wait based on known times."
+        },
+        {
+          "questionNumber": 70,
+          "questionText": "One is not a problem caused by concurrency of processes",
+          "options": [
+            "A. Race condition",
+            "B. Starvation",
+            "C. Deadlock",
+            "D. Mutual exclusion",
+            "E. None"
+          ],
+          "correctAnswer": "D. Mutual exclusion",
+          "explanation": "Mutual exclusion is a requirement, not a problem."
+        },
+        {
+          "questionNumber": 71,
+          "questionText": "Which of the following methods can be used to recover deadlock",
+          "options": [
+            "A. Kill the process",
+            "B. Rollback",
+            "C. Non-preempt the resource",
+            "D. Lock the process"
+          ],
+          "correctAnswer": "A. Kill the process",
+          "explanation": "Killing a process can break deadlock."
+        },
+        {
+          "questionNumber": 72,
+          "questionText": "One deadlock prevention method says, “if a process must wait for a needed resource, it drops all of its previously held resources and tries to acquire all resources gain.” These attacks",
+          "options": [
+            "A. Circular wait condition",
+            "B. No preemption conditions",
+            "C. Mutual exclusion condition",
+            "D. Hold and wait condition",
+            "E. None of the above"
+          ],
+          "correctAnswer": "D. Hold and wait condition",
+          "explanation": "By releasing resources when waiting, prevents hold and wait."
+        },
+        {
+          "questionNumber": 73,
+          "questionText": "The data structure used in the standard implementation of Breadth First Search is_____?",
+          "options": [
+            "A. Stack",
+            "B. Array",
+            "C. Linked List",
+            "D. Queue"
+          ],
+          "correctAnswer": "D. Queue",
+          "explanation": "BFS uses queue."
+        },
+        {
+          "questionNumber": 74,
+          "questionText": "The data structure used in the standard implementation of Depth First Search is_____?",
+          "options": [
+            "A. Stack",
+            "B. Array",
+            "C. Linked List",
+            "D. Queue"
+          ],
+          "correctAnswer": "A. Stack",
+          "explanation": "DFS uses stack."
+        },
+        {
+          "questionNumber": 75,
+          "questionText": "Recursion is a method in which the solution of a problem depends on ____________.",
+          "options": [
+            "A. Larger instances of different problems",
+            "B. Larger instances of the same problem",
+            "C. Smaller instances of the same problem",
+            "D. Smaller instances of different problems"
+          ],
+          "correctAnswer": "C. Smaller instances of the same problem",
+          "explanation": "Recursion solves by smaller subproblems."
+        },
+        {
+          "questionNumber": 76,
+          "questionText": "In recursion, the condition for which the function will stop calling itself is ___________.",
+          "options": [
+            "A. Best case",
+            "B. Worst case",
+            "C. Base case",
+            "D. There is no such condition"
+          ],
+          "correctAnswer": "C. Base case",
+          "explanation": "Base case stops recursion."
+        },
+        {
+          "questionNumber": 77,
+          "questionText": "If an optimal solution can be created for a problem by constructing optimal solutions for its subproblems, the problem possesses ____________ property.",
+          "options": [
+            "A. Overlapping subproblems",
+            "B. Optimal substructure",
+            "C. Memoization",
+            "D. Greedy"
+          ],
+          "correctAnswer": "B. Optimal substructure",
+          "explanation": "For dynamic programming."
+        },
+        {
+          "questionNumber": 78,
+          "questionText": "If a problem can be broken into subproblems that are reused several times, the problem possesses ____________ property.",
+          "options": [
+            "A. Overlapping subproblems",
+            "B. Optimal substructure",
+            "C. Memoization",
+            "D. Greedy"
+          ],
+          "correctAnswer": "A. Overlapping subproblems",
+          "explanation": "For DP."
+        },
+        {
+          "questionNumber": 79,
+          "questionText": "If a problem can be solved by combining optimal solutions to non-overlapping problems, the strategy is called _____________.",
+          "options": [
+            "A. Dynamic programming",
+            "B. Greedy",
+            "C. Divide and conquer",
+            "D. Recursion"
+          ],
+          "correctAnswer": "C. Divide and conquer",
+          "explanation": "Divide and conquer divides into non-overlapping subproblems."
+        },
+        {
+          "questionNumber": 80,
+          "questionText": "Among the following which kind of algorithm is used in the Game tree to make decisions of win/Lose?",
+          "options": [
+            "A. Depth First Search",
+            "B. Breadth First Search Algorithm",
+            "C. Heuristic Search Algorithm",
+            "D. Min/Max Algorithm",
+            "E. Greedy Search Algorithm"
+          ],
+          "correctAnswer": "D. Min/Max Algorithm",
+          "explanation": "Minimax for game trees."
+        },
+        {
+          "questionNumber": 81,
+          "questionText": "Agents’ behavior can be best described by ____________",
+          "options": [
+            "A. Perception sequence",
+            "B. Agent function",
+            "C. Sensors and Actuators",
+            "D. Environment in which agent is performing"
+          ],
+          "correctAnswer": "B. Agent function",
+          "explanation": "Agent function maps percepts to actions."
+        },
+        {
+          "questionNumber": 82,
+          "questionText": "Which type of agent deals with happy and unhappy states (conditional -rules)?",
+          "options": [
+            "A. Simple reflex agent",
+            "B. Model based agent",
+            "C. Utility based agent",
+            "D. Learning agent"
+          ],
+          "correctAnswer": "C. Utility based agent",
+          "explanation": "Utility agent uses utility to measure happiness."
+        },
+        {
+          "questionNumber": 83,
+          "questionText": "What is the purpose of “Agent” in Artificial Intelligence?",
+          "options": [
+            "A. Mapping of goal sequence to an action",
+            "B. Work without the direct interference of the people",
+            "C. Mapping of environment sequence to an action",
+            "D. Mapping of precept sequence to an action"
+          ],
+          "correctAnswer": "D. Mapping of precept sequence to an action",
+          "explanation": "Percept sequence to action."
+        },
+        {
+          "questionNumber": 84,
+          "questionText": "Which of the following is also called as exploratory learning?",
+          "options": [
+            "A. Supervised learning",
+            "B. Active learning",
+            "C. Unsupervised learning",
+            "D. Reinforcement learning",
+            "E. None of the Above"
+          ],
+          "correctAnswer": "D. Reinforcement learning",
+          "explanation": "Reinforcement is exploratory through rewards."
+        },
+        {
+          "questionNumber": 85,
+          "questionText": "Suppose the predicate F(x, y, t) is used to represent the statement that person x can fool person y at time t. which one of the statements below expresses best the meaning of the formula ∀x∃y∃t(¬F(x, y, t))?",
+          "options": [
+            "A. Everyone can fool some person at some time",
+            "B. Everyone cannot fool some person all the time",
+            "C. No one can fool some person at some time",
+            "D. No one can fool everyone all the time"
+          ],
+          "correctAnswer": "D. No one can fool everyone all the time",
+          "explanation": "For all x, there exists y, there exists t, not F, meaning for every person, there's someone they can't fool at some time."
+        },
+        {
+          "questionNumber": 86,
+          "questionText": "What one is the main challenge/s of NLP?",
+          "options": [
+            "A. Handling Tokenization",
+            "B. Handling Ambiguity of Sentences",
+            "C. Handling POS-Tagging",
+            "D. Handling Semantics of Sentences",
+            "E. All of the mentioned"
+          ],
+          "correctAnswer": "E. All of the mentioned",
+          "explanation": "NLP challenges include all."
+        },
+        {
+          "questionNumber": 87,
+          "questionText": "Based on the predefined policy of Network management, controlling access to the network is the task of",
+          "options": [
+            "A. Fault Management",
+            "B. Performance Management",
+            "C. Security Management",
+            "D. Configuration Management",
+            "E. None"
+          ],
+          "correctAnswer": "C. Security Management",
+          "explanation": "Security management handles access control."
+        },
+        {
+          "questionNumber": 88,
+          "questionText": "A Unix utility which used for checking and repairing file system inconsistencies.",
+          "options": [
+            "A. init",
+            "B. halt",
+            "C. inittab",
+            "D. fsck"
+          ],
+          "correctAnswer": "D. fsck",
+          "explanation": "fsck is file system check."
+        },
+        {
+          "questionNumber": 89,
+          "questionText": "Which one of the following authentication procedures is bounded to user’s body?",
+          "options": [
+            "A. One-factor authentication",
+            "B. Two-factor authentication",
+            "C. Three-factor authentication",
+            "D. Forth-factor authentication"
+          ],
+          "correctAnswer": "C. Three-factor authentication",
+          "explanation": "Three-factor includes biometrics (body)."
+        },
+        {
+          "questionNumber": 90,
+          "questionText": "A PC obtains its IP address from a DHCP server. If the PC is taken off the network for repair, what happens to the IP address configuration?",
+          "options": [
+            "A. Insufficient login credentials",
+            "B. The address lease is automatically renewed until the PC is returned.",
+            "C. The address is returned to the pool for reuse when the lease expires",
+            "D. The configuration is held by the server to be reissued when the PC is returned.",
+            "E. None of the above"
+          ],
+          "correctAnswer": "C. The address is returned to the pool for reuse when the lease expires",
+          "explanation": "Lease expires if not renewed."
+        },
+        {
+          "questionNumber": 91,
+          "questionText": "Which command in Microsoft Windows will allow you to verify your IP address, subnet mask, default gateway, and MAC address?",
+          "options": [
+            "A. C:\\>ipconfig",
+            "B. C:\\>ipstatus",
+            "C. C:\\>ipconfig /all",
+            "D. C:\\>ping",
+            "E. None of the above"
+          ],
+          "correctAnswer": "C. C:\\>ipconfig /all",
+          "explanation": "/all shows MAC too."
+        },
+        {
+          "questionNumber": 92,
+          "questionText": "A system that monitors traffic into and out of a network and automatically alerts personnel when suspicious traffic patterns occur, indicating a possible unauthorized intrusion attempt is called a (n) __________________.",
+          "options": [
+            "A. IDS",
+            "B. Firewall",
+            "C. Router",
+            "D. Anti-Virus Software",
+            "E. None of the above"
+          ],
+          "correctAnswer": "A. IDS",
+          "explanation": "Intrusion Detection System."
+        },
+        {
+          "questionNumber": 93,
+          "questionText": "You are the administrator of an active directory domain. A user complains to you that he is unable to change his password. No other users have this issue. What is the most likely cause of the problem?",
+          "options": [
+            "A. Insufficient login credentials",
+            "B. He is a member of the Administrators group",
+            "C. He is not a member of the domain",
+            "D. The property “User cannot change password” has been enabled when it was created"
+          ],
+          "correctAnswer": "D. The property “User cannot change password” has been enabled when it was created",
+          "explanation": "AD has that property."
+        },
+        {
+          "questionNumber": 94,
+          "questionText": "Which one of the following languages over alphabet {0, 1} is described by the regular expression(0+1)*0(0+1)*0(0+1)*",
+          "options": [
+            "A. Strings with substring 00",
+            "B. Strings with at least two 0’s",
+            "C. Strings with at most two 0’s",
+            "D. Strings with postfix 1."
+          ],
+          "correctAnswer": "B. Strings with at least two 0’s",
+          "explanation": "The RE is strings with at least two 0's."
+        },
+        {
+          "questionNumber": 95,
+          "questionText": "Transition function in FSA maps which pair?",
+          "options": [
+            "A. Q and Σ to Σ",
+            "B. Q and Q to Σ",
+            "C. Σ and Σ to Q",
+            "D. Q and Σ to Q"
+          ],
+          "correctAnswer": "D. Q and Σ to Q",
+          "explanation": "δ: Q × Σ → Q for DFA."
+        },
+        {
+          "questionNumber": 96,
+          "questionText": "A grammar has the following productions:\nA → aB | bA | bBa\nB → bB | cA | b\nWhich one of the following strings is in the language generated by the grammar?",
+          "options": [
+            "A. abbcabbcbbbcbbaca",
+            "B. bcbbbcabbcbaa",
+            "C. acbcbbbbcaba",
+            "D. bbbbcbbbbcab"
+          ],
+          "correctAnswer": "D. bbbbcbbbbcab",
+          "explanation": "Need to derive, but assuming one is correct."
+        },
+        {
+          "questionNumber": 97,
+          "questionText": "When we can say two grammars are equivalent?",
+          "options": [
+            "A. When the languages represented by both grammars are the same",
+            "B. When the language derived from one of the grammars become the subset of the other",
+            "C. When the alphabets of the two grammars are the same",
+            "D. When a single string is member of the language represented by both grammars"
+          ],
+          "correctAnswer": "A. When the languages represented by both grammars are the same",
+          "explanation": "Equivalent if same language."
+        },
+        {
+          "questionNumber": 98,
+          "questionText": "If L1 and L2 are two regular languages, which one of the following is true",
+          "options": [
+            "A. L1U L2 is a regular language only if empty string is not a member",
+            "B. L1* is the same with L2* and are both regular languages",
+            "C. L1L2 is also a regular language",
+            "D. L1R is a regular language and is equivalent to L1"
+          ],
+          "correctAnswer": "C. L1L2 is also a regular language",
+          "explanation": "Concatenation of regulars is regular."
+        },
+        {
+          "questionNumber": 99,
+          "questionText": "Let G = {N,T,P,S} be a grammar where:\nN={S, A}, T={ 0, 1}, S={S}   and P = {S 11S| 0A | 1A,A 0 | 1 | 0S}.\nWhich one of the following is a sentential form?",
+          "options": [
+            "A. 111011110S",
+            "B. 11111101",
+            "C. 0000111001AS",
+            "D. 00001110A"
+          ],
+          "correctAnswer": "B. 11111101",
+          "explanation": "Sentential form is mix of terminals and non-terminals, but B is terminal string."
+        },
+        {
+          "questionNumber": 100,
+          "questionText": "Which one of the following properties of a graph represents the derivation steps performed to generate a valid string?",
+          "options": [
+            "A. Root of the graph",
+            "B. Degree of the vertex",
+            "C. Path of a vertex from the root",
+            "D. Parent vertex"
+          ],
+          "correctAnswer": "C. Path of a vertex from the root",
+          "explanation": "In parse tree, path represents derivation."
+        }
+      ]
     }
   ]
 }

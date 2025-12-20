@@ -3,7 +3,16 @@
 import { useState, useEffect } from "react"
 import { Card } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import { ChevronLeft, ChevronRight, CheckCircle2, XCircle, RotateCcw, Home, AlertCircle } from "lucide-react"
+import {
+  ChevronLeft,
+  ChevronRight,
+  CheckCircle2,
+  XCircle,
+  RotateCcw,
+  Home,
+  AlertCircle,
+  ArrowLeft,
+} from "lucide-react"
 import { cn } from "@/lib/utils"
 
 interface ExamInterfaceProps {
@@ -27,11 +36,9 @@ export default function ExamInterface({ exam, answerMode, onRestart }: ExamInter
   const hasAnswer = answers[currentQuestionIndex] !== undefined
 
   const handleOptionSelect = (option: string) => {
-    // Only allow selection if not already answered
     if (!hasAnswer) {
       setSelectedOption(option)
       setAnswers((prev) => ({ ...prev, [currentQuestionIndex]: option }))
-      // Remove from skipped if it was marked as skipped
       setSkipped((prev) => {
         const newSkipped = { ...prev }
         delete newSkipped[currentQuestionIndex]
@@ -48,15 +55,11 @@ export default function ExamInterface({ exam, answerMode, onRestart }: ExamInter
   }
 
   const handleNext = () => {
-    // If on last question and trying to finish
     if (isLastQuestion) {
       const answeredCount = Object.keys(answers).length
-
       if (answeredCount === totalQuestions) {
-        // All questions answered, show results
         setShowResults(true)
       } else {
-        // Find first unanswered question
         const firstUnanswered = exam.questions.findIndex((_: any, index: number) => answers[index] === undefined)
         if (firstUnanswered !== -1) {
           setCurrentQuestionIndex(firstUnanswered)
@@ -64,7 +67,6 @@ export default function ExamInterface({ exam, answerMode, onRestart }: ExamInter
         }
       }
     } else {
-      // Move to next question
       setCurrentQuestionIndex((prev) => Math.min(prev + 1, totalQuestions - 1))
       setSelectedOption(answers[currentQuestionIndex + 1] || null)
     }
@@ -231,11 +233,23 @@ export default function ExamInterface({ exam, answerMode, onRestart }: ExamInter
     <div className="min-h-screen bg-gradient-to-b from-background to-muted/20">
       <div className="container mx-auto px-3 sm:px-4 py-4 sm:py-6 md:py-8">
         <div className="max-w-6xl mx-auto">
-          <div className="mb-4 sm:mb-6 px-1">
-            <h1 className="text-xl sm:text-2xl md:text-3xl font-bold mb-1 sm:mb-2 text-balance">{exam.examName}</h1>
-            <p className="text-sm sm:text-base text-muted-foreground">
-              Question {currentQuestionIndex + 1} of {totalQuestions}
-            </p>
+          {/* Header with Back Button */}
+          <div className="mb-4 sm:mb-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4 px-1">
+            <div>
+              <h1 className="text-xl sm:text-2xl md:text-3xl font-bold mb-1 sm:mb-2 text-balance">{exam.examName}</h1>
+              <p className="text-sm sm:text-base text-muted-foreground">
+                Question {currentQuestionIndex + 1} of {totalQuestions}
+              </p>
+            </div>
+            <Button 
+              variant="ghost" 
+              size="sm" 
+              onClick={onRestart}
+              className="w-fit -ml-2 sm:ml-0 text-muted-foreground hover:text-foreground"
+            >
+              <ArrowLeft className="mr-2 h-4 w-4" />
+              Back to Exam List
+            </Button>
           </div>
 
           <div className="space-y-4 sm:space-y-6">
@@ -266,15 +280,12 @@ export default function ExamInterface({ exam, answerMode, onRestart }: ExamInter
                       className={cn(
                         "w-full p-3.5 sm:p-4 rounded-lg border-2 text-left transition-all min-h-[52px] sm:min-h-[56px]",
                         "active:scale-[0.98] disabled:cursor-not-allowed",
-                        // Not answered yet - show selection
                         !isAnswered && isSelected && "border-primary bg-primary/5",
                         !isAnswered && !isSelected && "border-border hover:border-primary/50 hover:bg-muted/30",
-                        // Answered with immediate feedback
                         showFeedback && isSelected && isCorrect && "border-green-500 bg-green-50 dark:bg-green-900/20",
                         showFeedback && isSelected && !isCorrect && "border-red-500 bg-red-50 dark:bg-red-900/20",
                         showFeedback && !isSelected && isCorrect && "border-green-500 bg-green-50 dark:bg-green-900/20",
                         showFeedback && !isSelected && !isCorrect && "border-border opacity-60",
-                        // Answered without immediate feedback
                         isAnswered && !showFeedback && isSelected && "border-primary bg-primary/5",
                         isAnswered && !showFeedback && !isSelected && "border-border opacity-60",
                       )}
@@ -374,15 +385,11 @@ export default function ExamInterface({ exam, answerMode, onRestart }: ExamInter
                       onClick={() => handleQuestionClick(index)}
                       className={cn(
                         "relative w-full aspect-square rounded-lg font-medium transition-all text-sm sm:text-base min-h-[44px]",
-                        // Current question
                         status === "current" && "bg-primary text-primary-foreground ring-2 ring-primary ring-offset-2",
-                        // Answered
                         status === "answered" &&
                           "bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400 active:bg-green-200 dark:active:bg-green-900/40",
-                        // Skipped
                         status === "skipped" &&
                           "bg-amber-100 text-amber-700 dark:bg-amber-900/30 dark:text-amber-400 active:bg-amber-200 dark:active:bg-amber-900/40",
-                        // Unanswered
                         status === "unanswered" &&
                           "bg-background border-2 border-border active:border-primary/50 active:bg-muted/50",
                       )}
