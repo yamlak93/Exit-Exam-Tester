@@ -11,6 +11,8 @@ import {
   RotateCcw,
   Home,
   AlertCircle,
+  Sparkles,
+  Loader2,
   ArrowLeft,
 } from "lucide-react"
 import { cn } from "@/lib/utils"
@@ -19,16 +21,20 @@ interface ExamInterfaceProps {
   exam: any
   answerMode: "immediate" | "after"
   onRestart: () => void
+  onBackToList: () => void
 }
 
 type QuestionStatus = "unanswered" | "answered" | "skipped" | "current"
 
-export default function ExamInterface({ exam, answerMode, onRestart }: ExamInterfaceProps) {
+export default function ExamInterface({ exam, answerMode, onRestart, onBackToList }: ExamInterfaceProps) {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0)
   const [answers, setAnswers] = useState<{ [key: number]: string }>({})
   const [skipped, setSkipped] = useState<{ [key: number]: boolean }>({})
   const [showResults, setShowResults] = useState(false)
   const [selectedOption, setSelectedOption] = useState<string | null>(null)
+  const [aiExplanations, setAiExplanations] = useState<{ [key: number]: string }>({})
+  const [loadingAiExplanation, setLoadingAiExplanation] = useState(false)
+  const [aiError, setAiError] = useState<{ [key: number]: boolean }>({})
 
   const currentQuestion = exam.questions[currentQuestionIndex]
   const totalQuestions = exam.questions.length
@@ -44,6 +50,9 @@ export default function ExamInterface({ exam, answerMode, onRestart }: ExamInter
         delete newSkipped[currentQuestionIndex]
         return newSkipped
       })
+      if (answerMode === "immediate") {
+        fetchAiExplanation(currentQuestionIndex, option)
+      }
     }
   }
 
@@ -87,6 +96,46 @@ export default function ExamInterface({ exam, answerMode, onRestart }: ExamInter
     if (answers[index] !== undefined) return "answered"
     if (skipped[index]) return "skipped"
     return "unanswered"
+  }
+
+  const fetchAiExplanation = async (questionIndex: number, userAnswer: string) => {
+    if (aiExplanations[questionIndex]) {
+      return
+    }
+
+    setLoadingAiExplanation(true)
+    setAiError((prev) => ({ ...prev, [questionIndex]: false }))
+
+    try {
+      const question = exam.questions[questionIndex]
+      const response = await fetch("/api/ai-explanation", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          question: question.questionText,
+          options: question.options,
+          correctAnswer: question.correctAnswer,
+          userAnswer: userAnswer,
+        }),
+      })
+
+      if (!response.ok) {
+        throw new Error("Failed to fetch AI explanation")
+      }
+
+      const data = await response.json()
+      setAiExplanations((prev) => ({
+        ...prev,
+        [questionIndex]: data.explanation,
+      }))
+    } catch (error) {
+      console.error("[v0] Error fetching AI explanation:", error)
+      setAiError((prev) => ({ ...prev, [questionIndex]: true }))
+    } finally {
+      setLoadingAiExplanation(false)
+    }
   }
 
   const calculateScore = () => {
@@ -149,6 +198,8 @@ export default function ExamInterface({ exam, answerMode, onRestart }: ExamInter
                     setShowResults(false)
                     setCurrentQuestionIndex(0)
                     setSelectedOption(null)
+                    setAiExplanations({})
+                    setAiError({})
                   }}
                 >
                   <RotateCcw className="mr-2 w-5 h-5" />
@@ -213,10 +264,23 @@ export default function ExamInterface({ exam, answerMode, onRestart }: ExamInter
                             )
                           })}
                         </div>
-                        <div className="bg-muted/50 p-3 sm:p-4 rounded-lg">
+                        <div className="bg-muted/50 p-3 sm:p-4 rounded-lg mb-3">
                           <p className="text-xs sm:text-sm font-semibold mb-1">Explanation:</p>
                           <p className="text-xs sm:text-sm leading-relaxed text-pretty">{question.explanation}</p>
                         </div>
+                        {aiExplanations[index] && (
+                          <div className="bg-gradient-to-br from-purple-50 to-blue-50 dark:from-purple-900/20 dark:to-blue-900/20 p-3 sm:p-4 rounded-lg border border-purple-200 dark:border-purple-800">
+                            <div className="flex items-center gap-2 mb-2">
+                              <Sparkles className="w-4 h-4 text-purple-600 dark:text-purple-400" />
+                              <p className="text-xs sm:text-sm font-semibold text-purple-900 dark:text-purple-100">
+                                AI Detailed Explanation
+                              </p>
+                            </div>
+                            <p className="text-xs sm:text-sm leading-relaxed text-pretty text-purple-900/80 dark:text-purple-100/80 whitespace-pre-wrap">
+                              {aiExplanations[index]}
+                            </p>
+                          </div>
+                        )}
                       </div>
                     </div>
                   </Card>
@@ -233,23 +297,18 @@ export default function ExamInterface({ exam, answerMode, onRestart }: ExamInter
     <div className="min-h-screen bg-gradient-to-b from-background to-muted/20">
       <div className="container mx-auto px-3 sm:px-4 py-4 sm:py-6 md:py-8">
         <div className="max-w-6xl mx-auto">
-          {/* Header with Back Button */}
-          <div className="mb-4 sm:mb-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4 px-1">
-            <div>
-              <h1 className="text-xl sm:text-2xl md:text-3xl font-bold mb-1 sm:mb-2 text-balance">{exam.examName}</h1>
-              <p className="text-sm sm:text-base text-muted-foreground">
-                Question {currentQuestionIndex + 1} of {totalQuestions}
-              </p>
-            </div>
-            <Button 
-              variant="ghost" 
-              size="sm" 
-              onClick={onRestart}
-              className="w-fit -ml-2 sm:ml-0 text-muted-foreground hover:text-foreground"
-            >
-              <ArrowLeft className="mr-2 h-4 w-4" />
+          <div className="mb-4 sm:mb-6">
+            <Button variant="ghost" onClick={onRestart} className="gap-2 hover:bg-muted">
+              <ArrowLeft className="h-4 w-4" />
               Back to Exam List
             </Button>
+          </div>
+
+          <div className="mb-4 sm:mb-6 px-1">
+            <h1 className="text-xl sm:text-2xl md:text-3xl font-bold mb-1 sm:mb-2 text-balance">{exam.examName}</h1>
+            <p className="text-sm sm:text-base text-muted-foreground">
+              Question {currentQuestionIndex + 1} of {totalQuestions}
+            </p>
           </div>
 
           <div className="space-y-4 sm:space-y-6">
@@ -305,26 +364,63 @@ export default function ExamInterface({ exam, answerMode, onRestart }: ExamInter
               </div>
 
               {hasAnswer && answerMode === "immediate" && (
-                <Card className="p-3 sm:p-4 bg-muted/50 border-0">
-                  <div className="flex items-start gap-2 mb-2">
-                    {selectedOption === currentQuestion.correctAnswer ? (
-                      <CheckCircle2 className="w-5 h-5 text-green-600 dark:text-green-400 flex-shrink-0 mt-0.5" />
-                    ) : (
-                      <XCircle className="w-5 h-5 text-red-600 dark:text-red-400 flex-shrink-0 mt-0.5" />
-                    )}
-                    <div className="flex-1 min-w-0">
-                      <p className="text-xs sm:text-sm font-semibold mb-1">
-                        {selectedOption === currentQuestion.correctAnswer ? "Correct!" : "Incorrect"}
-                      </p>
-                      <p className="text-xs sm:text-sm font-medium mb-2">
-                        Correct Answer: {currentQuestion.correctAnswer}
-                      </p>
-                      <p className="text-xs sm:text-sm leading-relaxed text-muted-foreground text-pretty">
-                        {currentQuestion.explanation}
-                      </p>
+                <>
+                  <Card className="p-3 sm:p-4 bg-muted/50 border-0 mb-3">
+                    <div className="flex items-start gap-2 mb-2">
+                      {selectedOption === currentQuestion.correctAnswer ? (
+                        <CheckCircle2 className="w-5 h-5 text-green-600 dark:text-green-400 flex-shrink-0 mt-0.5" />
+                      ) : (
+                        <XCircle className="w-5 h-5 text-red-600 dark:text-red-400 flex-shrink-0 mt-0.5" />
+                      )}
+                      <div className="flex-1 min-w-0">
+                        <p className="text-xs sm:text-sm font-semibold mb-1">
+                          {selectedOption === currentQuestion.correctAnswer ? "Correct!" : "Incorrect"}
+                        </p>
+                        <p className="text-xs sm:text-sm font-medium mb-2">
+                          Correct Answer: {currentQuestion.correctAnswer}
+                        </p>
+                        <p className="text-xs sm:text-sm leading-relaxed text-muted-foreground text-pretty">
+                          {currentQuestion.explanation}
+                        </p>
+                      </div>
                     </div>
-                  </div>
-                </Card>
+                  </Card>
+
+                  <Card className="p-3 sm:p-4 bg-gradient-to-br from-purple-50 to-blue-50 dark:from-purple-900/20 dark:to-blue-900/20 border-purple-200 dark:border-purple-800">
+                    <div className="flex items-start gap-2">
+                      <Sparkles className="w-5 h-5 text-purple-600 dark:text-purple-400 flex-shrink-0 mt-0.5" />
+                      <div className="flex-1 min-w-0">
+                        <p className="text-xs sm:text-sm font-semibold mb-2 text-purple-900 dark:text-purple-100">
+                          AI Detailed Explanation
+                        </p>
+                        {loadingAiExplanation && !aiExplanations[currentQuestionIndex] && (
+                          <div className="flex items-center gap-2 text-purple-700 dark:text-purple-300">
+                            <Loader2 className="w-4 h-4 animate-spin" />
+                            <span className="text-xs sm:text-sm">Generating detailed explanation...</span>
+                          </div>
+                        )}
+                        {aiExplanations[currentQuestionIndex] && (
+                          <p className="text-xs sm:text-sm leading-relaxed text-pretty text-purple-900/80 dark:text-purple-100/80 whitespace-pre-wrap">
+                            {aiExplanations[currentQuestionIndex]}
+                          </p>
+                        )}
+                        {aiError[currentQuestionIndex] && !aiExplanations[currentQuestionIndex] && (
+                          <div className="text-xs sm:text-sm text-purple-700 dark:text-purple-300">
+                            <p className="mb-2">Unable to generate AI explanation at this time.</p>
+                            <Button
+                              size="sm"
+                              variant="outline"
+                              onClick={() => fetchAiExplanation(currentQuestionIndex, selectedOption!)}
+                              className="h-8 text-xs bg-white/50 dark:bg-black/20"
+                            >
+                              Try Again
+                            </Button>
+                          </div>
+                        )}
+                      </div>
+                    </div>
+                  </Card>
+                </>
               )}
 
               {hasAnswer && answerMode === "after" && (
