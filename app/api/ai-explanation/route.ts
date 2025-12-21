@@ -3,7 +3,7 @@ import ModelClient, { isUnexpected } from "@azure-rest/ai-inference"
 import { AzureKeyCredential } from "@azure/core-auth"
 
 const endpoint = "https://models.github.ai/inference"
-const model = "deepseek/DeepSeek-V3-0324";
+const model = "xai/grok-3-mini";
 
 export async function POST(request: NextRequest) {
   try {
