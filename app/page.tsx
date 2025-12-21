@@ -17,7 +17,7 @@ export default function HomePage() {
     setAnswerMode(mode)
   }
 
-  const handleRestart = () => {
+  const handleBackToList = () => {
     setSelectedExam(null)
     setAnswerMode(null)
   }
@@ -29,7 +29,12 @@ export default function HomePage() {
       ) : !answerMode ? (
         <AnswerModeSelection onModeSelect={handleAnswerModeSelect} />
       ) : (
-        <ExamInterface exam={selectedExam} answerMode={answerMode} onRestart={handleRestart} />
+        <ExamInterface
+          exam={selectedExam}
+          answerMode={answerMode}
+          onRestart={handleBackToList}
+          onBackToList={handleBackToList}
+        />
       )}
     </main>
   )

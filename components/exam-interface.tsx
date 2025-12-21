@@ -16,12 +16,13 @@ import {
   ArrowLeft,
 } from "lucide-react"
 import { cn } from "@/lib/utils"
+import type { Exam } from "@/types/exam" // Assuming Exam type is defined in this file
 
 interface ExamInterfaceProps {
-  exam: any
+  exam: Exam
   answerMode: "immediate" | "after"
   onRestart: () => void
-  onBackToList: () => void
+  onBackToList?: () => void
 }
 
 type QuestionStatus = "unanswered" | "answered" | "skipped" | "current"
@@ -298,7 +299,7 @@ export default function ExamInterface({ exam, answerMode, onRestart, onBackToLis
       <div className="container mx-auto px-3 sm:px-4 py-4 sm:py-6 md:py-8">
         <div className="max-w-6xl mx-auto">
           <div className="mb-4 sm:mb-6">
-            <Button variant="ghost" onClick={onRestart} className="gap-2 hover:bg-muted">
+            <Button variant="ghost" onClick={onBackToList || onRestart} className="gap-2 hover:bg-muted">
               <ArrowLeft className="h-4 w-4" />
               Back to Exam List
             </Button>
