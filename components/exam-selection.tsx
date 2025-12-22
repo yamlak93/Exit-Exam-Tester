@@ -3,13 +3,14 @@
 import { useEffect, useState } from "react"
 import { Card } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import { BookOpen, ChevronRight } from "lucide-react"
+import { BookOpen, ChevronRight, Plus } from "lucide-react"
 
 interface ExamSelectionProps {
   onExamSelect: (exam: any) => void
+  onCreateCustomExam: () => void
 }
 
-export default function ExamSelection({ onExamSelect }: ExamSelectionProps) {
+export default function ExamSelection({ onExamSelect, onCreateCustomExam }: ExamSelectionProps) {
   const [exams, setExams] = useState<any[]>([])
   const [loading, setLoading] = useState(true)
 
@@ -50,6 +51,38 @@ export default function ExamSelection({ onExamSelect }: ExamSelectionProps) {
               Select an exam to test your knowledge
             </p>
           </div>
+
+          <Card
+            className="p-4 sm:p-6 mb-4 sm:mb-6 border-2 border-primary/30 hover:border-primary/60 cursor-pointer group hover:shadow-lg transition-all duration-300 active:scale-[0.98] bg-gradient-to-r from-primary/5 to-primary/10"
+            onClick={onCreateCustomExam}
+          >
+            <div className="flex flex-col xs:flex-row items-start xs:items-center justify-between gap-3 sm:gap-4">
+              <div className="flex items-start gap-3 sm:gap-4 flex-1">
+                <div className="flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-primary/20 text-primary flex-shrink-0">
+                  <Plus className="w-5 h-5 sm:w-6 sm:h-6" />
+                </div>
+                <div className="flex-1 min-w-0">
+                  <h2 className="text-lg sm:text-xl font-semibold mb-1.5 sm:mb-2 group-hover:text-primary transition-colors text-balance">
+                    Create Your Exam
+                  </h2>
+                  <p className="text-sm sm:text-base text-muted-foreground text-pretty">
+                    Customize your exam with random questions
+                  </p>
+                </div>
+              </div>
+              <Button
+                size="lg"
+                className="w-full xs:w-auto h-12 sm:h-11"
+                onClick={(e) => {
+                  e.stopPropagation()
+                  onCreateCustomExam()
+                }}
+              >
+                Create
+                <ChevronRight className="ml-2 w-5 h-5" />
+              </Button>
+            </div>
+          </Card>
 
           <div className="grid gap-3 sm:gap-4 md:gap-6">
             {exams.map((exam) => (

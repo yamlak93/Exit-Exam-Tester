@@ -1,88 +1,61 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { Card } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import {
-  ChevronLeft,
-  ChevronRight,
-  CheckCircle2,
-  XCircle,
-  RotateCcw,
-  Home,
-  AlertCircle,
-  Sparkles,
-  Loader2,
-  ArrowLeft,
-} from "lucide-react"
-import { cn } from "@/lib/utils"
+import { Card } from "@/components/ui/card"
+import { ArrowLeft, ArrowRight, CheckCircle2, Circle, AlertCircle, Sparkles, Loader2 } from "lucide-react"
 import type { Exam } from "@/types/exam"
 
 interface ExamInterfaceProps {
   exam: Exam
   answerMode: "immediate" | "after"
-  onRestart: () => void
-  onBackToList?: () => void
+  onBackToList: () => void
 }
 
-type QuestionStatus = "unanswered" | "answered" | "skipped" | "current"
-
-export default function ExamInterface({ exam, answerMode, onRestart, onBackToList }: ExamInterfaceProps) {
+export default function ExamInterface({ exam, answerMode, onBackToList }: ExamInterfaceProps) {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0)
-  const [answers, setAnswers] = useState<{ [key: number]: string }>({})
-  const [skipped, setSkipped] = useState<{ [key: number]: boolean }>({})
-  const [showResults, setShowResults] = useState(false)
   const [selectedOption, setSelectedOption] = useState<string | null>(null)
+  const [answers, setAnswers] = useState<{ [key: number]: string }>({})
+  const [showResults, setShowResults] = useState(false)
+  const [skipped, setSkipped] = useState<{ [key: number]: boolean }>({})
   const [aiExplanations, setAiExplanations] = useState<{ [key: number]: string }>({})
-  const [loadingAiExplanation, setLoadingAiExplanation] = useState<number | null>(null) // Track which question is loading
-  const [aiError, setAiError] = useState<{ [key: number]: boolean }>({})
+  const [aiLoading, setAiLoading] = useState<{ [key: number]: boolean }>({})
+  const [aiError, setAiError] = useState<{ [key: number]: string }>({})
 
   const currentQuestion = exam.questions[currentQuestionIndex]
-  const totalQuestions = exam.questions.length
-  const isLastQuestion = currentQuestionIndex === totalQuestions - 1
-  const hasAnswer = answers[currentQuestionIndex] !== undefined
 
   const handleOptionSelect = (option: string) => {
-    if (!hasAnswer) {
-      setSelectedOption(option)
-      setAnswers((prev) => ({ ...prev, [currentQuestionIndex]: option }))
-      setSkipped((prev) => {
-        const newSkipped = { ...prev }
-        delete newSkipped[currentQuestionIndex]
-        return newSkipped
-      })
-      // Removed automatic AI fetch here
-    }
+    if (answers[currentQuestionIndex]) return
+
+    setSelectedOption(option)
+    setAnswers({ ...answers, [currentQuestionIndex]: option })
+    setSkipped((prev) => {
+      const newSkipped = { ...prev }
+      delete newSkipped[currentQuestionIndex]
+      return newSkipped
+    })
   }
 
   const handleSkip = () => {
-    if (!hasAnswer) {
-      setSkipped((prev) => ({ ...prev, [currentQuestionIndex]: true }))
+    setSkipped({ ...skipped, [currentQuestionIndex]: true })
+    if (currentQuestionIndex < exam.questions.length - 1) {
+      setCurrentQuestionIndex(currentQuestionIndex + 1)
+      setSelectedOption(answers[currentQuestionIndex + 1] || null)
     }
-    handleNext()
   }
 
   const handleNext = () => {
-    if (isLastQuestion) {
-      const answeredCount = Object.keys(answers).length
-      if (answeredCount === totalQuestions) {
-        setShowResults(true)
-      } else {
-        const firstUnanswered = exam.questions.findIndex((_: any, index: number) => answers[index] === undefined)
-        if (firstUnanswered !== -1) {
-          setCurrentQuestionIndex(firstUnanswered)
-          setSelectedOption(null)
-        }
-      }
-    } else {
-      setCurrentQuestionIndex((prev) => Math.min(prev + 1, totalQuestions - 1))
+    if (currentQuestionIndex < exam.questions.length - 1) {
+      setCurrentQuestionIndex(currentQuestionIndex + 1)
       setSelectedOption(answers[currentQuestionIndex + 1] || null)
     }
   }
 
   const handlePrevious = () => {
-    setCurrentQuestionIndex((prev) => Math.max(prev - 1, 0))
-    setSelectedOption(answers[currentQuestionIndex - 1] || null)
+    if (currentQuestionIndex > 0) {
+      setCurrentQuestionIndex(currentQuestionIndex - 1)
+      setSelectedOption(answers[currentQuestionIndex - 1] || null)
+    }
   }
 
   const handleQuestionClick = (index: number) => {
@@ -90,20 +63,33 @@ export default function ExamInterface({ exam, answerMode, onRestart, onBackToLis
     setSelectedOption(answers[index] || null)
   }
 
-  const getQuestionStatus = (index: number): QuestionStatus => {
-    if (index === currentQuestionIndex) return "current"
-    if (answers[index] !== undefined) return "answered"
-    if (skipped[index]) return "skipped"
-    return "unanswered"
-  }
+  const handleFinish = () => {
+    const unansweredQuestions = exam.questions.filter((_, index) => !answers[index] && !skipped[index])
 
-  const fetchAiExplanation = async (questionIndex: number, userAnswer: string) => {
-    if (aiExplanations[questionIndex] || loadingAiExplanation === questionIndex) {
+    if (unansweredQuestions.length > 0) {
+      const firstUnanswered = exam.questions.findIndex((_, index) => !answers[index] && !skipped[index])
+      setCurrentQuestionIndex(firstUnanswered)
+      setSelectedOption(answers[firstUnanswered] || null)
       return
     }
 
-    setLoadingAiExplanation(questionIndex)
-    setAiError((prev) => ({ ...prev, [questionIndex]: false }))
+    setShowResults(true)
+  }
+
+  const fetchAiExplanation = async (questionIndex: number) => {
+    // Check if explanation already exists
+    if (aiExplanations[questionIndex]) {
+      return
+    }
+
+    // Get the user's answer for this question
+    const userAnswer = answers[questionIndex]
+    if (!userAnswer) {
+      return
+    }
+
+    setAiLoading((prev) => ({ ...prev, [questionIndex]: true }))
+    setAiError((prev) => ({ ...prev, [questionIndex]: "" }))
 
     try {
       const question = exam.questions[questionIndex]
@@ -131,24 +117,42 @@ export default function ExamInterface({ exam, answerMode, onRestart, onBackToLis
       }))
     } catch (error) {
       console.error("[v0] Error fetching AI explanation:", error)
-      setAiError((prev) => ({ ...prev, [questionIndex]: true }))
+      setAiError((prev) => ({ ...prev, [questionIndex]: (error as Error).message }))
     } finally {
-      setLoadingAiExplanation(null)
+      setAiLoading((prev) => ({ ...prev, [questionIndex]: false }))
     }
+  }
+
+  const handleBackToList = () => {
+    setAiExplanations({})
+    setAiLoading({})
+    setAiError({})
+    onBackToList()
   }
 
   const calculateScore = () => {
     let correct = 0
-    exam.questions.forEach((question: any, index: number) => {
-      if (answers[index] === question.correctAnswer) {
+    Object.entries(answers).forEach(([index, answer]) => {
+      if (exam.questions[Number(index)].correctAnswer === answer) {
         correct++
       }
     })
     return {
       correct,
-      total: totalQuestions,
-      percentage: Math.round((correct / totalQuestions) * 100),
+      total: Object.keys(answers).length,
+      percentage: Math.round((correct / Object.keys(answers).length) * 100),
     }
+  }
+
+  const handleRestart = () => {
+    setCurrentQuestionIndex(0)
+    setSelectedOption(null)
+    setAnswers({})
+    setShowResults(false)
+    setSkipped({})
+    setAiExplanations({})
+    setAiLoading({})
+    setAiError({})
   }
 
   useEffect(() => {
@@ -156,395 +160,383 @@ export default function ExamInterface({ exam, answerMode, onRestart, onBackToLis
   }, [currentQuestionIndex, answers])
 
   if (showResults) {
-    // ... (results screen unchanged)
     const score = calculateScore()
-    return (
-      <div className="min-h-screen bg-gradient-to-b from-background to-muted/20">
-        <div className="container mx-auto px-3 sm:px-4 py-4 sm:py-8">
-          <div className="max-w-4xl mx-auto">
-            <Card className="p-4 sm:p-6 md:p-8 mb-4 sm:mb-6">
-              <div className="text-center mb-6 sm:mb-8">
-                <div
-                  className={cn(
-                    "inline-flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20 rounded-full mb-4 sm:mb-6",
-                    score.percentage >= 70
-                      ? "bg-green-100 text-green-600 dark:bg-green-900/30 dark:text-green-400"
-                      : "bg-red-100 text-red-600 dark:bg-red-900/30 dark:text-red-400",
-                  )}
-                >
-                  {score.percentage >= 70 ? (
-                    <CheckCircle2 className="w-8 h-8 sm:w-10 sm:h-10" />
-                  ) : (
-                    <XCircle className="w-8 h-8 sm:w-10 sm:h-10" />
-                  )}
-                </div>
-                <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4">Exam Complete!</h1>
-                <div className="text-4xl sm:text-5xl font-bold mb-2">{score.percentage}%</div>
-                <p className="text-muted-foreground text-base sm:text-lg">
-                  Correct Answers: {score.correct} / {score.total}
-                </p>
-              </div>
-              <div className="flex flex-col gap-3">
-                <Button size="lg" variant="outline" className="w-full bg-transparent h-12 sm:h-11" onClick={onRestart}>
-                  <Home className="mr-2 w-5 h-5" />
-                  Back to Exam List
-                </Button>
-                <Button
-                  size="lg"
-                  className="w-full h-12 sm:h-11"
-                  onClick={() => {
-                    setAnswers({})
-                    setSkipped({})
-                    setShowResults(false)
-                    setCurrentQuestionIndex(0)
-                    setSelectedOption(null)
-                    setAiExplanations({})
-                    setAiError({})
-                  }}
-                >
-                  <RotateCcw className="mr-2 w-5 h-5" />
-                  Restart Exam
-                </Button>
-              </div>
-            </Card>
+    const isPassed = score.percentage >= 50
 
-            <div className="space-y-4 sm:space-y-6">
-              <h2 className="text-xl sm:text-2xl font-bold px-1">Review Your Answers</h2>
-              {exam.questions.map((question: any, index: number) => {
+    return (
+      <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 p-3 sm:p-6">
+        <div className="max-w-4xl mx-auto space-y-4 sm:space-y-6">
+          <Card className="p-4 sm:p-8">
+            <div className="text-center space-y-3 sm:space-y-4 mb-6 sm:mb-8">
+              <h1 className="text-2xl sm:text-4xl font-bold text-balance">Exam Complete!</h1>
+              {exam.isCustom && (
+                <p className="text-xs sm:text-sm text-muted-foreground">
+                  Custom Exam: {exam.questions.length} random questions from {exam.name}
+                </p>
+              )}
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-6 text-base sm:text-lg">
+                <div>
+                  Score: <span className="font-bold text-lg sm:text-2xl">{score.percentage}%</span>
+                </div>
+                <div className="text-muted-foreground text-sm sm:text-base">
+                  {score.correct} / {score.total} correct
+                </div>
+              </div>
+              <div
+                className={`inline-flex items-center gap-2 px-4 sm:px-6 py-2 sm:py-3 rounded-full font-semibold text-sm sm:text-base ${
+                  isPassed
+                    ? "bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-300"
+                    : "bg-red-100 text-red-800 dark:bg-red-900/30 dark:text-red-300"
+                }`}
+              >
+                {isPassed ? (
+                  <>
+                    <CheckCircle2 className="w-5 h-5" />
+                    Passed
+                  </>
+                ) : (
+                  <>
+                    <AlertCircle className="w-5 h-5" />
+                    Failed
+                  </>
+                )}
+              </div>
+            </div>
+
+            <div className="space-y-3 sm:space-y-4 mb-6 sm:mb-8">
+              {exam.questions.map((question, index) => {
                 const userAnswer = answers[index]
                 const isCorrect = userAnswer === question.correctAnswer
+                const wasSkipped = skipped[index]
+
+                if (wasSkipped) return null
+
                 return (
-                  <Card key={index} className="p-4 sm:p-6">
-                    <div className="flex items-start gap-3 sm:gap-4 mb-4">
-                      <div
-                        className={cn(
-                          "flex items-center justify-center w-7 h-7 sm:w-8 sm:h-8 rounded-full flex-shrink-0 text-sm sm:text-base font-semibold",
-                          isCorrect
-                            ? "bg-green-100 text-green-600 dark:bg-green-900/30 dark:text-green-400"
-                            : "bg-red-100 text-red-600 dark:bg-red-900/30 dark:text-red-400",
+                  <Card
+                    key={index}
+                    className={`p-3 sm:p-4 border-l-4 ${
+                      isCorrect
+                        ? "border-l-green-500 bg-green-50/50 dark:bg-green-900/10"
+                        : "border-l-red-500 bg-red-50/50 dark:bg-red-900/10"
+                    }`}
+                  >
+                    <div className="space-y-2 sm:space-y-3">
+                      <div className="flex items-start gap-2 sm:gap-3">
+                        {isCorrect ? (
+                          <CheckCircle2 className="w-4 h-4 sm:w-5 sm:h-5 text-green-600 dark:text-green-400 mt-0.5 flex-shrink-0" />
+                        ) : (
+                          <AlertCircle className="w-4 h-4 sm:w-5 sm:h-5 text-red-600 dark:text-red-400 mt-0.5 flex-shrink-0" />
                         )}
-                      >
-                        {index + 1}
-                      </div>
-                      <div className="flex-1 min-w-0">
-                        <h3 className="font-semibold text-base sm:text-lg mb-3 sm:mb-4 leading-relaxed text-pretty">
-                          {question.questionText}
-                        </h3>
-                        <div className="space-y-2 mb-3 sm:mb-4">
-                          {question.options.map((option: string) => {
-                            const isUserAnswer = option === userAnswer
-                            const isCorrectAnswer = option === question.correctAnswer
-                            return (
-                              <div
-                                key={option}
-                                className={cn(
-                                  "p-3 sm:p-3.5 rounded-lg border-2 transition-colors",
-                                  isCorrectAnswer &&
-                                    "bg-green-50 border-green-500 dark:bg-green-900/20 dark:border-green-500",
-                                  isUserAnswer &&
-                                    !isCorrectAnswer &&
-                                    "bg-red-50 border-red-500 dark:bg-red-900/20 dark:border-red-500",
-                                  !isUserAnswer && !isCorrectAnswer && "border-border",
-                                )}
+                        <div className="flex-1 min-w-0">
+                          <p className="font-medium text-sm sm:text-base text-balance mb-2 sm:mb-3">
+                            {index + 1}. {question.questionText}
+                          </p>
+                          <div className="space-y-1.5 sm:space-y-2 text-xs sm:text-sm">
+                            <p>
+                              <span className="font-semibold">Your answer:</span>{" "}
+                              <span
+                                className={
+                                  isCorrect ? "text-green-700 dark:text-green-300" : "text-red-700 dark:text-red-300"
+                                }
                               >
-                                <div className="flex items-start justify-between gap-2">
-                                  <span className="leading-relaxed text-sm sm:text-base text-pretty flex-1">
-                                    {option}
-                                  </span>
-                                  <span className="flex-shrink-0">
-                                    {isCorrectAnswer && (
-                                      <CheckCircle2 className="w-5 h-5 text-green-600 dark:text-green-400" />
-                                    )}
-                                    {isUserAnswer && !isCorrectAnswer && (
-                                      <XCircle className="w-5 h-5 text-red-600 dark:text-red-400" />
-                                    )}
-                                  </span>
-                                </div>
+                                {userAnswer}
+                              </span>
+                            </p>
+                            {!isCorrect && (
+                              <p>
+                                <span className="font-semibold">Correct answer:</span>{" "}
+                                <span className="text-green-700 dark:text-green-300">{question.correctAnswer}</span>
+                              </p>
+                            )}
+                            {question.explanation && (
+                              <p className="text-muted-foreground text-pretty mt-2 sm:mt-3">
+                                <span className="font-semibold text-foreground">Explanation:</span>{" "}
+                                {question.explanation}
+                              </p>
+                            )}
+                          </div>
+
+                          {!aiExplanations[index] && !aiLoading[index] && (
+                            <Button
+                              size="sm"
+                              variant="outline"
+                              onClick={() => fetchAiExplanation(index)}
+                              className="mt-3 h-8 sm:h-9 text-xs sm:text-sm bg-gradient-to-r from-purple-50 to-blue-50 dark:from-purple-900/20 dark:to-blue-900/20 border-purple-200 dark:border-purple-800 hover:from-purple-100 hover:to-blue-100 dark:hover:from-purple-900/30 dark:hover:to-blue-900/30"
+                            >
+                              <Sparkles className="w-3 h-3 sm:w-4 sm:h-4 mr-1.5" />
+                              Describe with AI
+                            </Button>
+                          )}
+
+                          {aiLoading[index] && (
+                            <div className="mt-3 flex items-center gap-2 text-purple-700 dark:text-purple-300">
+                              <Loader2 className="w-4 h-4 animate-spin" />
+                              <span className="text-xs sm:text-sm">Describing...</span>
+                            </div>
+                          )}
+
+                          {aiExplanations[index] && (
+                            <div className="mt-3 bg-gradient-to-br from-purple-50 to-blue-50 dark:from-purple-900/20 dark:to-blue-900/20 p-3 sm:p-4 rounded-lg border border-purple-200 dark:border-purple-800">
+                              <div className="flex items-center gap-2 mb-2">
+                                <Sparkles className="w-4 h-4 text-purple-600 dark:text-purple-400" />
+                                <p className="text-xs sm:text-sm font-semibold text-purple-900 dark:text-purple-100">
+                                  AI Detailed Explanation
+                                </p>
                               </div>
-                            )
-                          })}
-                        </div>
-                        <div className="bg-muted/50 p-3 sm:p-4 rounded-lg mb-3">
-                          <p className="text-xs sm:text-sm font-semibold mb-1">Explanation:</p>
-                          <p className="text-xs sm:text-sm leading-relaxed text-pretty">{question.explanation}</p>
-                        </div>
-                        {aiExplanations[index] && (
-                          <div className="bg-gradient-to-br from-purple-50 to-blue-50 dark:from-purple-900/20 dark:to-blue-900/20 p-3 sm:p-4 rounded-lg border border-purple-200 dark:border-purple-800">
-                            <div className="flex items-center gap-2 mb-2">
-                              <Sparkles className="w-4 h-4 text-purple-600 dark:text-purple-400" />
-                              <p className="text-xs sm:text-sm font-semibold text-purple-900 dark:text-purple-100">
-                                AI Detailed Explanation
+                              <p className="text-xs sm:text-sm leading-relaxed text-pretty text-purple-900/80 dark:text-purple-100/80 whitespace-pre-wrap">
+                                {aiExplanations[index]}
                               </p>
                             </div>
-                            <p className="text-xs sm:text-sm leading-relaxed text-pretty text-purple-900/80 dark:text-purple-100/80 whitespace-pre-wrap">
-                              {aiExplanations[index]}
-                            </p>
-                          </div>
-                        )}
+                          )}
+
+                          {aiError[index] && !aiExplanations[index] && (
+                            <div className="mt-3 text-xs sm:text-sm text-purple-700 dark:text-purple-300">
+                              <p className="mb-2">Unable to generate AI explanation at this time.</p>
+                              <Button
+                                size="sm"
+                                variant="outline"
+                                onClick={() => fetchAiExplanation(index)}
+                                className="h-8 text-xs bg-white/50 dark:bg-black/20"
+                              >
+                                Try Again
+                              </Button>
+                            </div>
+                          )}
+                        </div>
                       </div>
                     </div>
                   </Card>
                 )
               })}
             </div>
-          </div>
+
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
+              <Button
+                onClick={handleRestart}
+                className="flex-1 h-11 sm:h-12 text-sm sm:text-base bg-transparent"
+                variant="outline"
+              >
+                Restart Exam
+              </Button>
+              <Button onClick={handleBackToList} className="flex-1 h-11 sm:h-12 text-sm sm:text-base">
+                Back to Exam List
+              </Button>
+            </div>
+          </Card>
         </div>
       </div>
     )
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-background to-muted/20">
-      <div className="container mx-auto px-3 sm:px-4 py-4 sm:py-6 md:py-8">
-        <div className="max-w-6xl mx-auto">
-          <div className="mb-4 sm:mb-6">
-            <Button variant="ghost" onClick={onBackToList || onRestart} className="gap-2 hover:bg-muted">
-              <ArrowLeft className="h-4 w-4" />
-              Back to Exam List
-            </Button>
-          </div>
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 p-3 sm:p-6">
+      <div className="max-w-6xl mx-auto">
+        <div className="mb-4 sm:mb-6">
+          <Button variant="ghost" onClick={handleBackToList} className="gap-2 h-9 sm:h-10 text-sm sm:text-base">
+            <ArrowLeft className="w-4 h-4" />
+            Back to Exam List
+          </Button>
+        </div>
 
-          <div className="mb-4 sm:mb-6 px-1">
-            <h1 className="text-xl sm:text-2xl md:text-3xl font-bold mb-1 sm:mb-2 text-balance">{exam.examName}</h1>
-            <p className="text-sm sm:text-base text-muted-foreground">
-              Question {currentQuestionIndex + 1} of {totalQuestions}
+        <Card className="p-4 sm:p-6 mb-4 sm:mb-6">
+          <div className="space-y-2">
+            <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-balance">{exam.name}</h1>
+            {exam.isCustom && (
+              <p className="text-xs sm:text-sm text-muted-foreground">
+                Custom Exam: {exam.questions.length} random questions
+              </p>
+            )}
+            <p className="text-xs sm:text-sm text-muted-foreground">
+              Question {currentQuestionIndex + 1} of {exam.questions.length} • {Object.keys(answers).length} answered
             </p>
           </div>
+        </Card>
 
-          <div className="space-y-4 sm:space-y-6">
-            <Card className="p-4 sm:p-6 md:p-8">
-              <div className="mb-4 sm:mb-6">
-                <div className="flex items-center justify-between mb-3 sm:mb-4">
-                  <span className="text-xs sm:text-sm font-medium text-muted-foreground">
-                    Question {currentQuestion.questionNumber}
-                  </span>
-                </div>
-                <h2 className="text-lg sm:text-xl md:text-2xl font-semibold leading-relaxed text-pretty">
-                  {currentQuestion.questionText}
+        <div className="flex flex-col gap-4 sm:gap-6">
+          <Card className="p-4 sm:p-6 flex-1">
+            <div className="space-y-4 sm:space-y-6">
+              <div>
+                <h2 className="text-base sm:text-lg md:text-xl font-semibold mb-3 sm:mb-4 text-balance leading-relaxed">
+                  {currentQuestionIndex + 1}. {currentQuestion.questionText}
                 </h2>
+
+                <div className="space-y-2 sm:space-y-3">
+                  {currentQuestion.options.map((option, index) => {
+                    const isSelected = selectedOption === option
+                    const isAnswered = !!answers[currentQuestionIndex]
+                    const isCorrect = option === currentQuestion.correctAnswer
+                    const showFeedback = isAnswered && answerMode === "immediate"
+
+                    return (
+                      <button
+                        key={index}
+                        onClick={() => handleOptionSelect(option)}
+                        disabled={isAnswered}
+                        className={`w-full text-left p-3 sm:p-4 rounded-lg border-2 transition-all touch-manipulation min-h-[44px] ${
+                          showFeedback
+                            ? isCorrect
+                              ? "border-green-500 bg-green-50 dark:bg-green-900/20"
+                              : isSelected
+                                ? "border-red-500 bg-red-50 dark:bg-red-900/20"
+                                : "border-gray-200 dark:border-gray-700 opacity-50"
+                            : isSelected
+                              ? "border-blue-500 bg-blue-50 dark:bg-blue-900/20"
+                              : "border-gray-200 dark:border-gray-700 hover:border-blue-300 dark:hover:border-blue-700"
+                        } ${isAnswered ? "cursor-not-allowed" : "cursor-pointer"}`}
+                      >
+                        <span className="text-sm sm:text-base text-pretty">{option}</span>
+                      </button>
+                    )
+                  })}
+                </div>
               </div>
 
-              <div className="space-y-2.5 sm:space-y-3 mb-4 sm:mb-6">
-                {currentQuestion.options.map((option: string) => {
-                  const isSelected = selectedOption === option
-                  const isAnswered = hasAnswer
-                  const isCorrect = option === currentQuestion.correctAnswer
-                  const showFeedback = isAnswered && answerMode === "immediate"
+              {answers[currentQuestionIndex] && answerMode === "immediate" && (
+                <div className="space-y-3 sm:space-y-4">
+                  <Card
+                    className={`p-3 sm:p-4 ${
+                      selectedOption === currentQuestion.correctAnswer
+                        ? "bg-green-50 dark:bg-green-900/20 border-green-200 dark:border-green-800"
+                        : "bg-red-50 dark:bg-red-900/20 border-red-200 dark:border-red-800"
+                    }`}
+                  >
+                    <p className="font-semibold text-sm sm:text-base mb-1.5 sm:mb-2">
+                      {selectedOption === currentQuestion.correctAnswer ? "Correct!" : "Incorrect"}
+                    </p>
+                    {selectedOption !== currentQuestion.correctAnswer && (
+                      <p className="text-xs sm:text-sm mb-2">
+                        The correct answer is: <span className="font-semibold">{currentQuestion.correctAnswer}</span>
+                      </p>
+                    )}
+                    {currentQuestion.explanation && (
+                      <p className="text-xs sm:text-sm text-pretty text-muted-foreground">
+                        {currentQuestion.explanation}
+                      </p>
+                    )}
+                  </Card>
 
-                  return (
-                    <button
-                      key={option}
-                      onClick={() => handleOptionSelect(option)}
-                      disabled={isAnswered}
-                      className={cn(
-                        "w-full p-3.5 sm:p-4 rounded-lg border-2 text-left transition-all min-h-[52px] sm:min-h-[56px]",
-                        "active:scale-[0.98] disabled:cursor-not-allowed",
-                        !isAnswered && isSelected && "border-primary bg-primary/5",
-                        !isAnswered && !isSelected && "border-border hover:border-primary/50 hover:bg-muted/30",
-                        showFeedback && isSelected && isCorrect && "border-green-500 bg-green-50 dark:bg-green-900/20",
-                        showFeedback && isSelected && !isCorrect && "border-red-500 bg-red-50 dark:bg-red-900/20",
-                        showFeedback && !isSelected && isCorrect && "border-green-500 bg-green-50 dark:bg-green-900/20",
-                        showFeedback && !isSelected && !isCorrect && "border-border opacity-60",
-                        isAnswered && !showFeedback && isSelected && "border-primary bg-primary/5",
-                        isAnswered && !showFeedback && !isSelected && "border-border opacity-60",
-                      )}
-                    >
-                      <div className="flex items-center justify-between gap-3">
-                        <span className="leading-relaxed text-sm sm:text-base text-pretty flex-1">{option}</span>
-                        {showFeedback && isCorrect && (
-                          <CheckCircle2 className="w-5 h-5 text-green-600 dark:text-green-400 flex-shrink-0" />
-                        )}
-                        {showFeedback && isSelected && !isCorrect && (
-                          <XCircle className="w-5 h-5 text-red-600 dark:text-red-400 flex-shrink-0" />
-                        )}
-                      </div>
-                    </button>
-                  )
-                })}
-              </div>
+                  <div className="space-y-3">
+                    {!aiExplanations[currentQuestionIndex] && !aiLoading[currentQuestionIndex] && (
+                      <Button
+                        size="sm"
+                        variant="outline"
+                        onClick={() => fetchAiExplanation(currentQuestionIndex)}
+                        className="w-full sm:w-auto h-9 sm:h-10 text-xs sm:text-sm bg-gradient-to-r from-purple-50 to-blue-50 dark:from-purple-900/20 dark:to-blue-900/20 border-purple-200 dark:border-purple-800 hover:from-purple-100 hover:to-blue-100 dark:hover:from-purple-900/30 dark:hover:to-blue-900/30"
+                      >
+                        <Sparkles className="w-4 h-4 mr-2" />
+                        Describe with AI
+                      </Button>
+                    )}
 
-              {/* Basic feedback when answered (both modes) */}
-              {hasAnswer && (
-                <>
-                  {(answerMode === "immediate") && (
-                    <Card className="p-3 sm:p-4 bg-muted/50 border-0 mb-3">
-                      <div className="flex items-start gap-2 mb-2">
-                        {selectedOption === currentQuestion.correctAnswer ? (
-                          <CheckCircle2 className="w-5 h-5 text-green-600 dark:text-green-400 flex-shrink-0 mt-0.5" />
-                        ) : (
-                          <XCircle className="w-5 h-5 text-red-600 dark:text-red-400 flex-shrink-0 mt-0.5" />
-                        )}
-                        <div className="flex-1 min-w-0">
-                          <p className="text-xs sm:text-sm font-semibold mb-1">
-                            {selectedOption === currentQuestion.correctAnswer ? "Correct!" : "Incorrect"}
-                          </p>
-                          <p className="text-xs sm:text-sm font-medium mb-2">
-                            Correct Answer: {currentQuestion.correctAnswer}
-                          </p>
-                          <p className="text-xs sm:text-sm leading-relaxed text-muted-foreground text-pretty">
-                            {currentQuestion.explanation}
+                    {aiLoading[currentQuestionIndex] && (
+                      <Card className="p-3 sm:p-4 bg-gradient-to-br from-purple-50 to-blue-50 dark:from-purple-900/20 dark:to-blue-900/20 border-purple-200 dark:border-purple-800">
+                        <div className="flex items-center gap-2">
+                          <Loader2 className="w-4 h-4 animate-spin text-purple-600 dark:text-purple-400" />
+                          <p className="text-xs sm:text-sm font-semibold text-purple-900 dark:text-purple-100">
+                            Describing...
                           </p>
                         </div>
-                      </div>
-                    </Card>
-                  )}
+                      </Card>
+                    )}
 
-                  {answerMode === "after" && (
-                    <Card className="p-3 sm:p-4 bg-blue-50 dark:bg-blue-900/20 border-blue-200 dark:border-blue-800 mb-3">
-                      <div className="flex items-start gap-2">
-                        <AlertCircle className="w-5 h-5 text-blue-600 dark:text-blue-400 flex-shrink-0 mt-0.5" />
-                        <p className="text-xs sm:text-sm text-blue-900 dark:text-blue-100 leading-relaxed">
-                          Answer recorded. You'll see the results after completing all questions.
-                        </p>
-                      </div>
-                    </Card>
-                  )}
-
-                  {/* AI Explanation Section - Now with Button */}
-                  <Card className="p-3 sm:p-4 bg-gradient-to-br from-purple-50 to-blue-50 dark:from-purple-900/20 dark:to-blue-900/20 border-purple-200 dark:border-purple-800">
-                    <div className="flex items-start gap-2">
-                      <Sparkles className="w-5 h-5 text-purple-600 dark:text-purple-400 flex-shrink-0 mt-0.5" />
-                      <div className="flex-1 min-w-0">
-                        <p className="text-xs sm:text-sm font-semibold mb-3 text-purple-900 dark:text-purple-100">
-                          AI Detailed Explanation
-                        </p>
-
-                        {/* Show button if not yet generated */}
-                        {!aiExplanations[currentQuestionIndex] && !aiError[currentQuestionIndex] && (
-                          <Button
-                            size="sm"
-                            onClick={() => fetchAiExplanation(currentQuestionIndex, selectedOption!)}
-                            disabled={loadingAiExplanation === currentQuestionIndex}
-                            className="mb-2"
-                          >
-                            {loadingAiExplanation === currentQuestionIndex ? (
-                              <>
-                                <Loader2 className="w-4 h-4 mr-2 animate-spin" />
-                                Generating...
-                              </>
-                            ) : (
-                              <>
-                                <Sparkles className="w-4 h-4 mr-2" />
-                                Explain with AI
-                              </>
-                            )}
-                          </Button>
-                        )}
-
-                        {/* Show generated explanation */}
-                        {aiExplanations[currentQuestionIndex] && (
-                          <p className="text-xs sm:text-sm leading-relaxed text-pretty text-purple-900/80 dark:text-purple-100/80 whitespace-pre-wrap">
-                            {aiExplanations[currentQuestionIndex]}
+                    {aiExplanations[currentQuestionIndex] && (
+                      <Card className="p-3 sm:p-4 bg-gradient-to-br from-purple-50 to-blue-50 dark:from-purple-900/20 dark:to-blue-900/20 border-purple-200 dark:border-purple-800">
+                        <div className="flex items-center gap-2 mb-2">
+                          <Sparkles className="w-4 h-4 text-purple-600 dark:text-purple-400" />
+                          <p className="text-xs sm:text-sm font-semibold text-purple-900 dark:text-purple-100">
+                            AI Detailed Explanation
                           </p>
-                        )}
+                        </div>
+                        <p className="text-xs sm:text-sm leading-relaxed text-pretty text-purple-900/80 dark:text-purple-100/80 whitespace-pre-wrap">
+                          {aiExplanations[currentQuestionIndex]}
+                        </p>
+                      </Card>
+                    )}
 
-                        {/* Show error with retry */}
-                        {aiError[currentQuestionIndex] && !aiExplanations[currentQuestionIndex] && (
-                          <div className="text-xs sm:text-sm text-purple-700 dark:text-purple-300">
-                            <p className="mb-2">Unable to generate AI explanation at this time.</p>
-                            <Button
-                              size="sm"
-                              variant="outline"
-                              onClick={() => fetchAiExplanation(currentQuestionIndex, selectedOption!)}
-                              className="h-8 text-xs bg-white/50 dark:bg-black/20"
-                            >
-                              Try Again
-                            </Button>
-                          </div>
-                        )}
-                      </div>
-                    </div>
-                  </Card>
-                </>
+                    {aiError[currentQuestionIndex] && !aiExplanations[currentQuestionIndex] && (
+                      <Card className="p-3 sm:p-4 bg-red-50 dark:bg-red-900/20 border-red-200 dark:border-red-800">
+                        <p className="text-xs sm:text-sm text-red-900 dark:text-red-100 mb-2">
+                          Unable to generate AI explanation at this time.
+                        </p>
+                        <Button
+                          size="sm"
+                          variant="outline"
+                          onClick={() => fetchAiExplanation(currentQuestionIndex)}
+                          className="h-8 text-xs"
+                        >
+                          Try Again
+                        </Button>
+                      </Card>
+                    )}
+                  </div>
+                </div>
               )}
-            </Card>
 
-            {/* Navigation buttons unchanged */}
-            <div className="flex flex-col gap-2.5 sm:gap-3 px-1">
-              <div className="grid grid-cols-2 gap-2.5 sm:gap-3">
+              <div className="flex flex-col sm:flex-row gap-2 sm:gap-3">
+                {!answers[currentQuestionIndex] && (
+                  <Button
+                    onClick={handleSkip}
+                    variant="outline"
+                    className="flex-1 h-10 sm:h-11 text-sm sm:text-base bg-transparent"
+                  >
+                    Skip
+                  </Button>
+                )}
                 <Button
-                  variant="outline"
-                  size="lg"
                   onClick={handlePrevious}
                   disabled={currentQuestionIndex === 0}
-                  className="bg-transparent h-12 sm:h-11"
-                >
-                  <ChevronLeft className="mr-1 sm:mr-2 w-5 h-5" />
-                  <span className="text-sm sm:text-base">Previous</span>
-                </Button>
-                <Button size="lg" onClick={handleNext} className="h-12 sm:h-11">
-                  <span className="text-sm sm:text-base">{isLastQuestion ? "Finish" : "Next"}</span>
-                  <ChevronRight className="ml-1 sm:ml-2 w-5 h-5" />
-                </Button>
-              </div>
-              {!hasAnswer && (
-                <Button
                   variant="outline"
-                  size="lg"
-                  onClick={handleSkip}
-                  className="w-full bg-transparent border-amber-300 text-amber-700 hover:bg-amber-50 dark:border-amber-700 dark:text-amber-400 dark:hover:bg-amber-900/20 h-12 sm:h-11"
+                  className="flex-1 h-10 sm:h-11 text-sm sm:text-base bg-transparent"
                 >
-                  Skip Question
+                  <ArrowLeft className="w-4 h-4 mr-2" />
+                  Previous
                 </Button>
-              )}
+                {currentQuestionIndex < exam.questions.length - 1 ? (
+                  <Button onClick={handleNext} className="flex-1 h-10 sm:h-11 text-sm sm:text-base">
+                    Next
+                    <ArrowRight className="w-4 h-4 ml-2" />
+                  </Button>
+                ) : (
+                  <Button onClick={handleFinish} className="flex-1 h-10 sm:h-11 text-sm sm:text-base">
+                    Finish Exam
+                  </Button>
+                )}
+              </div>
             </div>
+          </Card>
 
-            {/* Question navigator unchanged */}
-            <Card className="p-4 sm:p-5">
-              <div className="flex items-center justify-between mb-3 sm:mb-4">
-                <h3 className="font-semibold text-base sm:text-lg">Questions</h3>
-                <p className="text-xs sm:text-sm text-muted-foreground">
-                  {Object.keys(answers).length} / {totalQuestions} Answered
-                </p>
-              </div>
+          <Card className="p-3 sm:p-4">
+            <h3 className="text-xs sm:text-sm font-semibold mb-2 sm:mb-3">Questions</h3>
+            <div className="grid grid-cols-5 sm:grid-cols-8 md:grid-cols-10 gap-1.5 sm:gap-2">
+              {exam.questions.map((_, index) => {
+                const isAnswered = !!answers[index]
+                const isSkipped = skipped[index]
+                const isCurrent = index === currentQuestionIndex
 
-              <div className="grid grid-cols-6 sm:grid-cols-8 md:grid-cols-10 gap-2 sm:gap-2.5 mb-4">
-                {exam.questions.map((_: any, index: number) => {
-                  const status = getQuestionStatus(index)
-                  return (
-                    <button
-                      key={index}
-                      onClick={() => handleQuestionClick(index)}
-                      className={cn(
-                        "relative w-full aspect-square rounded-lg font-medium transition-all text-sm sm:text-base min-h-[44px]",
-                        status === "current" && "bg-primary text-primary-foreground ring-2 ring-primary ring-offset-2",
-                        status === "answered" &&
-                          "bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400 active:bg-green-200 dark:active:bg-green-900/40",
-                        status === "skipped" &&
-                          "bg-amber-100 text-amber-700 dark:bg-amber-900/30 dark:text-amber-400 active:bg-amber-200 dark:active:bg-amber-900/40",
-                        status === "unanswered" &&
-                          "bg-background border-2 border-border active:border-primary/50 active:bg-muted/50",
-                      )}
-                    >
-                      {index + 1}
-                      {status === "skipped" && (
-                        <span className="absolute top-0.5 right-0.5 w-1.5 h-1.5 rounded-full bg-amber-600 dark:bg-amber-400" />
-                      )}
-                    </button>
-                  )
-                })}
-              </div>
-
-              <div className="grid grid-cols-2 gap-2 text-xs sm:text-sm">
-                <div className="flex items-center gap-2">
-                  <div className="w-5 h-5 rounded bg-primary flex-shrink-0"></div>
-                  <span className="text-muted-foreground">Current</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <div className="w-5 h-5 rounded bg-green-100 dark:bg-green-900/30 flex-shrink-0"></div>
-                  <span className="text-muted-foreground">Answered</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <div className="w-5 h-5 rounded bg-amber-100 dark:bg-amber-900/30 flex-shrink-0"></div>
-                  <span className="text-muted-foreground">Skipped</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <div className="w-5 h-5 rounded border-2 border-border flex-shrink-0"></div>
-                  <span className="text-muted-foreground">Unanswered</span>
-                </div>
-              </div>
-            </Card>
-          </div>
+                return (
+                  <button
+                    key={index}
+                    onClick={() => handleQuestionClick(index)}
+                    className={`aspect-square min-h-[44px] sm:min-h-0 rounded-lg border-2 flex items-center justify-center text-xs sm:text-sm font-medium transition-all touch-manipulation ${
+                      isCurrent
+                        ? "border-blue-500 bg-blue-500 text-white"
+                        : isAnswered
+                          ? "border-green-500 bg-green-50 dark:bg-green-900/20 text-green-700 dark:text-green-300"
+                          : isSkipped
+                            ? "border-amber-500 bg-amber-50 dark:bg-amber-900/20 text-amber-700 dark:text-amber-300"
+                            : "border-gray-200 dark:border-gray-700 hover:border-gray-300 dark:hover:border-gray-600"
+                    }`}
+                  >
+                    {isAnswered ? (
+                      <CheckCircle2 className="w-3 h-3 sm:w-4 sm:h-4" />
+                    ) : (
+                      <Circle className="w-3 h-3 sm:w-4 sm:h-4" />
+                    )}
+                  </button>
+                )
+              })}
+            </div>
+          </Card>
         </div>
       </div>
     </div>
