@@ -77,16 +77,10 @@ export default function ExamInterface({ exam, answerMode, onBackToList }: ExamIn
   }
 
   const fetchAiExplanation = async (questionIndex: number) => {
-    // Check if explanation already exists
-    if (aiExplanations[questionIndex]) {
-      return
-    }
+    if (aiExplanations[questionIndex]) return
 
-    // Get the user's answer for this question
     const userAnswer = answers[questionIndex]
-    if (!userAnswer) {
-      return
-    }
+    if (!userAnswer) return
 
     setAiLoading((prev) => ({ ...prev, [questionIndex]: true }))
     setAiError((prev) => ({ ...prev, [questionIndex]: "" }))
@@ -95,26 +89,19 @@ export default function ExamInterface({ exam, answerMode, onBackToList }: ExamIn
       const question = exam.questions[questionIndex]
       const response = await fetch("/api/ai-explanation", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           question: question.questionText,
           options: question.options,
           correctAnswer: question.correctAnswer,
-          userAnswer: userAnswer,
+          userAnswer,
         }),
       })
 
-      if (!response.ok) {
-        throw new Error("Failed to fetch AI explanation")
-      }
+      if (!response.ok) throw new Error("Failed to fetch AI explanation")
 
       const data = await response.json()
-      setAiExplanations((prev) => ({
-        ...prev,
-        [questionIndex]: data.explanation,
-      }))
+      setAiExplanations((prev) => ({ ...prev, [questionIndex]: data.explanation }))
     } catch (error) {
       console.error("[v0] Error fetching AI explanation:", error)
       setAiError((prev) => ({ ...prev, [questionIndex]: (error as Error).message }))
@@ -133,9 +120,7 @@ export default function ExamInterface({ exam, answerMode, onBackToList }: ExamIn
   const calculateScore = () => {
     let correct = 0
     Object.entries(answers).forEach(([index, answer]) => {
-      if (exam.questions[Number(index)].correctAnswer === answer) {
-        correct++
-      }
+      if (exam.questions[Number(index)].correctAnswer === answer) correct++
     })
     return {
       correct,
@@ -331,8 +316,9 @@ export default function ExamInterface({ exam, answerMode, onBackToList }: ExamIn
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 p-3 sm:p-6">
       <div className="max-w-6xl mx-auto">
+        {/* Added Back button at the very top */}
         <div className="mb-4 sm:mb-6">
-          <Button variant="ghost" onClick={handleBackToList} className="gap-2 h-9 sm:h-10 text-sm sm:text-base">
+          <Button variant="ghost" onClick={onBackToList} className="gap-2 h-9 sm:h-10 text-sm sm:text-base">
             <ArrowLeft className="w-4 h-4" />
             Back to Exam List
           </Button>
@@ -505,33 +491,45 @@ export default function ExamInterface({ exam, answerMode, onBackToList }: ExamIn
             </div>
           </Card>
 
+          {/* ────────────────────────────────────────────────
+              FIXED NAVIGATION GRID (only this part changed)
+          ──────────────────────────────────────────────── */}
           <Card className="p-3 sm:p-4">
-            <h3 className="text-xs sm:text-sm font-semibold mb-2 sm:mb-3">Questions</h3>
-            <div className="grid grid-cols-5 sm:grid-cols-8 md:grid-cols-10 gap-1.5 sm:gap-2">
-              {exam.questions.map((_, index) => {
+            <h3 className="text-xs sm:text-sm font-semibold mb-2 sm:mb-3">Questions Navigation</h3>
+            <div className="grid grid-cols-5 sm:grid-cols-8 md:grid-cols-10 lg:grid-cols-12 gap-1.5 sm:gap-2">
+              {exam.questions.map((question, index) => {
+                const isCurrent = index === currentQuestionIndex
                 const isAnswered = !!answers[index]
                 const isSkipped = skipped[index]
-                const isCurrent = index === currentQuestionIndex
+                const userAnswer = answers[index]
+                const isCorrect = isAnswered && userAnswer === question.correctAnswer
+                const isWrong = isAnswered && userAnswer !== question.correctAnswer
+
+                let bgColor = "bg-gray-100 dark:bg-gray-800 border-gray-200 dark:border-gray-700 hover:border-gray-300 dark:hover:border-gray-600"
+                let textColor = "text-gray-700 dark:text-gray-300"
+
+                if (isCurrent) {
+                  bgColor = "bg-blue-500 border-blue-600 text-white"
+                  textColor = "text-white"
+                } else if (isWrong) {
+                  bgColor = "bg-red-100 dark:bg-red-900/30 border-red-500 dark:border-red-600"
+                  textColor = "text-red-700 dark:text-red-300"
+                } else if (isCorrect) {
+                  bgColor = "bg-green-100 dark:bg-green-900/30 border-green-500 dark:border-green-600"
+                  textColor = "text-green-700 dark:text-green-300"
+                } else if (isSkipped) {
+                  bgColor = "bg-amber-100 dark:bg-amber-900/30 border-amber-500 dark:border-amber-600"
+                  textColor = "text-amber-700 dark:text-amber-300"
+                }
 
                 return (
                   <button
                     key={index}
                     onClick={() => handleQuestionClick(index)}
-                    className={`aspect-square min-h-[44px] sm:min-h-0 rounded-lg border-2 flex items-center justify-center text-xs sm:text-sm font-medium transition-all touch-manipulation ${
-                      isCurrent
-                        ? "border-blue-500 bg-blue-500 text-white"
-                        : isAnswered
-                          ? "border-green-500 bg-green-50 dark:bg-green-900/20 text-green-700 dark:text-green-300"
-                          : isSkipped
-                            ? "border-amber-500 bg-amber-50 dark:bg-amber-900/20 text-amber-700 dark:text-amber-300"
-                            : "border-gray-200 dark:border-gray-700 hover:border-gray-300 dark:hover:border-gray-600"
-                    }`}
+                    className={`aspect-square rounded-lg border-2 flex items-center justify-center text-xs sm:text-sm font-medium transition-all touch-manipulation ${bgColor} ${textColor}`}
+                    title={`Q${index + 1}${isCurrent ? " (current)" : ""}${isCorrect ? " - Correct" : isWrong ? " - Wrong" : isSkipped ? " - Skipped" : ""}`}
                   >
-                    {isAnswered ? (
-                      <CheckCircle2 className="w-3 h-3 sm:w-4 sm:h-4" />
-                    ) : (
-                      <Circle className="w-3 h-3 sm:w-4 sm:h-4" />
-                    )}
+                    {index + 1}
                   </button>
                 )
               })}
