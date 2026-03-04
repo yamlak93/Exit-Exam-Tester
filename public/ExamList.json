@@ -31946,6 +31946,1212 @@
       "explanation": "One-time pad is information-theoretically secure when used correctly; Vigenère is polyalphabetic but breakable."
     }
   ]
+    },
+    {
+  "id": "CS-Exit-Exam-2018",
+  "examName": "Computer Science Exit Exam 2018",
+  "questions": [
+    {
+      "questionNumber": 1,
+      "questionText": "Consider nav ul { list-style-type: none; margin: 0; padding: 0; } What problem does this solve when creating a navigation bar?",
+      "options": [
+        "a. Removes bullet points and default spacing, allowing custom layout",
+        "b. Aligns the navbar to the right of the page",
+        "c. Adds hover effects to list items",
+        "d. Converts the list into a dropdown menu"
+      ],
+      "correctAnswer": "a. Removes bullet points and default spacing, allowing custom layout",
+      "explanation": "The CSS rule removes default bullet points (list-style-type: none) and default browser spacing (margin and padding set to 0). This is the standard first step when building a custom horizontal or vertical navigation bar. Options B, C, and D are unrelated to this specific rule."
+    },
+    {
+      "questionNumber": 2,
+      "questionText": "Which AI approach most directly supports understanding biological intelligence behavior as a scientific goal?",
+      "options": [
+        "a. Weak AI",
+        "b. Applied AI",
+        "c. Cognitive AI",
+        "d. Strong AI"
+      ],
+      "correctAnswer": "c. Cognitive AI",
+      "explanation": "Cognitive AI focuses on understanding and modeling human-like intelligence processes (how the mind works), which aligns directly with studying biological intelligence as a scientific goal. Weak AI is task-specific, Applied AI is practical use, and Strong AI is about achieving human-level consciousness."
+    },
+    {
+      "questionNumber": 3,
+      "questionText": "In client-server database architecture, what is the primary role of the server?",
+      "options": [
+        "a. Provide the GUI for end users",
+        "b. Initiate all network connections and poll clients for updates",
+        "c. Store and manage shared data, enforce ACID properties, and process client requests",
+        "d. Cache all user sessions locally for offline access"
+      ],
+      "correctAnswer": "c. Store and manage shared data, enforce ACID properties, and process client requests",
+      "explanation": "In client-server architecture, the database server is responsible for storing data, enforcing ACID properties, handling queries, and managing concurrency. The client handles the GUI and user interaction."
+    },
+    {
+      "questionNumber": 4,
+      "questionText": "Which automaton is powerful enough to recognize the language L = {aⁿbⁿcⁿ | n ≥ 1}?",
+      "options": [
+        "a. DFA",
+        "b. Linear Bounded Automaton (LBA)",
+        "c. NFA",
+        "d. Pushdown Automaton (PDA)"
+      ],
+      "correctAnswer": "b. Linear Bounded Automaton (LBA)",
+      "explanation": "The language {aⁿbⁿcⁿ | n ≥ 1} is context-sensitive. A Linear Bounded Automaton (LBA) can recognize context-sensitive languages, while PDA can only handle context-free languages (like aⁿbⁿ) and DFA/NFA handle regular languages."
+    },
+    {
+      "questionNumber": 5,
+      "questionText": "In two-phase locking (2PL), during which phase may a transaction acquire locks but not release any?",
+      "options": [
+        "a. Growing phase",
+        "b. Commit phase",
+        "c. Validation phase",
+        "d. Shrinking phase"
+      ],
+      "correctAnswer": "a. Growing phase",
+      "explanation": "In the Growing phase of 2PL, a transaction can acquire new locks but cannot release any. In the Shrinking phase, it can only release locks."
+    },
+    {
+      "questionNumber": 6,
+      "questionText": "To extend the connectivity of processor bus we use:",
+      "options": [
+        "a. SCSI",
+        "b. PCI",
+        "c. Controllers",
+        "d. Multi bus"
+      ],
+      "correctAnswer": "d. Multi bus",
+      "explanation": "A multi-bus architecture uses multiple buses to extend connectivity and improve performance between the processor, memory, and I/O devices."
+    },
+    {
+      "questionNumber": 7,
+      "questionText": "Combinational circuit differ from sequential circuit primarily because",
+      "options": [
+        "a. Combinational circuit cannot be built using logic circuit",
+        "b. The output of combinational circuit depends only on the present input, not on past output.",
+        "c. Sequential circuit have no feedback while combinational circuit do",
+        "d. The combinational circuit requires clock signal, but sequential circuit do not"
+      ],
+      "correctAnswer": "b. The output of combinational circuit depends only on the present input, not on past output.",
+      "explanation": "Combinational circuits produce output based solely on current inputs (no memory). Sequential circuits have memory and depend on both current inputs and previous states."
+    },
+    {
+      "questionNumber": 8,
+      "questionText": "Why is Greedy Best-First Search not guaranteed to be optimal or complete?",
+      "options": [
+        "a. It ignores path cost g(n) and relies only on h(n)",
+        "b. It always chooses the shallowest node",
+        "c. It expands nodes in FIFO order",
+        "d. It requires full knowledge of the goal state in advance"
+      ],
+      "correctAnswer": "a. It ignores path cost g(n) and relies only on h(n)",
+      "explanation": "Greedy Best-First Search uses only the heuristic h(n) and ignores the actual cost from the start g(n). This can lead to suboptimal paths and can get stuck in loops if the heuristic is misleading."
+    },
+    {
+      "questionNumber": 9,
+      "questionText": "From the following statement which is correct about this pointer in c++?",
+      "options": [
+        "a. This pointer passed as hidden argument in all non-static variables of the class.",
+        "b. This pointer passed as hidden argument in all static variables of the class.",
+        "c. This pointer passed as hidden argument in all static function of the class.",
+        "d. This pointer passed as hidden argument in all function of the class."
+      ],
+      "correctAnswer": "a. This pointer passed as hidden argument in all non-static variables of the class.",
+      "explanation": "The 'this' pointer is automatically passed as a hidden argument to all non-static member functions of a class. It is not passed to static functions or static data members."
+    },
+    {
+      "questionNumber": 10,
+      "questionText": "In class diagram, if class Car has solid diamond points to class Engine, what does this indicates?",
+      "options": [
+        "a. Car uses Engine temporarily",
+        "b. Engine can exist independently of the Car",
+        "c. Engine is the part of Car and cannot exist without it",
+        "d. Car inherits from Engine"
+      ],
+      "correctAnswer": "c. Engine is the part of Car and cannot exist without it",
+      "explanation": "A solid diamond in UML represents composition (strong ownership). The Engine cannot exist without the Car."
+    },
+    {
+      "questionNumber": 11,
+      "questionText": "The amount of time the algorithm takes on the smallest possible set of inputs is called_____",
+      "options": [
+        "a. Average time",
+        "b. Small time",
+        "c. Worst time",
+        "d. Best time"
+      ],
+      "correctAnswer": "d. Best time",
+      "explanation": "Best-case time complexity is the minimum time required when the input is the smallest or most favorable."
+    },
+    {
+      "questionNumber": 12,
+      "questionText": "For a weak entity set to be meaningful, it must be associated with another entity set, called the",
+      "options": [
+        "a. Identifying set",
+        "b. Strong entity set",
+        "c. Neighbor set",
+        "d. Owner set"
+      ],
+      "correctAnswer": "b. Strong entity set",
+      "explanation": "A weak entity set depends on a strong (owner/identifying) entity set for its existence and identification."
+    },
+    {
+      "questionNumber": 13,
+      "questionText": "Which one of the following is not the application level service?",
+      "options": [
+        "a. Proxies and agents",
+        "b. Installing a new service",
+        "c. E-mail configuration",
+        "d. Quality of service"
+      ],
+      "correctAnswer": "b. Installing a new service",
+      "explanation": "Installing a new service is a system/administration task, not an application-level service. The others are typical application-layer services."
+    },
+    {
+      "questionNumber": 14,
+      "questionText": "A language that allows the DBA or user to describe and name the entities, attributes, and relationships required for the application is__________",
+      "options": [
+        "a. Transaction control language (TCL)",
+        "b. Data control language (DCL)",
+        "c. Data Manipulation Language (DML)",
+        "d. Data Definition Language (DDL)"
+      ],
+      "correctAnswer": "d. Data Definition Language (DDL)",
+      "explanation": "DDL (CREATE, ALTER, DROP, etc.) is used to define the database schema (entities, attributes, relationships)."
+    },
+    {
+      "questionNumber": 15,
+      "questionText": "Which one of the following is linear data structure?",
+      "options": [
+        "a. Tree",
+        "b. Array",
+        "c. Queue",
+        "d. Linked list"
+      ],
+      "correctAnswer": "b. Array",
+      "explanation": "Array, Queue, and Linked List are all linear data structures. But among the options, Array is the most classic example of a linear structure with contiguous memory."
+    },
+    {
+      "questionNumber": 16,
+      "questionText": "What is the main purpose of syntax-directed translation in a compiler?",
+      "options": [
+        "a. To interleave semantic analysis with syntax analysis using attributes attached to grammar symbols",
+        "b. To generate optimized machine code directly",
+        "c. To tokenize the source code",
+        "d. To replace the parser with a finite automaton"
+      ],
+      "correctAnswer": "a. To interleave semantic analysis with syntax analysis using attributes attached to grammar symbols",
+      "explanation": "Syntax-directed translation attaches attributes and semantic rules to grammar productions so that semantic actions can be performed during parsing."
+    },
+    {
+      "questionNumber": 17,
+      "questionText": "What will be the output of the following program segment? public class Calculation { public static void main(String[] args) { int sum = 0; for(int j = 1; j<=10; j++) { sum = sum + j; } System.out.println(+sum); } }",
+      "options": [
+        "a. 55",
+        "b. 44",
+        "c. 33",
+        "d. 66"
+      ],
+      "correctAnswer": "a. 55",
+      "explanation": "The loop adds numbers from 1 to 10: 1+2+...+10 = 55."
+    },
+    {
+      "questionNumber": 18,
+      "questionText": "Which keyword is used in Java to create a subclass that inherits from a superclass?",
+      "options": [
+        "a. Inherits",
+        "b. Superclass",
+        "c. Extends",
+        "d. Implements"
+      ],
+      "correctAnswer": "c. Extends",
+      "explanation": "The 'extends' keyword is used for class inheritance in Java."
+    },
+    {
+      "questionNumber": 19,
+      "questionText": "What is the output of the following C++ code fragment? Int a=6, b=8; Int x=2, y=4; Int c(x>y? (a--; x): (b--; y)); Cout<<”a”<<a; Cout<<” b=”<<b; Cout <<” c=”<<c;",
+      "options": [
+        "a. a=6 b=5 c=4",
+        "b. a=6 b=7 c=5",
+        "c. a=8 b=6 c=5",
+        "d. a=6 b=7 c=4"
+      ],
+      "correctAnswer": "d. a=6 b=7 c=4",
+      "explanation": "The ternary condition x>y is false (2>4 is false), so it evaluates b-- (post-decrement: uses 8, then b becomes 7). c becomes 4. a remains 6."
+    },
+    {
+      "questionNumber": 20,
+      "questionText": "_____________is a collection of related fields that can be treated as a unit by some application program.",
+      "options": [
+        "a. Rows",
+        "b. Field",
+        "c. Record",
+        "d. Database"
+      ],
+      "correctAnswer": "c. Record",
+      "explanation": "A record (or tuple) is a collection of related fields that represent a single entity."
+    },
+    {
+      "questionNumber": 21,
+      "questionText": "Straight directed translation uses:",
+      "options": [
+        "a. Purely lexical rules",
+        "b. Backtracking algorithms",
+        "c. Grammar without attributes",
+        "d. Grammar with semantic rule"
+      ],
+      "correctAnswer": "d. Grammar with semantic rule",
+      "explanation": "Syntax-directed translation (also called directed translation) attaches semantic rules/actions to grammar productions."
+    },
+    {
+      "questionNumber": 22,
+      "questionText": "Which one of the following is the first operation or step in CPU instruction cycle?",
+      "options": [
+        "a. Executing the instruction",
+        "b. Handling interrupt",
+        "c. Decoding the instruction",
+        "d. Fetching the instruction"
+      ],
+      "correctAnswer": "d. Fetching the instruction",
+      "explanation": "The instruction cycle begins with the Fetch stage (fetching the instruction from memory using the Program Counter)."
+    },
+    {
+      "questionNumber": 23,
+      "questionText": "Which search strategy tries to expand the node that is closest to the goal, on the grounds that this is likely to lead to a solution quickly; Thus, it evaluates nodes by using just the heuristic function: f ( n) = h ( n).",
+      "options": [
+        "a. Uniform-cost search",
+        "b. Greedy best-first search",
+        "c. Depth-first search",
+        "d. A* search"
+      ],
+      "correctAnswer": "b. Greedy best-first search",
+      "explanation": "Greedy Best-First Search uses only the heuristic h(n) to select the node that appears closest to the goal."
+    },
+    {
+      "questionNumber": 24,
+      "questionText": "Which one of the following is a top-down parser without backtracking?",
+      "options": [
+        "a. LR parser",
+        "b. Brute force parser",
+        "c. Operator precedence parser",
+        "d. Predictive parser"
+      ],
+      "correctAnswer": "d. Predictive parser",
+      "explanation": "Predictive parsers (LL(1)) are top-down parsers that make parsing decisions without backtracking by looking ahead one token."
+    },
+    {
+      "questionNumber": 25,
+      "questionText": "How many layers are there in OSI reference model?",
+      "options": [
+        "a. 7",
+        "b. 6",
+        "c. 5",
+        "d. 4"
+      ],
+      "correctAnswer": "a. 7",
+      "explanation": "The OSI model has 7 layers: Physical, Data Link, Network, Transport, Session, Presentation, Application."
+    },
+    {
+      "questionNumber": 26,
+      "questionText": "Which one of the following is a computer structural component that provides for communication among CPU, main memory and I/O?",
+      "options": [
+        "a. System unit",
+        "b. Computer network",
+        "c. CPU",
+        "d. System interconnection"
+      ],
+      "correctAnswer": "d. System interconnection",
+      "explanation": "System interconnection (buses) provides the communication pathways between CPU, memory, and I/O devices."
+    },
+    {
+      "questionNumber": 27,
+      "questionText": "Assume that we are able to specify that Mr. Getahun can view the database record, but cannot change the value of the record. Which security management technique was used in this scenario?",
+      "options": [
+        "a. Access Control",
+        "b. Availability",
+        "c. Non-repudiation",
+        "d. Integrity"
+      ],
+      "correctAnswer": "a. Access Control",
+      "explanation": "This is an example of access control (specifically read-only permission)."
+    },
+    {
+      "questionNumber": 28,
+      "questionText": "Suppose, a developer proposes using deferred update with no checkpoints in a high-transaction OLTP system. What is the most serious drawback?",
+      "options": [
+        "a. Log scans become prohibitively expensive after long uptime",
+        "b. Increased disk I/O due to frequent page copying",
+        "c. Shared locks cannot be used",
+        "d. View serializability cannot be ensured"
+      ],
+      "correctAnswer": "a. Log scans become prohibitively expensive after long uptime",
+      "explanation": "Without checkpoints, the recovery log grows indefinitely, making log scans during recovery extremely slow and expensive."
+    },
+    {
+      "questionNumber": 29,
+      "questionText": "Which one of the following function of operating system is categorized under process management?",
+      "options": [
+        "a. Allocates the device in the efficient way",
+        "b. De-allocates the resources.",
+        "c. Allocates the memory when the process requests it to do so.",
+        "d. Allocates the processor (CPU) to a process"
+      ],
+      "correctAnswer": "d. Allocates the processor (CPU) to a process",
+      "explanation": "Process management includes CPU scheduling — deciding which process gets the CPU."
+    },
+    {
+      "questionNumber": 30,
+      "questionText": "Which of the following statements is TRUE?",
+      "options": [
+        "a. Every regular language is context-free.",
+        "b. Every context-free language is regular.",
+        "c. Every context-sensitive language is regular.",
+        "d. Every recursively enumerable language is recursive"
+      ],
+      "correctAnswer": "a. Every regular language is context-free.",
+      "explanation": "Regular languages are a proper subset of context-free languages in the Chomsky hierarchy."
+    },
+    {
+      "questionNumber": 31,
+      "questionText": "_____________is a data transfer method in computer organization and architecture that allows an I/O device to transfer data directly to or from memory without the involvement of the CPU.",
+      "options": [
+        "a. Asynchronous data transfer",
+        "b. Direct Memory Access (DMA)",
+        "c. Interrupt-driven transfer",
+        "d. Programmed I/O transfer"
+      ],
+      "correctAnswer": "b. Direct Memory Access (DMA)",
+      "explanation": "DMA allows I/O devices to transfer data directly to/from memory, bypassing the CPU."
+    },
+    {
+      "questionNumber": 32,
+      "questionText": "Which one of the following php method is used to retrieve the information from the form control through the parameters sent in the URL?",
+      "options": [
+        "a. $_REQUEST[]",
+        "b. $_POST[]",
+        "c. $_GET[]",
+        "d. isset()"
+      ],
+      "correctAnswer": "c. $_GET[]",
+      "explanation": "$_GET[] retrieves data sent via the URL query string (GET method)."
+    },
+    {
+      "questionNumber": 33,
+      "questionText": "Which statement is NOT true about digital signature?",
+      "options": [
+        "a. Digital signature is not encryption algorithm",
+        "b. In digital signature Sender encrypts message with its private key",
+        "c. In digital signature Sender encrypts message with its public key",
+        "d. Digital signature provides authentication services"
+      ],
+      "correctAnswer": "c. In digital signature Sender encrypts message with its public key",
+      "explanation": "In digital signatures, the sender signs (encrypts the hash) with their private key. The receiver verifies with the sender’s public key."
+    },
+    {
+      "questionNumber": 34,
+      "questionText": "Which one of the following ip address class uses first two octets for network addresses and last two for host addressing?",
+      "options": [
+        "a. Class C",
+        "b. Class D",
+        "c. Class A",
+        "d. Class B"
+      ],
+      "correctAnswer": "d. Class B",
+      "explanation": "Class B uses the first two octets for the network portion and the last two for hosts."
+    },
+    {
+      "questionNumber": 35,
+      "questionText": "Which of the following best defines a heuristic in the context of AI search?",
+      "options": [
+        "a. A function that estimates how close a state is to the goal",
+        "b. A guaranteed optimal path to the goal",
+        "c. A method that always avoids revisiting states",
+        "d. A brute-force enumeration of all possible states"
+      ],
+      "correctAnswer": "a. A function that estimates how close a state is to the goal",
+      "explanation": "A heuristic is an informed estimate (h(n)) of the cost from the current node to the goal."
+    },
+    {
+      "questionNumber": 36,
+      "questionText": "Which one of the following party performs the technical evaluation work, using the evidence supplied by the developers, and additional testing of the product, to confirm that it satisfies the functional and assurance requirements specified in the security target?",
+      "options": [
+        "a. Evaluator",
+        "b. Certifier",
+        "c. Sponsor",
+        "d. Developer"
+      ],
+      "correctAnswer": "a. Evaluator",
+      "explanation": "The Evaluator performs independent testing and evaluation of the product against the security target."
+    },
+    {
+      "questionNumber": 37,
+      "questionText": "Assume that you have a huge company like university; bank industry, etc. have their own data center to store and control the different type of the data. Which type of RAID technology is the most preferable to use?",
+      "options": [
+        "a. RAID level 3",
+        "b. RAID level1",
+        "c. RAID level 2",
+        "d. RAID level 0"
+      ],
+      "correctAnswer": "b. RAID level1",
+      "explanation": "RAID 1 (mirroring) provides excellent redundancy and is commonly used in enterprise data centers for critical data."
+    },
+    {
+      "questionNumber": 38,
+      "questionText": "Which analysis technique is INAPPROPRIATE for determining the lower bound of comparison-based sorting, and why?",
+      "options": [
+        "a. Decision tree model — because it assumes only array indexing is allowed",
+        "b. Recurrence relations — because sorting isn’t naturally recursive",
+        "c. Asymptotic analysis — because it ignores constants",
+        "d. Decision tree model — because it gives an information-theoretic lower bound of Ω(n log n)"
+      ],
+      "correctAnswer": "b. Recurrence relations — because sorting isn’t naturally recursive",
+      "explanation": "The standard lower bound proof for comparison-based sorting uses the decision tree model (information theory), not recurrence relations."
+    },
+    {
+      "questionNumber": 39,
+      "questionText": "In CSS, which property is used to change the text color of an element?",
+      "options": [
+        "a. text-color",
+        "b. font-color",
+        "c. color",
+        "d. Foreground"
+      ],
+      "correctAnswer": "c. color",
+      "explanation": "The 'color' property sets the foreground (text) color of an element."
+    },
+    {
+      "questionNumber": 40,
+      "questionText": "From the flowing function which one is used to create the table",
+      "options": [
+        "a. CREATE table_name (column_name, column type);",
+        "b. CREATE table_name (column_type, column name);",
+        "c. CREATE TABLE table_name (column_name, column type);",
+        "d. CREATE TABLE table_name (column_type, column name);"
+      ],
+      "correctAnswer": "c. CREATE TABLE table_name (column_name, column type);",
+      "explanation": "The correct SQL syntax is CREATE TABLE with uppercase TABLE keyword and proper column definition order."
+    },
+    {
+      "questionNumber": 41,
+      "questionText": "What is the primary function of an operating system?",
+      "options": [
+        "a. To connect to the internet",
+        "b. To create documents and spreadsheets",
+        "c. To design computer hardware",
+        "d. To act as an intermediary between users and computer hardware"
+      ],
+      "correctAnswer": "d. To act as an intermediary between users and computer hardware",
+      "explanation": "The OS manages hardware resources and provides services to applications and users."
+    },
+    {
+      "questionNumber": 42,
+      "questionText": "How much time units or T( n) taken to compute the following piece of code? int total(int n) { int sum=0; for (int i=1;i<=n;i++) sum=sum+1; return sum; }",
+      "options": [
+        "a. 5n+5",
+        "b. 4n2+4",
+        "c. 6n+2",
+        "d. 4n+4"
+      ],
+      "correctAnswer": "c. 6n+2",
+      "explanation": "The loop runs n times. Each iteration has constant work plus loop overhead → approximately 6n + 2 operations."
+    },
+    {
+      "questionNumber": 43,
+      "questionText": "An object oriented principle that contains information in an object, exposing only selected information is____________.",
+      "options": [
+        "a. Abstraction",
+        "b. Inheritance",
+        "c. Polymorphism",
+        "d. Encapsulation"
+      ],
+      "correctAnswer": "d. Encapsulation",
+      "explanation": "Encapsulation hides internal data and exposes only necessary interfaces."
+    },
+    {
+      "questionNumber": 44,
+      "questionText": "Stack is follows ____policy:",
+      "options": [
+        "a. LIFO",
+        "b. FIFO",
+        "c. FILO",
+        "d. FCFS"
+      ],
+      "correctAnswer": "a. LIFO",
+      "explanation": "Stack follows Last In First Out (LIFO) principle."
+    },
+    {
+      "questionNumber": 45,
+      "questionText": "From the following alternatives which one is FALSE about database system?",
+      "options": [
+        "a. It is very difficult to protect a file under the system",
+        "b. In database system the user is not required to write the procedures",
+        "c. In database system, DBMS provides a good protection mechanism.",
+        "d. It contains a wide variety of sophisticated techniques to store and retrieve the data."
+      ],
+      "correctAnswer": "a. It is very difficult to protect a file under the system",
+      "explanation": "One of the major advantages of DBMS is strong security and protection mechanisms, so statement a is false."
+    },
+    {
+      "questionNumber": 46,
+      "questionText": "Which one of the following is categorized under Log based Recovery Techniques in database?",
+      "options": [
+        "a. Recovery in Multi-database Systems",
+        "b. ARIES Recovery Algorithm",
+        "c. Shadow Paging Technique",
+        "d. Deferred Database Modification"
+      ],
+      "correctAnswer": "b. ARIES Recovery Algorithm",
+      "explanation": "ARIES is a well-known log-based recovery algorithm used in many commercial DBMS."
+    },
+    {
+      "questionNumber": 47,
+      "questionText": "What is the first step to convert context free grammar (CFG) into Greibach Normal Form (GNF)?",
+      "options": [
+        "a. Convert the grammar into CNF",
+        "b. If any production rule in the grammar is not in GNF form, convert it.",
+        "c. Convert the grammar into GNF",
+        "d. If the grammar exists left recursion, eliminate it."
+      ],
+      "correctAnswer": "d. If the grammar exists left recursion, eliminate it.",
+      "explanation": "The first step in converting CFG to GNF is to eliminate left recursion and left factoring."
+    },
+    {
+      "questionNumber": 48,
+      "questionText": "A user installs a new printer. The OS automatically detects and configures it. This is an example of:",
+      "options": [
+        "a. Plug-and-play functionality",
+        "b. Manual driver installation",
+        "c. Manual hardware management",
+        "d. Resource allocation"
+      ],
+      "correctAnswer": "a. Plug-and-play functionality",
+      "explanation": "Plug-and-Play (PnP) allows the OS to automatically detect and configure new hardware."
+    },
+    {
+      "questionNumber": 49,
+      "questionText": "Which of the following is NOT property of an algorithm?",
+      "options": [
+        "a. Finiteness",
+        "b. Definiteness",
+        "c. Correctness",
+        "d. Platform dependence"
+      ],
+      "correctAnswer": "d. Platform dependence",
+      "explanation": "A good algorithm should be platform-independent (it should work on any machine that can execute it)."
+    },
+    {
+      "questionNumber": 50,
+      "questionText": "Which Redundant Array of Independent Disks (RAID) is known by striping with parity and fault tolerance?",
+      "options": [
+        "a. RAID 2",
+        "b. RAID 1",
+        "c. RAID 5",
+        "d. RAID 0"
+      ],
+      "correctAnswer": "c. RAID 5",
+      "explanation": "RAID 5 uses block-level striping with distributed parity, providing both performance and fault tolerance."
+    },
+    {
+      "questionNumber": 51,
+      "questionText": "Assume that you are computer science expert and you need to develop large programs within short period of time. Finally, you have planned to provide portable program to the concerned body. Which type of programming language is preferable for the above scenario?",
+      "options": [
+        "a. Low level",
+        "b. Machine level",
+        "c. High level",
+        "d. Assembly"
+      ],
+      "correctAnswer": "c. High level",
+      "explanation": "High-level languages are easier to write, faster to develop, and more portable across platforms."
+    },
+    {
+      "questionNumber": 52,
+      "questionText": "Which type of heuristic search strategy that evaluates nodes by combining g ( n), the cost to reach the node, and h ( n.), the cost to get from the node to the goal: f ( n) = g ( n) + h ( n) Since g( n) gives the path cost from the start node to node n, and h( n) is the estimated cost of the cheapest path from n to the goal, we have f ( n) = estimated cost of the cheapest solution through n ?",
+      "options": [
+        "a. A* search",
+        "b. Greedy Best-First Search",
+        "c. Uniform-cost search",
+        "d. Depth-first search"
+      ],
+      "correctAnswer": "a. A* search",
+      "explanation": "A* search uses f(n) = g(n) + h(n) and is both optimal and complete when h(n) is admissible."
+    },
+    {
+      "questionNumber": 53,
+      "questionText": "If input is “a” is for syntax tree, which function is used to create tree?",
+      "options": [
+        "a. mknode(num, value)",
+        "b. mkleaf(num, value)",
+        "c. mkleaf(id, entry)",
+        "d. mknode(op, left, right)"
+      ],
+      "correctAnswer": "d. mknode(op, left, right)",
+      "explanation": "For syntax tree construction from grammar productions, mknode is used to create internal nodes with operator and children."
+    },
+    {
+      "questionNumber": 54,
+      "questionText": "Suppose Mr. Negesa might act as Mr. Dereje and send message to Registrar X, the registrar might be lead to believe that message indeed come from Mr. Dereje. What types of attack Mr. Negesa has committed?",
+      "options": [
+        "a. Denial of service",
+        "b. Modification of message",
+        "c. Masquerade",
+        "d. Replay"
+      ],
+      "correctAnswer": "c. Masquerade",
+      "explanation": "Masquerade (impersonation) attack occurs when one entity pretends to be another."
+    },
+    {
+      "questionNumber": 55,
+      "questionText": "From the following statement which one is disadvantage of waterfall model?",
+      "options": [
+        "a. model is simple and easy to understand and use",
+        "b. It is easy manage due to the rigidity of the model",
+        "c. Not suitable for projects where requirements are at a moderate to high risk of changing",
+        "d. In this model phases are processed and completed one at a time"
+      ],
+      "correctAnswer": "c. Not suitable for projects where requirements are at a moderate to high risk of changing",
+      "explanation": "The main disadvantage of the Waterfall model is its rigidity — it does not handle changing requirements well."
+    },
+    {
+      "questionNumber": 56,
+      "questionText": "Consider a directed line(->) from the relationship set advisor to both entity sets instructor and student. This indicates _________ cardinality",
+      "options": [
+        "a. Many to one",
+        "b. Many to many",
+        "c. One to one",
+        "d. One to many"
+      ],
+      "correctAnswer": "a. Many to one",
+      "explanation": "A relationship from advisor to both instructor and student with a single arrow indicates many-to-one (many students/instructors can have one advisor)."
+    },
+    {
+      "questionNumber": 57,
+      "questionText": "In a system, resources cannot be forcibly taken from processes; they must be released voluntarily. Which deadlock condition does this represent?",
+      "options": [
+        "a. No Preemption",
+        "b. Hold and Wait",
+        "c. Mutual Exclusion",
+        "d. Circular Wait"
+      ],
+      "correctAnswer": "a. No Preemption",
+      "explanation": "No Preemption means resources cannot be forcibly taken away; they must be released voluntarily by the holding process."
+    },
+    {
+      "questionNumber": 58,
+      "questionText": "Which statement is WRONGLY described about code generation?",
+      "options": [
+        "a. Code generation can be considered as the start phase of compilation",
+        "b. The target program is the output of the code generator",
+        "c. The code generation phase needs complete error-free intermediate code as an input requires",
+        "d. It used to produce the target code for three-address statements."
+      ],
+      "correctAnswer": "a. Code generation can be considered as the start phase of compilation",
+      "explanation": "Code generation is the final phase of compilation, not the start."
+    },
+    {
+      "questionNumber": 59,
+      "questionText": "_____________is a service that allows organizations and individuals to post a website or a web page onto the Internet.",
+      "options": [
+        "a. Web hosting",
+        "b. Internet service provider",
+        "c. Web client",
+        "d. Domain name registration"
+      ],
+      "correctAnswer": "a. Web hosting",
+      "explanation": "Web hosting provides server space and services to make a website accessible on the Internet."
+    },
+    {
+      "questionNumber": 60,
+      "questionText": "In singly linked list, the node contains",
+      "options": [
+        "a. Data and index",
+        "b. Data and one pointer ( the next node)",
+        "c. Only data",
+        "d. Data and two pointers"
+      ],
+      "correctAnswer": "b. Data and one pointer ( the next node)",
+      "explanation": "A singly linked list node contains data and a single pointer to the next node."
+    },
+    {
+      "questionNumber": 61,
+      "questionText": "Which of the following statement is non-functional requirement?",
+      "options": [
+        "a. The system allow user to generate PDF report.",
+        "b. The system respond to user’s request within 2 second under normal load",
+        "c. The system allow user to store data on relational database",
+        "d. The system allow user to submit emergency report"
+      ],
+      "correctAnswer": "b. The system respond to user’s request within 2 second under normal load",
+      "explanation": "Performance/response time requirements are non-functional. Functional requirements describe what the system does."
+    },
+    {
+      "questionNumber": 62,
+      "questionText": "In object design, what does the contract typically includes?",
+      "options": [
+        "a. The class diagram and sequence diagram",
+        "b. Project budget and timeline",
+        "c. Invariants, preconditions, post conditions",
+        "d. The use case names and actors role"
+      ],
+      "correctAnswer": "c. Invariants, preconditions, post conditions",
+      "explanation": "Design by Contract uses preconditions, postconditions, and invariants to specify method behavior."
+    },
+    {
+      "questionNumber": 63,
+      "questionText": "Which of the following OSI layers is NOT correctly matched to its corresponding data Units (PDU)?",
+      "options": [
+        "a. Application layer ---> Data",
+        "b. Transport layer ---> Segment",
+        "c. Physical layer ---> Bit",
+        "d. Network layer ---> Frame"
+      ],
+      "correctAnswer": "d. Network layer ---> Frame",
+      "explanation": "Network layer PDU is Packet. Data Link layer PDU is Frame."
+    },
+    {
+      "questionNumber": 64,
+      "questionText": "Which data structure follows LIFO principle?",
+      "options": [
+        "a. Graphs",
+        "b. Queues",
+        "c. Stacks",
+        "d. Trees"
+      ],
+      "correctAnswer": "c. Stacks",
+      "explanation": "Stack follows Last In First Out (LIFO)."
+    },
+    {
+      "questionNumber": 65,
+      "questionText": "Consider the following code snippet class Animal { void sound() { System.out.println(\"Animal sound\"); } } class Dog extends Animal { void sound() { System.out.println(\"Bark!\"); } } Which OOP concept is illustrated when Dog provides its own version of sound?",
+      "options": [
+        "a. Method overriding",
+        "b. Method overloading",
+        "c. Abstraction",
+        "d. Encapsulation"
+      ],
+      "correctAnswer": "a. Method overriding",
+      "explanation": "The subclass Dog redefines (overrides) the sound() method of the superclass Animal."
+    },
+    {
+      "questionNumber": 66,
+      "questionText": "Which type of grammar is used to generate all possible patterns of strings in a given formal language?",
+      "options": [
+        "a. Context-free",
+        "b. Context-sensitive",
+        "c. Recursively enumerable",
+        "d. Regular"
+      ],
+      "correctAnswer": "c. Recursively enumerable",
+      "explanation": "Recursively enumerable grammars (Type-0) can generate any recursively enumerable language (the most powerful class)."
+    },
+    {
+      "questionNumber": 67,
+      "questionText": "Which tool is used to troubleshoot the network connectivity?",
+      "options": [
+        "a. Ipconfig",
+        "b. Ping",
+        "c. Encryption",
+        "d. Firewall"
+      ],
+      "correctAnswer": "b. Ping",
+      "explanation": "Ping is the standard tool to test network connectivity and reachability."
+    },
+    {
+      "questionNumber": 68,
+      "questionText": "The time complexity for binary search is__________",
+      "options": [
+        "a. O(n*log(n )2)",
+        "b. O(n2)",
+        "c. O( n)",
+        "d. O(logn)"
+      ],
+      "correctAnswer": "d. O(logn)",
+      "explanation": "Binary search has logarithmic time complexity O(log n)."
+    },
+    {
+      "questionNumber": 69,
+      "questionText": "Which type of access specifier is accessible within the same package or subclasses in a different package?",
+      "options": [
+        "a. Public",
+        "b. Default",
+        "c. Private",
+        "d. Protected"
+      ],
+      "correctAnswer": "d. Protected",
+      "explanation": "Protected members are accessible within the same package and in subclasses (even in different packages)."
+    },
+    {
+      "questionNumber": 70,
+      "questionText": "What is the basic goal of Normalization?",
+      "options": [
+        "a. To decrease data integrity",
+        "b. To reduce redundancy",
+        "c. To maximize transitive dependency",
+        "d. To increase dependency"
+      ],
+      "correctAnswer": "b. To reduce redundancy",
+      "explanation": "Normalization eliminates data redundancy and dependency anomalies."
+    },
+    {
+      "questionNumber": 71,
+      "questionText": "Which protocol is mostly used for communication between client and server in a web application?",
+      "options": [
+        "a. FTP",
+        "b. SMTP",
+        "c. HTTP",
+        "d. SSH"
+      ],
+      "correctAnswer": "c. HTTP",
+      "explanation": "HTTP/HTTPS is the standard protocol for web client-server communication."
+    },
+    {
+      "questionNumber": 72,
+      "questionText": "Which of the following layers is responsible for encryption, translation and compression?",
+      "options": [
+        "a. Presentation layer",
+        "b. Data link layer",
+        "c. Transport layer",
+        "d. Network layer"
+      ],
+      "correctAnswer": "a. Presentation layer",
+      "explanation": "The Presentation layer (Layer 6) handles data translation, encryption, and compression."
+    },
+    {
+      "questionNumber": 73,
+      "questionText": "What is the extension of JavaScript file?",
+      "options": [
+        "a. .javaS",
+        "b. .JS",
+        "c. .java",
+        "d. CSS"
+      ],
+      "correctAnswer": "b. .JS",
+      "explanation": "JavaScript files use the .js extension."
+    },
+    {
+      "questionNumber": 74,
+      "questionText": "Why is perception still a challenge for AI—even though systems can recognize faces?",
+      "options": [
+        "a. Because perception is unrelated to reasoning",
+        "b. Because AI lacks actuators",
+        "c. Because perception requires common-sense knowledge and robust natural language understanding in open ended worlds",
+        "d. Because sensors are too expensive"
+      ],
+      "correctAnswer": "c. Because perception requires common-sense knowledge and robust natural language understanding in open ended worlds",
+      "explanation": "True perception in open, dynamic environments requires integrating vision with common sense and language understanding."
+    },
+    {
+      "questionNumber": 75,
+      "questionText": "Which service used to translate domain names to ip address?",
+      "options": [
+        "a. HTTPS",
+        "b. DHCP",
+        "c. HTTP",
+        "d. DNS"
+      ],
+      "correctAnswer": "d. DNS",
+      "explanation": "Domain Name System (DNS) translates human-readable domain names to IP addresses."
+    },
+    {
+      "questionNumber": 76,
+      "questionText": "Which one of following monitors incoming and outgoing network traffic and decides whether to allow or block specific traffic based on a defined set of security rules?",
+      "options": [
+        "a. Intrusion detection system (IDS)",
+        "b. Proxy server",
+        "c. Virtual Private network",
+        "d. Firewall"
+      ],
+      "correctAnswer": "d. Firewall",
+      "explanation": "A firewall enforces security rules to allow or block network traffic."
+    },
+    {
+      "questionNumber": 77,
+      "questionText": "Consider attributes ID, CITY and NAME. Which one of this can be considered as a super key?",
+      "options": [
+        "a. NAME",
+        "b. ID",
+        "c. CITY",
+        "d. CITY, ID"
+      ],
+      "correctAnswer": "d. CITY, ID",
+      "explanation": "A super key is any set of attributes that uniquely identifies a tuple. ID alone is likely a candidate key, but CITY+ID is definitely a super key."
+    },
+    {
+      "questionNumber": 78,
+      "questionText": "You want to ensure that a method calculateTax() in class Employee cannot be overridden by any subclass. What declaration achieves this?",
+      "options": [
+        "a. Abstract double calculateTax();",
+        "b. Final double calculateTax(){…}",
+        "c. Private double calculateTax(){…}",
+        "d. Static double calculateTax(){…}"
+      ],
+      "correctAnswer": "b. Final double calculateTax(){…}",
+      "explanation": "The final keyword on a method prevents it from being overridden in subclasses."
+    },
+    {
+      "questionNumber": 79,
+      "questionText": "Which one of the following identifier name is INVALID in C++ programming language?",
+      "options": [
+        "a. delete",
+        "b. for_cpp",
+        "c. jan2025",
+        "d. Hello"
+      ],
+      "correctAnswer": "a. delete",
+      "explanation": "'delete' is a reserved keyword in C++ and cannot be used as an identifier."
+    },
+    {
+      "questionNumber": 80,
+      "questionText": "Which one of the following UML building block that defines the static part of the model and represents physical and conceptual elements?",
+      "options": [
+        "a. Structural things",
+        "b. Behavioral things",
+        "c. An notational things",
+        "d. Grouping things"
+      ],
+      "correctAnswer": "a. Structural things",
+      "explanation": "Structural things (classes, interfaces, components, nodes, etc.) represent the static structure of the model."
+    },
+    {
+      "questionNumber": 81,
+      "questionText": "Which scenario is best suited for UDP rather than TCP protocol?",
+      "options": [
+        "a. Live video streaming",
+        "b. Email transmission",
+        "c. Downloading the files",
+        "d. Database update"
+      ],
+      "correctAnswer": "a. Live video streaming",
+      "explanation": "Live streaming tolerates packet loss and needs low latency, making UDP preferable over TCP."
+    },
+    {
+      "questionNumber": 82,
+      "questionText": "Which type of transparency in distributed database system distributes a relation into sub relations where each sub relation is defined by a subset of the columns of the original relation?",
+      "options": [
+        "a. Replication",
+        "b. Location",
+        "c. Horizontal",
+        "d. Vertical"
+      ],
+      "correctAnswer": "d. Vertical",
+      "explanation": "Vertical fragmentation splits a relation by columns (projection)."
+    },
+    {
+      "questionNumber": 83,
+      "questionText": "In which of the following Learning methods an agent receives feedback in the form of rewards or penalties to maximize cumulative reward?",
+      "options": [
+        "a. Supervised learning",
+        "b. Reinforcement learning",
+        "c. Semi-supervised learning",
+        "d. Unsupervised learning"
+      ],
+      "correctAnswer": "b. Reinforcement learning",
+      "explanation": "Reinforcement learning uses rewards and penalties to train agents to maximize long-term reward."
+    },
+    {
+      "questionNumber": 84,
+      "questionText": "After deploying a new software system, users reports that the system slows during peak hour. Which software quality attribute primarily affected?",
+      "options": [
+        "a. Maintainability",
+        "b. Performance",
+        "c. Reliability",
+        "d. Usability"
+      ],
+      "correctAnswer": "b. Performance",
+      "explanation": "Performance (scalability, response time under load) is the quality attribute affected."
+    },
+    {
+      "questionNumber": 85,
+      "questionText": "Which one of the following is WRONGLY stated about an importance of security policy?",
+      "options": [
+        "a. To help minimize risk.",
+        "b. To ensure the confidentiality, integrity and availability of data.",
+        "c. To coordinate and enforce a security program across an organization.",
+        "d. To use the system in a passive way"
+      ],
+      "correctAnswer": "d. To use the system in a passive way",
+      "explanation": "Security policy is about active protection, not passive use."
+    },
+    {
+      "questionNumber": 86,
+      "questionText": "Which of the following is NOT a task of the lexical analyzer?",
+      "options": [
+        "a. Generating parse trees",
+        "b. Correlating errors with line numbers",
+        "c. Entering identifiers into the symbol table",
+        "d. Stripping whitespace and comments"
+      ],
+      "correctAnswer": "a. Generating parse trees",
+      "explanation": "Parse tree generation is done by the syntax analyzer (parser), not the lexical analyzer."
+    },
+    {
+      "questionNumber": 87,
+      "questionText": "Which sorting algorithm compares each pair of adjacent elements from the beginning of an array and, if they are in reversed order, swaps them; if at least one swaps has been done, repeat step 1.",
+      "options": [
+        "a. Insertion sort",
+        "b. Bubble sort",
+        "c. Selection sort",
+        "d. Shell sort"
+      ],
+      "correctAnswer": "b. Bubble sort",
+      "explanation": "This is the classic description of Bubble Sort."
+    },
+    {
+      "questionNumber": 88,
+      "questionText": "Which one of the following computer security goal prevents the disclosure of sensitive information to unauthorized users or systems on computer networks?",
+      "options": [
+        "a. Confidentiality",
+        "b. Integrity",
+        "c. Cyberspace",
+        "d. Availability"
+      ],
+      "correctAnswer": "a. Confidentiality",
+      "explanation": "Confidentiality prevents unauthorized disclosure of information."
+    },
+    {
+      "questionNumber": 89,
+      "questionText": "Assume that you have IPv4 addresses in binary notation 11000001 10000011 00011011 11111111 and you are requested to change into dotted decimal notation. What is the equivalent IP address in decimal dotted notation?",
+      "options": [
+        "a. 192.174.27.255",
+        "b. 192.134.67.254",
+        "c. 193.130.28.254",
+        "d. 193.131.27.255"
+      ],
+      "correctAnswer": "d. 193.131.27.255",
+      "explanation": "Converting binary: 11000001=193, 10000011=131, 00011011=27, 11111111=255 → 193.131.27.255"
+    },
+    {
+      "questionNumber": 90,
+      "questionText": "ou have given that Grammar G1 −({S, A, B}, {a, b}, S, {S → AB, A → a, B → b}). Which one is terminal symbol in the give?",
+      "options": [
+        "a. a,b",
+        "b. S",
+        "c. S → AB, A → a, B → b",
+        "d. S,A,B"
+      ],
+      "correctAnswer": "a. a,b",
+      "explanation": "Terminal symbols are the actual characters of the language (a and b). Non-terminals are S, A, B."
+    },
+    {
+      "questionNumber": 91,
+      "questionText": "Among the following one is NOT the application of queue in the real world.",
+      "options": [
+        "a. It is used in operating systems for handling interrupts.",
+        "b. It is used to maintain the play list in media players in order",
+        "c. It is used in Depth First search",
+        "d. It is widely used as waiting lists for a single shared resource"
+      ],
+      "correctAnswer": "c. It is used in Depth First search",
+      "explanation": "Depth First Search uses a stack (LIFO), not a queue. BFS uses a queue."
+    },
+    {
+      "questionNumber": 92,
+      "questionText": "Which one of the following is disadvantage of circuit switching?",
+      "options": [
+        "a. Predictable performance",
+        "b. Low latency",
+        "c. Guaranteed bandwidth",
+        "d. Limited scalability"
+      ],
+      "correctAnswer": "d. Limited scalability",
+      "explanation": "Circuit switching dedicates a path for the entire session, making it inefficient and less scalable for bursty traffic."
+    },
+    {
+      "questionNumber": 93,
+      "questionText": "A developer stores user login status in both $_SESSION['user_id'] on the server document.cookie = \"logged_in=1\" on the client An attacker tampers with cookies to set logged_in=1 without authenticating. Which statement is the most accurate?",
+      "options": [
+        "a. The system is vulnerable — cookie-only checks bypass server session validation",
+        "b. The system is secure — session data cannot be forged without the server-side secret",
+        "c. The system is vulnerable only if session_id is exposed",
+        "d. The system is secure if HTTPS is used,"
+      ],
+      "correctAnswer": "a. The system is vulnerable — cookie-only checks bypass server session validation",
+      "explanation": "Relying only on client-side cookie for authentication without server-side session validation is a classic vulnerability."
+    },
+    {
+      "questionNumber": 94,
+      "questionText": "The language L = {wwᴿ | w ∈ {a, b}*} (even-length palindromes) is:",
+      "options": [
+        "a. Regular",
+        "b. Non-deterministic CFL but not deterministic",
+        "c. Deterministic CFL",
+        "d. Context-sensitive but not context-free"
+      ],
+      "correctAnswer": "b. Non-deterministic CFL but not deterministic",
+      "explanation": "Even-length palindromes are context-free but not deterministic context-free (requires nondeterminism)."
+    },
+    {
+      "questionNumber": 95,
+      "questionText": "______________is one of the candidate keys chosen by the database designer to uniquely identify the entity set.",
+      "options": [
+        "a. Super key",
+        "b. Candidate key",
+        "c. Social security key",
+        "d. Primary key"
+      ],
+      "correctAnswer": "d. Primary key",
+      "explanation": "The primary key is the candidate key selected by the designer to uniquely identify records."
+    },
+    {
+      "questionNumber": 96,
+      "questionText": "Which of the following statement about function overloading is TRUE?",
+      "options": [
+        "a. Overload function have same name but different parameters/type",
+        "b. Overload function is not supported",
+        "c. Overload function must have different return type",
+        "d. Overload function must have the same number of parameters"
+      ],
+      "correctAnswer": "a. Overload function have same name but different parameters/type",
+      "explanation": "Function overloading requires the same name but different parameter lists (number or type)."
+    },
+    {
+      "questionNumber": 97,
+      "questionText": "How does an operating system improve efficiency in a multi-user environment?",
+      "options": [
+        "a. By allowing only one user to access the system at a time",
+        "b. By disabling all background services",
+        "c. By using time-sharing and process scheduling to allocate CPU time fairly among users and processes",
+        "d. By requiring manual intervention for each task"
+      ],
+      "correctAnswer": "c. By using time-sharing and process scheduling to allocate CPU time fairly among users and processes",
+      "explanation": "Time-sharing and multiprogramming allow multiple users to share the CPU efficiently."
+    },
+    {
+      "questionNumber": 98,
+      "questionText": "Which one of the following is not feature of dynamic web page?",
+      "options": [
+        "a. Contents can be generated on-the-fly",
+        "b. Changing content or lively",
+        "c. Contain the same prebuilt content each time the page is loaded",
+        "d. Ability to connect to a database"
+      ],
+      "correctAnswer": "c. Contain the same prebuilt content each time the page is loaded",
+      "explanation": "Static pages have fixed prebuilt content. Dynamic pages generate content on the fly."
+    },
+    {
+      "questionNumber": 99,
+      "questionText": "Why should form <input> elements include an associated <label> with the for attribute?",
+      "options": [
+        "a. It enables offline form storage",
+        "b. It encrypts user data",
+        "c. It increases form submission speed",
+        "d. It improves accessibility: screen readers announce the label when the input is focused"
+      ],
+      "correctAnswer": "d. It improves accessibility: screen readers announce the label when the input is focused",
+      "explanation": "Properly associated labels improve accessibility for screen readers and usability."
+    },
+    {
+      "questionNumber": 100,
+      "questionText": "What is the name of logic gate based on the following graphical symbol?",
+      "options": [
+        "a. XOR",
+        "b. NOR",
+        "c. NAND",
+        "d. AND"
+      ],
+      "correctAnswer": "c. NAND",
+      "explanation": "The symbol is an AND gate with a small circle (inversion) at the output, which is a NAND gate."
+    }
+  ]
 }
   ]
 }
