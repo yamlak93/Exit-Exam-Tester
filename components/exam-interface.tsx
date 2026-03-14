@@ -344,7 +344,7 @@ export default function ExamInterface({ exam, answerMode, onBackToList }: ExamIn
 
                 <div className="space-y-6">
                   <div>
-                    <h2 className="text-lg sm:text-xl lg:text-2xl font-semibold mb-4 leading-tight">
+                    <h2 className="text-lg sm:text-xl lg:text-2xl font-semibold mb-4 leading-tight whitespace-pre-line">
                       {currentQuestionIndex + 1}. {currentQuestion.questionText}
                     </h2>
 
